@@ -138,10 +138,13 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="src\graphics\buffer\Buffer.cpp" />
-    <ClCompile Include="src\graphics\buffer\indexbuffer.cpp" />
+    <ClCompile Include="src\graphics\buffer\IndexBuffer.cpp" />
     <ClCompile Include="src\graphics\buffer\vertexarray.cpp" />
-    <ClCompile Include="src\graphics\renderer\batchrenderer2d.cpp" />
-    <ClCompile Include="src\graphics\renderer\renderutil.cpp" />
+    <ClCompile Include="src\graphics\layer\Layer.cpp" />
+    <ClCompile Include="src\graphics\layer\Layer2D.cpp" />
+    <ClCompile Include="src\graphics\layer\Layer2D.h" />
+    <ClCompile Include="src\graphics\renderer\BatchRenderer2D.cpp" />
+    <ClCompile Include="src\graphics\renderer\RenderUtil.cpp" />
     <ClCompile Include="src\graphics\renderer\SimpleRenderer2D.cpp" />
     <ClCompile Include="src\graphics\shader\shader.cpp" />
     <ClCompile Include="src\graphics\Sprite.cpp" />
@@ -158,6 +161,7 @@
     <ClInclude Include="src\graphics\buffer\Buffer.h" />
     <ClInclude Include="src\graphics\buffer\vertexarray.h" />
     <ClInclude Include="src\graphics\buffer\indexbuffer.h" />
+    <ClInclude Include="src\graphics\layer\Layer.h" />
     <ClInclude Include="src\graphics\renderer\BatchRenderer2D.h" />
     <ClInclude Include="src\graphics\renderer\Renderable2D.h" />
     <ClInclude Include="src\graphics\renderer\Renderer2D.h" />

@@ -12,11 +12,11 @@
 
 #include "src/graphics/staticsprite.h"
 #include "src/graphics/sprite.h"
-
 #include "src/utils/Timer.h"
 
+#include "src/graphics/layer/Layer2D.h"
+
 #include <time.h>
-#include <map>
 
 #define BATCH_RENDERER 1
 
@@ -34,42 +34,25 @@ int main()
 
 	mat4 ortho = mat4::orthographic(0.0f, 16.0f, 0.0f, 9.0f, -1.0f, 1.0f);
 
-	Shader shader("src/graphics/shader/shaders/basic.vert", "src/graphics/shader/shaders/basic.frag");
-	shader.enable();
-	shader.setUniformMat4("pr_mat", ortho);
-	
-	std::vector<Renderable2D*> sprites;
+	Shader* s1 = new Shader("src/graphics/shader/shaders/basic.vert", "src/graphics/shader/shaders/basic.frag");
+	Shader* s2 = new Shader("src/graphics/shader/shaders/basic.vert", "src/graphics/shader/shaders/basic.frag");
 
-	srand(time(NULL));
-	
-	for (float y = 0; y < 9.0f; y += 0.05) {
-		for (float x = 0; x < 16.0f; x += 0.05) {
-			sprites.push_back(new
-#if BATCH_RENDERER
-			Sprite
-#else
-			StaticSprite
-#endif
-			(x, y, 0.04f, 0.04f, math::vec4(rand() % 1000 / 1000.0f, 0, 1, 1)
-#if !BATCH_RENDERER
-			, shader
-#endif
-			));
+	Shader& shader = *s1;
+	Shader& shader2 = *s2;
+
+	shader.enable();
+	shader2.enable();
+
+	Layer2D layer(&shader);
+	for (float y = -9.0f; y < 9.0f; y += 0.1) {
+		for (float x = -16.0f; x < 16.0f; x += 0.1) {
+			layer.add(new Sprite(x, y, 0.09f, 0.09f, math::vec4(rand() % 1000 / 1000.0f, 0, 1, 1)));
 		}
 	}
-		
-#if BATCH_RENDERER
-	Sprite sprite(5, 5, 4, 4, math::vec4(1, 0, 1, 1));
-	Sprite sprite2(7, 1, 2, 3, math::vec4(0.2f, 0, 1, 1));
-	BatchRenderer2D renderer;
-#else
-	StaticSprite sprite(5, 5, 4, 4, math::vec4(1, 0, 1, 1), shader);
-	StaticSprite sprite2(7, 1, 2, 3, math::vec4(0.2f, 0, 1, 1), shader);
-	SimpleRenderer2D renderer;
-#endif
 
-	shader.setUniform2f("light_pos", vec2(4.0f, 1.5f));
-	shader.setUniform4f("colour", vec4(0.2f, 0.3f, 0.8f, 1.0f));
+	Layer2D layer2(&shader2);
+	layer2.add(new Sprite(-2, -2, 4, 4, math::vec4(1, 0, 1, 1)));
+
 
 	Timer time;
 	float t = 0;
@@ -80,17 +63,16 @@ int main()
 		window.clear();
 		double x, y;
 		Mouse::getMousePosition(x, y);
-		shader.setUniform2f("light_pos", vec2((float)(x * 16.0f / 960.0f), (float)(9.0f - y * 9.0f / 540.0f)));
-#if BATCH_RENDERER
-		renderer.begin();
-#endif
-		for (int i = 0; i < sprites.size(); i++) {
-			renderer.submit(sprites[i]);
-		}
-#if BATCH_RENDERER
-		renderer.end();
-#endif
-		renderer.flush();
+		//shader.setUniform2f("light_pos", vec2((float)(x * 16.0f / 960.0f), (float)(9.0f - y * 9.0f / 540.0f)));
+	
+		shader.enable();
+		shader2.setUniform2f("light_pos", vec2(-8, -3));
+		shader2.enable();
+		shader2.setUniform2f("light_pos", vec2((float)(x * 32.0f / 960.0f - 16.0f), (float)(9.0f - y * 18.0f / 540.0f)));
+
+		layer.render();
+		layer2.render();
+
 		window.update();
 
 		frames++;
