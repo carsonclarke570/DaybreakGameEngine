@@ -4,7 +4,7 @@
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 
-#include "../input/input.h"
+#include "../core/input/input.h"
 
 namespace thundersurge {
 	

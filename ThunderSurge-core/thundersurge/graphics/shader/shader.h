@@ -5,7 +5,7 @@
 #include <vector>
 #include <map>
 
-#include "../../math/math.h"
+#include "../../core/math/math.h"
 #include "../../utils/fileutils.h"
 
 namespace thundersurge {

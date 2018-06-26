@@ -34,5 +34,9 @@ namespace thundersurge {
 		void VertexArray::unbind() const {
 			glBindVertexArray(0);
 		}
+
+		void VertexArray::render(unsigned int count) const {
+			glDrawElements(GL_TRIANGLES, count, GL_UNSIGNED_INT, NULL);
+		}
 	}
 }

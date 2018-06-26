@@ -1,11 +1,11 @@
 #pragma once
 
-#include "../buffer/buffer.h"
-#include "../buffer/indexbuffer.h"
-#include "../buffer/vertexarray.h"
+#include "../../buffer/buffer.h"
+#include "../../buffer/indexbuffer.h"
+#include "../../buffer/vertexarray.h"
 
-#include "../../math/math.h"
-#include "../shader/shader.h"
+#include "../../../core/math/math.h"
+#include "../../shader/shader.h"
 
 namespace thundersurge {
 

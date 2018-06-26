@@ -1,7 +1,7 @@
 #pragma once
 
 #include <GL/glew.h>
-#include "../../math/math.h"
+#include "../../../core/math/math.h"
 #include "Renderable2d.h"
 
 namespace thundersurge {

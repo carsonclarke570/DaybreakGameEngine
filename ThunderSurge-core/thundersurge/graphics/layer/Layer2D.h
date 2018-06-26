@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Layer.h"
-#include "../renderer/BatchRenderer2D.h"
+#include "../renderer/2d/BatchRenderer2D.h"
 
 namespace thundersurge {
 

@@ -1,7 +1,7 @@
 #pragma once
 
-#include "../renderer/Renderer2D.h"
-#include "../renderer/Renderable2D.h"
+#include "../renderer/2d/Renderer2D.h"
+#include "../renderer/2d/Renderable2D.h"
 
 namespace thundersurge {
 

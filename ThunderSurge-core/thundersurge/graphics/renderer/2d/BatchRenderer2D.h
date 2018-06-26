@@ -2,7 +2,7 @@
 
 #include <cstddef>
 #include "renderer2d.h"
-#include "../buffer/indexbuffer.h"
+#include "../../buffer/indexbuffer.h"
 
 namespace thundersurge {
 

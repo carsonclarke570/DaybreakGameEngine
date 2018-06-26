@@ -15,143 +15,155 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
+    <ClCompile Include="thundersurge\core\input\keyboard.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\graphics\window.cpp">
+    <ClCompile Include="thundersurge\core\input\mouse.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\input\keyboard.cpp">
+    <ClCompile Include="thundersurge\core\math\mat4.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\input\mouse.cpp">
+    <ClCompile Include="thundersurge\core\math\vec2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\math\vec2.cpp">
+    <ClCompile Include="thundersurge\core\math\vec3.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\math\vec3.cpp">
+    <ClCompile Include="thundersurge\core\math\vec4.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\math\vec4.cpp">
+    <ClCompile Include="thundersurge\core\CoreEngine.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\math\mat4.cpp">
+    <ClCompile Include="thundersurge\graphics\buffer\Buffer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\graphics\shader\shader.cpp">
+    <ClCompile Include="thundersurge\graphics\buffer\IndexBuffer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\graphics\buffer\vertexarray.cpp">
+    <ClCompile Include="thundersurge\graphics\buffer\VertexArray.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\graphics\renderer\SimpleRenderer2D.cpp">
+    <ClCompile Include="thundersurge\graphics\entity\2d\Sprite.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\graphics\Sprite.cpp">
+    <ClCompile Include="thundersurge\graphics\entity\2d\StaticSprite.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\graphics\StaticSprite.cpp">
+    <ClCompile Include="thundersurge\graphics\entity\3d\Mesh.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\graphics\buffer\Buffer.cpp">
+    <ClCompile Include="thundersurge\graphics\layer\Layer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\graphics\buffer\IndexBuffer.cpp">
+    <ClCompile Include="thundersurge\graphics\layer\Layer2D.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\graphics\renderer\BatchRenderer2D.cpp">
+    <ClCompile Include="thundersurge\graphics\layer\Layer2D.h">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\graphics\renderer\RenderUtil.cpp">
+    <ClCompile Include="thundersurge\graphics\renderer\2d\BatchRenderer2D.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\graphics\layer\Layer.cpp">
+    <ClCompile Include="thundersurge\graphics\renderer\2d\SimpleRenderer2D.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\graphics\layer\Layer2D.h">
+    <ClCompile Include="thundersurge\graphics\shader\shader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\graphics\layer\Layer2D.cpp">
+    <ClCompile Include="thundersurge\graphics\window.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="game\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\graphics\window.h">
+    <ClInclude Include="thundersurge\core\input\input.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\input\keyboard.h">
+    <ClInclude Include="thundersurge\core\input\keyboard.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\input\mouse.h">
+    <ClInclude Include="thundersurge\core\input\mouse.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\math\vec2.h">
+    <ClInclude Include="thundersurge\core\math\mat4.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\math\vec3.h">
+    <ClInclude Include="thundersurge\core\math\math.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\math\vec4.h">
+    <ClInclude Include="thundersurge\core\math\util.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\math\math.h">
+    <ClInclude Include="thundersurge\core\math\vec2.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\input\input.h">
+    <ClInclude Include="thundersurge\core\math\vec3.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\math\mat4.h">
+    <ClInclude Include="thundersurge\core\math\vec4.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\math\util.h">
+    <ClInclude Include="thundersurge\core\CoreEngine.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\utils\fileutils.h">
+    <ClInclude Include="thundersurge\core\Game.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\graphics\shader\shader.h">
+    <ClInclude Include="thundersurge\graphics\buffer\Buffer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\graphics\buffer\indexbuffer.h">
+    <ClInclude Include="thundersurge\graphics\buffer\indexbuffer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\graphics\buffer\vertexarray.h">
+    <ClInclude Include="thundersurge\graphics\buffer\VertexArray.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\graphics\renderer\renderutil.h">
+    <ClInclude Include="thundersurge\graphics\entity\2d\Sprite.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\graphics\renderer\BatchRenderer2D.h">
+    <ClInclude Include="thundersurge\graphics\entity\2d\StaticSprite.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\graphics\renderer\Renderable2D.h">
+    <ClInclude Include="thundersurge\graphics\entity\3d\Mesh.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\graphics\renderer\SimpleRenderer2D.h">
+    <ClInclude Include="thundersurge\graphics\layer\Layer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\graphics\Sprite.h">
+    <ClInclude Include="thundersurge\graphics\renderer\2d\BatchRenderer2D.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\graphics\StaticSprite.h">
+    <ClInclude Include="thundersurge\graphics\renderer\2d\Renderable2D.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\graphics\renderer\Renderer2D.h">
+    <ClInclude Include="thundersurge\graphics\renderer\2d\Renderer2D.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\utils\Timer.h">
+    <ClInclude Include="thundersurge\graphics\renderer\2d\SimpleRenderer2D.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\graphics\buffer\Buffer.h">
+    <ClInclude Include="thundersurge\graphics\shader\shader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\graphics\layer\Layer.h">
+    <ClInclude Include="thundersurge\graphics\window.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="thundersurge\utils\fileutils.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="thundersurge\utils\Timer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="game\TestGame.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="src\graphics\shader\shaders\basic.vert" />
-    <None Include="src\graphics\shader\shaders\basic.frag" />
+    <None Include="thundersurge\graphics\shader\shaders\basic.frag" />
+    <None Include="thundersurge\graphics\shader\shaders\basic.vert" />
   </ItemGroup>
 </Project>

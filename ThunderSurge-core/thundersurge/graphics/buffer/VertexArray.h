@@ -20,6 +20,7 @@ namespace thundersurge {
 			void addBuffer(Buffer* buffer, GLuint index);
 			void bind() const;
 			void unbind() const;
+			void render(unsigned int count) const;
 		};
 	}
 }
