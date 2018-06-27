@@ -19,6 +19,8 @@ namespace thundersurge {
 			GLFWwindow *m_window;
 
 			bool init();
+
+			friend void window_resize(GLFWwindow* window, int width, int height);
 		public:
 			Window(const char *title, int width, int height);
 			~Window();

@@ -42,14 +42,15 @@ namespace thundersurge {
 
 			while (!m_window->closed())
 			{
-				m_game->update();
+				float delta = time.elapsed();
+				m_game->update(delta);
 
 				m_window->clear();
 				m_game->render();
 				m_window->update();
 
 				frames++;
-				if (time.elapsed() - t > 1.0f) {
+				if (delta - t > 1.0f) {
 					t++;
 					printf("FPS: %d\n", frames);
 					frames = 0;

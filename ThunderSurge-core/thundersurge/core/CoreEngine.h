@@ -8,6 +8,7 @@
 
 #include "../graphics/Window.h"
 #include "../utils/Timer.h"
+#include "../core/Transform.h"
 
 namespace thundersurge {
 

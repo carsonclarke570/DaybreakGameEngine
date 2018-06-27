@@ -45,6 +45,13 @@ namespace thundersurge {
 			}
 			std::cout << "OpenGL " << glGetString(GL_VERSION) << std::endl;
 
+			glFrontFace(GL_CW);
+			glCullFace(GL_BACK);
+			glEnable(GL_CULL_FACE);
+			glEnable(GL_DEPTH_TEST);
+
+			glEnable(GL_FRAMEBUFFER_SRGB);
+
 			return true;
 		}
 
@@ -68,6 +75,9 @@ namespace thundersurge {
 
 		void window_resize(GLFWwindow *window, int width, int height) {
 			glViewport(0, 0, width, height);
+			Window* win = (Window*)glfwGetWindowUserPointer(window);
+			win->m_width = width;
+			win->m_height = height;
 		}
 	}
 }
