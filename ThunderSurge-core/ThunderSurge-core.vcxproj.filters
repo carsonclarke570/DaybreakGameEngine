@@ -184,4 +184,7 @@
     <None Include="thundersurge\graphics\shader\shaders\basic.frag" />
     <None Include="thundersurge\graphics\shader\shaders\basic.vert" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="TO-DO.txt" />
+  </ItemGroup>
 </Project>
