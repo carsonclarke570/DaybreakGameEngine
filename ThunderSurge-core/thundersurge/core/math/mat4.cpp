@@ -98,6 +98,25 @@ namespace thundersurge {
 			return result;
 		}
 
+		mat4 mat4::camera(const vec3& forward, const vec3& up) {
+			vec3 r = up.cross(forward).normalize();
+			mat4 result(1.0f);
+
+			result.m_m[0 + 0 * 4] = r.m_x;
+			result.m_m[1 + 0 * 4] = up.m_x;
+			result.m_m[2 + 0 * 4] = forward.m_x;
+
+			result.m_m[0 + 1 * 4] = r.m_y;
+			result.m_m[1 + 1 * 4] = up.m_y;
+			result.m_m[2 + 1 * 4] = forward.m_y;
+
+			result.m_m[0 + 2 * 4] = r.m_z;
+			result.m_m[1 + 2 * 4] = up.m_z;
+			result.m_m[2 + 2 * 4] = forward.m_z;
+
+			return result;
+		}
+
 		mat4& mat4::mul(const mat4& other) {
 			float data[16];
 			for (int r = 0; r < 4; r++) {

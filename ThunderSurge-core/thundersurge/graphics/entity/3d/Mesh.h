@@ -3,6 +3,7 @@
 #include "../../../core/math/math.h"
 #include "../../buffer/vertexarray.h"
 #include "../../buffer/indexbuffer.h"
+#include "../../../utils/FileUtils.h"
 
 namespace thundersurge {
 
@@ -10,8 +11,8 @@ namespace thundersurge {
 
 		struct Vertex {
 			math::vec3 pos;
-			//math::vec3 normal;
-			//math::vec2 texture;
+			math::vec3 normal;
+			math::vec2 texture;
 		};
 
 		class Mesh {
@@ -23,6 +24,7 @@ namespace thundersurge {
 			void load();
 		public:
 			Mesh(std::vector<Vertex>& vertices, std::vector<GLuint>& indices);
+			Mesh(const char* filename);
 			~Mesh();
 
 			void render();

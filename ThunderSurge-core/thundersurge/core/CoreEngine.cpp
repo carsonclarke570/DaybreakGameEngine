@@ -43,6 +43,7 @@ namespace thundersurge {
 			while (!m_window->closed())
 			{
 				float delta = time.elapsed();
+				time.reset();
 				m_game->update(delta);
 
 				m_window->clear();

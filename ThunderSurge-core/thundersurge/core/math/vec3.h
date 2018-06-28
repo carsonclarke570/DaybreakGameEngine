@@ -1,6 +1,8 @@
 #pragma once
 
 #include <iostream>
+#include "util.h"
+#include "Quaternion.h"
 
 namespace thundersurge {
 
@@ -17,10 +19,24 @@ namespace thundersurge {
 			vec3& mul(const vec3& other);
 			vec3& div(const vec3& other);
 
+			float dot(const vec3& other) const;
+			vec3 cross(const vec3& other) const;
+			vec3 rotate(float angle, const vec3& axis);
+
+			float length() const;
+			vec3 normalize() const;
+
 			friend vec3 operator+(vec3 left, const vec3& right);
 			friend vec3 operator-(vec3 left, const vec3& right);
 			friend vec3 operator*(vec3 left, const vec3& right);
 			friend vec3 operator/(vec3 left, const vec3& right);
+
+			friend vec3 operator+(vec3 left, const float& right);
+			friend vec3 operator-(vec3 left, const float& right);
+			friend vec3 operator*(vec3 left, const float& right);
+			friend vec3 operator/(vec3 left, const float& right);
+
+			friend Quaternion operator*(Quaternion left, const vec3& right);
 
 			bool operator==(const vec3& other);
 			bool operator!=(const vec3& other);

@@ -91,11 +91,12 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <WarningLevel>Level3</WarningLevel>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
       <PreprocessorDefinitions>GLEW_STATIC;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
     </ClCompile>
     <Link>
       <AdditionalDependencies>glfw3.lib;glew32s.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -115,7 +116,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <WarningLevel>Level3</WarningLevel>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -150,8 +151,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="game\main.cpp" />
+    <ClCompile Include="game\Main.cpp" />
+    <ClCompile Include="thundersurge\core\Camera.cpp" />
     <ClCompile Include="thundersurge\core\CoreEngine.cpp" />
+    <ClCompile Include="thundersurge\core\math\Quaternion.cpp" />
     <ClCompile Include="thundersurge\core\Transform.cpp" />
     <ClCompile Include="thundersurge\graphics\buffer\Buffer.cpp" />
     <ClCompile Include="thundersurge\graphics\buffer\IndexBuffer.cpp" />
@@ -175,8 +178,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="game\TestGame.h" />
+    <ClInclude Include="thundersurge\core\Camera.h" />
     <ClInclude Include="thundersurge\core\CoreEngine.h" />
     <ClInclude Include="thundersurge\core\Game.h" />
+    <ClInclude Include="thundersurge\core\math\Quaternion.h" />
     <ClInclude Include="thundersurge\core\Transform.h" />
     <ClInclude Include="thundersurge\graphics\buffer\Buffer.h" />
     <ClInclude Include="thundersurge\graphics\buffer\VertexArray.h" />
@@ -200,7 +205,7 @@
     <ClInclude Include="thundersurge\core\math\vec2.h" />
     <ClInclude Include="thundersurge\core\math\vec3.h" />
     <ClInclude Include="thundersurge\core\math\vec4.h" />
-    <ClInclude Include="thundersurge\utils\fileutils.h" />
+    <ClInclude Include="thundersurge\utils\FileUtils.h" />
     <ClInclude Include="thundersurge\utils\Timer.h" />
   </ItemGroup>
   <ItemGroup>

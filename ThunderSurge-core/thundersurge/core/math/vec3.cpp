@@ -44,6 +44,47 @@ namespace thundersurge {
 			return *this;
 		}
 
+		float vec3::dot(const vec3& other) const {
+			return m_x * other.m_x + m_y * other.m_y + m_z * other.m_z;
+		}
+
+		vec3 vec3::cross(const vec3& other) const {
+			float x = m_y * other.m_z - m_z * other.m_y;
+			float y = m_z * other.m_x - m_x * other.m_z;
+			float z = m_x * other.m_y - m_y * other.m_x;
+
+			return vec3(x, y, z);
+		}
+
+		vec3 vec3::rotate(float angle, const vec3& axis) {
+			float s = sin(toRadians(angle / 2));
+
+			float x = axis.m_x * s;
+			float y = axis.m_y * s;
+			float z = axis.m_z * s;
+			float w = cos(toRadians(angle / 2));
+
+			Quaternion rot(x, y, z, w);
+			Quaternion con = rot.conjugate();
+	
+			rot = (rot * *this) * con;
+
+			m_x = rot.getX();
+			m_y = rot.getY();
+			m_z = rot.getZ();
+
+			return *this;
+		}
+
+		float vec3::length() const {
+			return sqrt(m_x * m_x + m_y * m_y + m_z * m_z);
+		}
+
+		vec3 vec3::normalize() const {
+			float len = length();
+			return vec3(m_x / len, m_y / len, m_z /len);
+		}
+
 		vec3 operator+(vec3 left, const vec3& right) {
 			return left.add(right);
 		}
@@ -58,6 +99,31 @@ namespace thundersurge {
 
 		vec3 operator/(vec3 left, const vec3& right) {
 			return left.div(right);
+		}
+
+		vec3 operator+(vec3 left, const float& right) {
+			return left.add(vec3(right, right, right));
+		}
+
+		vec3 operator-(vec3 left, const float& right) {
+			return left.sub(vec3(right, right, right));
+		}
+
+		vec3 operator*(vec3 left, const float& right) {
+			return left.mul(vec3(right, right, right));
+		}
+
+		vec3 operator/(vec3 left, const float& right) {
+			return left.div(vec3(right, right, right));
+		}
+
+		Quaternion operator*(Quaternion left, const vec3& right) {
+			float w = -left.getX() * right.m_x - left.getY() * right.m_y - left.getZ() * right.m_z;
+			float x = left.getW() * right.m_x + left.getY() * right.m_z - left.getZ() * right.m_y;
+			float y = left.getW() * right.m_y + left.getZ() * right.m_x - left.getX() * right.m_z;
+			float z = left.getW() * right.m_z + left.getX() * right.m_y - left.getY() * right.m_x;
+
+			return Quaternion(x, y, z, w);
 		}
 
 		bool vec3::operator==(const vec3& other) {

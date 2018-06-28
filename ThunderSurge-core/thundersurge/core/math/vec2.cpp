@@ -38,6 +38,17 @@ namespace thundersurge {
 			return *this;
 		}
 
+		float vec2::length() {
+			return sqrt(m_x * m_x + m_y * m_y);
+		}
+
+		vec2& vec2::normalize() {
+			float len = length();
+			m_x /= len;
+			m_y /= len;
+			return *this;
+		}
+
 		vec2 operator+(vec2 left, const vec2& right) {
 			return left.add(right);
 		}

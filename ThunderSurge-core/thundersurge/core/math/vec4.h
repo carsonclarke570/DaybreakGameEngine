@@ -17,6 +17,9 @@ namespace thundersurge {
 			vec4& mul(const vec4& other);
 			vec4& div(const vec4& other);
 
+			float length();
+			vec4& normalize();
+
 			friend vec4 operator+(vec4 left, const vec4& right);
 			friend vec4 operator-(vec4 left, const vec4& right);
 			friend vec4 operator*(vec4 left, const vec4& right);

@@ -10,6 +10,34 @@ namespace thundersurge {
 			load();
 		}
 
+		Mesh::Mesh(const char* filename) {
+			std::vector<std::string> lines = FileUtils::split(FileUtils::read_file(filename), '\n');
+			std::vector<Vertex> vertices;
+			std::vector<GLuint> indices;
+
+			for (std::string line : lines) {
+				std::vector<std::string> tokens = FileUtils::split(line, ' ');
+
+				if (tokens.size() == 0 || !tokens[0].compare("#")) {
+					continue;
+				}
+				else if (tokens[0].compare("v") == 0) {
+					Vertex v;
+					v.pos = math::vec3(stof(tokens[1]), stof(tokens[2]), stof(tokens[3]));
+					vertices.push_back(v);
+				}
+				else if (tokens[0].compare("f") == 0) {
+					indices.push_back(stoi(tokens[1]) - 1);
+					indices.push_back(stoi(tokens[2]) - 1);
+					indices.push_back(stoi(tokens[3]) - 1);
+				}
+			}
+
+			m_vertices = vertices;
+			m_indices = indices;
+			load();
+		}
+
 		Mesh::~Mesh() {
 		}
 

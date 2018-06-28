@@ -28,6 +28,9 @@ namespace thundersurge {
 			Shader* shader;
 			Transform* transform;
 			Mesh* mesh;
+			Camera* camera;
+
+			float elapsed;
 		public:
 			TestGame() {
 			} 
@@ -38,6 +41,8 @@ namespace thundersurge {
 			void init() {
 				shader = new Shader("thundersurge/graphics/shader/shaders/basic.vert", "thundersurge/graphics/shader/shaders/basic.frag");
 				//shader->enable();
+
+				elapsed = 0.0f;
 
 				Vertex v;
 				std::vector<Vertex> vert(8, v);
@@ -72,24 +77,30 @@ namespace thundersurge {
 
 				std::vector<GLuint> ind(indices, indices + sizeof(indices) / sizeof(GLuint));
 
-				mesh = new Mesh(vert, ind);
+				mesh = new Mesh("C:/Users/birdi/3D Objects/models/cube.obj");
 				transform = new Transform();
 				transform->setScale(vec3(0.5f, 0.5f, 0.5f));
+
+				camera = new Camera();
+				transform->setCamera(camera);
 			}
 
 			void update(float delta) {
 				double x, y;
 				Mouse::getMousePosition(x, y);
 
-				float sinDelta = sin(delta);
+				camera->update(delta);
+
+				elapsed += delta;
+
+				float sinDelta = sin(elapsed);
 				//transform->setScale(vec3(sinDelta, sinDelta, sinDelta));
 				transform->setRotation(sinDelta * 180, vec3(0, 1, 0));
-
-				shader->enable();
-				shader->setUniformMat4("transform", transform->getProjectedTransform());
 			}
 
 			void render() {
+				shader->enable();
+				shader->setUniformMat4("transform", transform->getProjectedTransform());
 				mesh->render();
 			}
 		};

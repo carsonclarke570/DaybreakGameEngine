@@ -50,6 +50,19 @@ namespace thundersurge {
 			return *this;
 		}
 
+		float vec4::length() {
+			return sqrt(m_x * m_x + m_y * m_y + m_z * m_z + m_w * m_w);
+		}
+
+		vec4& vec4::normalize() {
+			float len = length();
+			m_x /= len;
+			m_y /= len;
+			m_z /= len;
+			m_w /= len;
+			return *this;
+		}
+
 		vec4 operator+(vec4 left, const vec4& right) {
 			return left.add(right);
 		}
