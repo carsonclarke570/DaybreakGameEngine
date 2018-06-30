@@ -15,7 +15,7 @@ namespace thundersurge {
 		class Shader {
 		private:
 			GLuint m_shader;
-			std::map<const GLchar*, GLint> m_uniforms;
+			std::map<const GLchar*, GLuint> m_uniforms;
 			const char* m_ver;
 			const char* m_frag;
 

@@ -1,6 +1,8 @@
 #include "../thundersurge/core/CoreEngine.h"
 #include "TestGame.h"
 
+#include "../thundersurge/utils/fileutils.h"
+
 int main()
 {
 	using namespace thundersurge;

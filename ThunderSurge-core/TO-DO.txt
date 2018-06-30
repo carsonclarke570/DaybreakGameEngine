@@ -1,3 +1,4 @@
 -Abstract the Camera class to allow user to customize the camera
 -Create a default mouse-based camera
 -Create a default key-based cameras
+-Add normal support

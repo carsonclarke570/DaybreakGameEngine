@@ -79,6 +79,7 @@ namespace thundersurge {
 				std::vector<GLuint> ind(indices, indices + sizeof(indices) / sizeof(GLuint));
 
 				mesh = new Mesh("C:/Users/birdi/3D Objects/models/cube.obj");
+				std::cout << mesh;
 				transform = new Transform();
 				transform->setScale(vec3(0.5f, 0.5f, 0.5f));
 
