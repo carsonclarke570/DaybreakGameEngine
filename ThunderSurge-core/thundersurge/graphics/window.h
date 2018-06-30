@@ -30,6 +30,7 @@ namespace thundersurge {
 
 			static inline int getWidth() { return m_width; }
 			static inline int getHeight() { return m_height; }
+			static inline GLFWwindow* getWindow() { return m_window; }
 		};
 	}
 }

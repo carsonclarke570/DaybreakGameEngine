@@ -40,7 +40,7 @@ namespace thundersurge {
 
 			m_game->init();
 
-			while (!Window::closed())
+			while (!quit())
 			{
 				float delta = time.elapsed();
 				time.reset();
@@ -58,6 +58,10 @@ namespace thundersurge {
 					frames = 0;
 				}
 			}
+		}
+
+		bool CoreEngine::quit() {
+			return Window::closed() || m_game->quit();
 		}
 	}
 }

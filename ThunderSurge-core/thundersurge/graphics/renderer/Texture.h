@@ -3,7 +3,7 @@
 #include <FreeImage.h>
 #include <string>
 #include <GL/glew.h>
-#include "../../../utils/ImageLoader.h"
+#include "../../utils/ImageLoader.h"
 
 namespace thundersurge {
 

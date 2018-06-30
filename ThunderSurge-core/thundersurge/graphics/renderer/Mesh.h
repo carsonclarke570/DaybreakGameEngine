@@ -2,10 +2,10 @@
 
 #include <map>
 
-#include "../../../core/math/math.h"
-#include "../../buffer/vertexarray.h"
-#include "../../buffer/indexbuffer.h"
-#include "../../../utils/FileUtils.h"
+#include "../../core/math/math.h"
+#include "../buffer/vertexarray.h"
+#include "../buffer/indexbuffer.h"
+#include "../../utils/FileUtils.h"
 
 namespace thundersurge {
 

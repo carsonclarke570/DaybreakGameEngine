@@ -10,38 +10,61 @@ namespace thundersurge {
 			m_pos = math::vec3(0, 0, 0);
 			m_forward = math::vec3(0, 0, 1);
 			m_up = math::vec3(0, 1, 0);
+
+			m_mouselocked = false;
 		}
 
 		Camera::Camera(vec3 pos, vec3 forward, vec3 up) {
 			m_pos = pos;
-			m_forward = forward;
-			m_up = up;
+			m_forward = forward.normalize();
+			m_up = up.normalize();
 
-			up = up.normalize();
-			forward = forward.normalize();
+			m_mouselocked = false;
 		}
 
 		void Camera::update(float delta) {
 			float mov = 1.0f * delta;
-			float rot = 100.0f * delta;
+			float rot = 0.05f;
 
-			if (Keyboard::isKeyPressed(KEY_W))
+			if (Keyboard::isKeyDown(KEY_W) || Keyboard::isKeyPressed(KEY_W))
 				move(m_forward, -mov);
-			if (Keyboard::isKeyPressed(KEY_S))
+			if (Keyboard::isKeyDown(KEY_S) || Keyboard::isKeyPressed(KEY_S))
 				move(m_forward, mov);
-			if (Keyboard::isKeyPressed(KEY_A))
+			if (Keyboard::isKeyDown(KEY_A) || Keyboard::isKeyPressed(KEY_A))
 				move(getLeft(), mov);
-			if (Keyboard::isKeyPressed(KEY_D))
+			if (Keyboard::isKeyDown(KEY_D) || Keyboard::isKeyPressed(KEY_D))
 				move(getRight(), mov);
 
-			if (Keyboard::isKeyPressed(KEY_UP))
-				rotateX(rot);
-			if (Keyboard::isKeyPressed(KEY_DOWN))
-				rotateX(-rot);
-			if (Keyboard::isKeyPressed(KEY_LEFT))
-				rotateY(rot);
-			if (Keyboard::isKeyPressed(KEY_RIGHT))
-				rotateY(-rot);
+			if (Keyboard::isKeyPressed(KEY_ESCAPE)) {
+				Mouse::showCursor();
+				m_mouselocked = false;
+			}
+
+			if (Mouse::isButtonPressed(0)) {
+				Mouse::setMousePosition(Window::getWidth() / 2, Window::getHeight() / 2);
+				Mouse::hideCursor();
+				m_mouselocked = true;
+			}
+
+			if (m_mouselocked) {
+				math::vec2 curpos;
+				Mouse::getMousePosition(curpos);
+				math::vec2 delta = curpos - math::vec2(Window::getWidth() / 2, Window::getHeight() / 2);
+
+				bool rotY = delta.m_x != 0.0f;
+				bool rotX = delta.m_y != 0.0f;
+
+				if (rotY) {
+					rotateY(-delta.m_x * rot);
+				}
+				if (rotX) {
+					rotateX(-delta.m_y * rot);
+				}
+
+				if (rotY || rotX) {
+					Mouse::setMousePosition(Window::getWidth() / 2, Window::getHeight() / 2);
+				}
+			}
 		}
 		
 		void Camera::move(const vec3& dir, float amt) {

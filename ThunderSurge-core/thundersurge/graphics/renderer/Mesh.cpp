@@ -6,7 +6,6 @@ namespace thundersurge {
 
 		Mesh::Mesh(std::vector<Vertex>& vertices, std::vector<GLuint>& indices)
 			: m_vertices(vertices), m_indices(indices) {
-
 			load();
 		}
 
@@ -55,7 +54,6 @@ namespace thundersurge {
 
 			for (int x = 0; x < indices.size(); x++) {
 				Index* i = indices[x];
-				std::cout << "Pushed: " << i << std::endl;
 				math::vec3 curPos = positions[i->posInd];
 				math::vec2 curTex = textures[i->texInd];
 

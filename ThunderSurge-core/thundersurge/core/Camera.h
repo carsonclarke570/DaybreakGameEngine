@@ -2,6 +2,7 @@
 
 #include "math/math.h"
 #include "input/input.h"
+#include "../graphics/window.h"
 
 namespace thundersurge {
 
@@ -9,11 +10,14 @@ namespace thundersurge {
 		
 		using namespace math;
 		using namespace input;
+		using namespace graphics;
 
 		class Camera {
 		private:
 			static const vec3 yAxis;
 			vec3 m_pos, m_up, m_forward;
+			
+			bool m_mouselocked;
 		public:
 			Camera();
 			Camera(vec3 pos, vec3 forward, vec3 up);

@@ -4,12 +4,12 @@ namespace thundersurge {
 
 	namespace input {
 
-		bool Keyboard::m_keys[MAX_KEYS];
+		Keyboard::KEY_ACTION Keyboard::m_keys[MAX_KEYS];
 
 		void Keyboard::init() {
 
 			for (int i = 0; i < MAX_KEYS; i++) {
-				m_keys[i] = false;
+				m_keys[i] = KEY_ACTION::UNDEFINED;
 			}
 		}
 
@@ -18,11 +18,38 @@ namespace thundersurge {
 			if (keycode >= MAX_KEYS) {
 				return false;
 			}
-			return m_keys[keycode];
+			return m_keys[keycode] == KEY_ACTION::PRESSED;
+		}
+
+		bool Keyboard::isKeyReleased(unsigned int keycode) {
+			// TODO: Log this
+			if (keycode >= MAX_KEYS) {
+				return false;
+			}
+			return m_keys[keycode] == KEY_ACTION::RELEASED;
+		}
+
+		bool Keyboard::isKeyDown(unsigned int keycode) {
+			// TODO: Log this
+			if (keycode >= MAX_KEYS) {
+				return false;
+			}
+			return m_keys[keycode] == KEY_ACTION::HELD;
 		}
 
 		void Keyboard::key_callback(GLFWwindow* window, int key, int scancode, int action, int mods) {
-			m_keys[key] = action != GLFW_RELEASE;
+			if (action == GLFW_PRESS) {
+				m_keys[key] = KEY_ACTION::PRESSED;
+			}
+			else if (action == GLFW_RELEASE) {
+				m_keys[key] = KEY_ACTION::RELEASED;
+			}
+			else if (action == GLFW_REPEAT) {
+				m_keys[key] = KEY_ACTION::HELD;
+			}
+			else {
+				m_keys[key] = KEY_ACTION::UNDEFINED;
+			}
 		}
 	}
 }

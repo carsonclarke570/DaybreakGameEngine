@@ -15,9 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="thundersurge\core\input\keyboard.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="thundersurge\core\input\mouse.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -45,33 +42,6 @@
     <ClCompile Include="thundersurge\graphics\buffer\VertexArray.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="thundersurge\graphics\entity\2d\Sprite.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="thundersurge\graphics\entity\2d\StaticSprite.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="thundersurge\graphics\entity\3d\Mesh.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="thundersurge\graphics\layer\Layer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="thundersurge\graphics\layer\Layer2D.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="thundersurge\graphics\layer\Layer2D.h">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="thundersurge\graphics\renderer\2d\BatchRenderer2D.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="thundersurge\graphics\renderer\2d\SimpleRenderer2D.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="thundersurge\graphics\shader\shader.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="thundersurge\graphics\window.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -87,14 +57,20 @@
     <ClCompile Include="thundersurge\core\Camera.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="thundersurge\graphics\entity\3d\Texture.cpp">
+    <ClCompile Include="thundersurge\core\input\Keyboard.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="thundersurge\graphics\renderer\Mesh.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="thundersurge\graphics\renderer\Texture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="thundersurge\graphics\shader\Shader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="thundersurge\core\input\input.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="thundersurge\core\input\keyboard.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -134,33 +110,6 @@
     <ClInclude Include="thundersurge\graphics\buffer\VertexArray.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="thundersurge\graphics\entity\2d\Sprite.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="thundersurge\graphics\entity\2d\StaticSprite.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="thundersurge\graphics\entity\3d\Mesh.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="thundersurge\graphics\layer\Layer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="thundersurge\graphics\renderer\2d\BatchRenderer2D.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="thundersurge\graphics\renderer\2d\Renderable2D.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="thundersurge\graphics\renderer\2d\Renderer2D.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="thundersurge\graphics\renderer\2d\SimpleRenderer2D.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="thundersurge\graphics\shader\shader.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="thundersurge\graphics\window.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -182,10 +131,25 @@
     <ClInclude Include="thundersurge\core\math\Quaternion.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="thundersurge\graphics\entity\3d\Texture.h">
+    <ClInclude Include="thundersurge\utils\ImageLoader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="thundersurge\utils\ImageLoader.h">
+    <ClInclude Include="thundersurge\core\input\Input.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="thundersurge\graphics\renderer\Mesh.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="thundersurge\graphics\renderer\Texture.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="thundersurge\graphics\renderer\Material.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="thundersurge\graphics\shader\Shader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="thundersurge\graphics\shader\BasicShader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

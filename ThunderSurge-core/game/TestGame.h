@@ -3,10 +3,9 @@
 #include "../thundersurge/core/math/math.h"
 
 #include "../thundersurge/graphics/shader/shader.h"
-#include "../thundersurge/graphics/layer/Layer2D.h"
-#include "../thundersurge/graphics/entity/2d/Sprite.h"
-#include "../thundersurge/graphics/entity/3d/Mesh.h"
-#include "../thundersurge/graphics/entity/3d/Texture.h"
+#include "../thundersurge/graphics/shader/BasicShader.h"
+#include "../thundersurge/graphics/renderer/Mesh.h"
+#include "../thundersurge/graphics/renderer/Texture.h"
 #include "../thundersurge/graphics/buffer/VertexArray.h"
 #include "../thundersurge/graphics/buffer/IndexBuffer.h"
 
@@ -29,7 +28,7 @@ namespace thundersurge {
 			Transform* transform;
 			Mesh* mesh;
 			Camera* camera;
-			Texture* texture;
+			Material* material;
 
 			float elapsed;
 		public:
@@ -40,7 +39,7 @@ namespace thundersurge {
 			}
 
 			void init() {
-				shader = new Shader("thundersurge/graphics/shader/shaders/basic.vert", "thundersurge/graphics/shader/shaders/basic.frag");
+				shader = new BasicShader();
 				//shader->enable();
 
 				elapsed = 0.0f;
@@ -86,12 +85,11 @@ namespace thundersurge {
 				camera = new Camera();
 				transform->setCamera(camera);
 
-				texture = new Texture("C:/Users/birdi/3D Objects/models/crate.jpg");
+				Texture texture("C:/Users/birdi/3D Objects/models/crate.jpg");
+				material = new Material(texture, vec3(0, 1, 0));
 			}
 
 			void update(float delta) {
-				double x, y;
-				Mouse::getMousePosition(x, y);
 
 				camera->update(delta);
 
@@ -104,9 +102,12 @@ namespace thundersurge {
 
 			void render() {
 				shader->enable();
-				shader->setUniformMat4("transform", transform->getProjectedTransform());
-				texture->bind();
+				shader->update(transform->getTransform(), transform->getProjectedTransform(), *material);
 				mesh->render();
+			}
+
+			bool quit() {
+				return false;
 			}
 		};
 	}

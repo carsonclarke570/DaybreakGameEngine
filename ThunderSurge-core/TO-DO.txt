@@ -2,3 +2,7 @@
 -Create a default mouse-based camera
 -Create a default key-based cameras
 -Add normal support
+-Add lighting
+-Add 3D rendering engine
+-Add component system
+-Remove or replace 2D engine components

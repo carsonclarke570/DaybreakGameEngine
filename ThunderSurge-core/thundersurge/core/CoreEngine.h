@@ -22,6 +22,7 @@ namespace thundersurge {
 			bool m_isRunning;
 
 			void run();
+			bool quit();
 		public:
 			CoreEngine(Game* game);
 			~CoreEngine();
