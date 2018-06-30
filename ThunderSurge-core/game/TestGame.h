@@ -6,13 +6,13 @@
 #include "../thundersurge/graphics/layer/Layer2D.h"
 #include "../thundersurge/graphics/entity/2d/Sprite.h"
 #include "../thundersurge/graphics/entity/3d/Mesh.h"
+#include "../thundersurge/graphics/entity/3d/Texture.h"
 #include "../thundersurge/graphics/buffer/VertexArray.h"
 #include "../thundersurge/graphics/buffer/IndexBuffer.h"
 
 #include "../thundersurge/core/input/input.h"
 
 #include "../thundersurge/core/Game.h"
-
 #include "../thundersurge/core/Transform.h"
 
 namespace thundersurge {
@@ -29,6 +29,7 @@ namespace thundersurge {
 			Transform* transform;
 			Mesh* mesh;
 			Camera* camera;
+			Texture* texture;
 
 			float elapsed;
 		public:
@@ -83,6 +84,8 @@ namespace thundersurge {
 
 				camera = new Camera();
 				transform->setCamera(camera);
+
+				texture = new Texture("C:/Users/birdi/3D Objects/models/crate.jpg");
 			}
 
 			void update(float delta) {
@@ -101,6 +104,7 @@ namespace thundersurge {
 			void render() {
 				shader->enable();
 				shader->setUniformMat4("transform", transform->getProjectedTransform());
+				texture->bind();
 				mesh->render();
 			}
 		};

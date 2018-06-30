@@ -5,7 +5,7 @@ namespace thundersurge {
 	namespace core {
 
 		CoreEngine::CoreEngine(Game* game) {
-			m_window = new Window(TITLE, WIDTH, HEIGHT);
+			Window::create(TITLE, WIDTH, HEIGHT);
 			m_isRunning = false;
 			m_game = game;
 
@@ -14,7 +14,7 @@ namespace thundersurge {
 		}
 
 		CoreEngine::~CoreEngine() {
-			delete m_window;
+			Window::dispose();
 			delete m_game;
 		}
 
@@ -40,20 +40,21 @@ namespace thundersurge {
 
 			m_game->init();
 
-			while (!m_window->closed())
+			while (!Window::closed())
 			{
 				float delta = time.elapsed();
 				time.reset();
 				m_game->update(delta);
 
-				m_window->clear();
+				Window::clear();
 				m_game->render();
-				m_window->update();
+				Window::update();
 
 				frames++;
-				if (delta - t > 1.0f) {
-					t++;
+				t += delta;
+				if (t >= 1.0f) {
 					printf("FPS: %d\n", frames);
+					t = 0;
 					frames = 0;
 				}
 			}

@@ -18,7 +18,6 @@ namespace thundersurge {
 
 		class CoreEngine {
 		private:
-			Window* m_window;
 			Game* m_game;
 			bool m_isRunning;
 

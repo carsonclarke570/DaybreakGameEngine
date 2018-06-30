@@ -4,9 +4,14 @@ namespace thundersurge {
 
 	namespace graphics {
 
+		const char* Window::m_title = "ThunderSurge Game";
+		int Window::m_width = 960;
+		int Window::m_height = 540;
+		GLFWwindow* Window::m_window = NULL;
+
 		void window_resize(GLFWwindow *window, int width, int height);
 
-		Window::Window(const char *title, int width, int height) {
+		void Window::create(const char *title, int width, int height) {
 			m_title = title;
 			m_width = width;
 			m_height = height;
@@ -16,7 +21,7 @@ namespace thundersurge {
 			}
 		}
 
-		Window::~Window() {
+		void Window::dispose() {
 			glfwTerminate();
 		}
 
@@ -32,7 +37,6 @@ namespace thundersurge {
 				return false;
 			}
 			glfwMakeContextCurrent(m_window);
-			glfwSetWindowUserPointer(m_window, this);
 			glfwSetWindowSizeCallback(m_window, window_resize);
 			glfwSetKeyCallback(m_window, Keyboard::key_callback);
 			glfwSetMouseButtonCallback(m_window, Mouse::mouse_button_callback);
@@ -50,16 +54,17 @@ namespace thundersurge {
 			glEnable(GL_CULL_FACE);
 			glEnable(GL_DEPTH_TEST);
 
+			glEnable(GL_TEXTURE_2D);
 			glEnable(GL_FRAMEBUFFER_SRGB);
 
 			return true;
 		}
 
-		bool Window::closed() const {
+		bool Window::closed() {
 			return (glfwWindowShouldClose(m_window) == 1);
 		}
 
-		void Window::clear() const {
+		void Window::clear() {
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		}
 
@@ -75,9 +80,8 @@ namespace thundersurge {
 
 		void window_resize(GLFWwindow *window, int width, int height) {
 			glViewport(0, 0, width, height);
-			Window* win = (Window*)glfwGetWindowUserPointer(window);
-			win->m_width = width;
-			win->m_height = height;
+			Window::m_width = width;
+			Window::m_height = height;
 		}
 	}
 }

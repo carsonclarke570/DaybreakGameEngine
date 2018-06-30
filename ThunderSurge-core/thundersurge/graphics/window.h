@@ -14,22 +14,22 @@ namespace thundersurge {
 
 		class Window {
 		private:
-			const char *m_title;
-			int m_width, m_height;
-			GLFWwindow *m_window;
+			const static char *m_title;
+			static int m_width, m_height;
+			static GLFWwindow *m_window;
 
-			bool init();
+			static bool init();
 
 			friend void window_resize(GLFWwindow* window, int width, int height);
 		public:
-			Window(const char *title, int width, int height);
-			~Window();
-			void clear() const;
-			bool closed() const;
-			void update();
+			static void create(const char *title, int width, int height);
+			static void dispose();
+			static void clear();
+			static bool closed();
+			static void update();
 
-			inline int getWidth() const { return m_width; }
-			inline int getHeight() const { return m_height; }
+			static inline int getWidth() { return m_width; }
+			static inline int getHeight() { return m_height; }
 		};
 	}
 }

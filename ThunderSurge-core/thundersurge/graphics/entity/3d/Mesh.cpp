@@ -27,9 +27,15 @@ namespace thundersurge {
 					vertices.push_back(v);
 				}
 				else if (tokens[0].compare("f") == 0) {
-					indices.push_back(stoi(tokens[1]) - 1);
-					indices.push_back(stoi(tokens[2]) - 1);
-					indices.push_back(stoi(tokens[3]) - 1);
+					indices.push_back(stoi(FileUtils::split(tokens[1], '/')[0]) - 1);
+					indices.push_back(stoi(FileUtils::split(tokens[2], '/')[0]) - 1);
+					indices.push_back(stoi(FileUtils::split(tokens[3], '/')[0]) - 1);
+
+					if (tokens.size() > 4) {
+						indices.push_back(stoi(FileUtils::split(tokens[1], '/')[0]) - 1);
+						indices.push_back(stoi(FileUtils::split(tokens[3], '/')[0]) - 1);
+						indices.push_back(stoi(FileUtils::split(tokens[4], '/')[0]) - 1);
+					}
 				}
 			}
 
@@ -56,6 +62,9 @@ namespace thundersurge {
 			// Vertex Positions
 			glEnableVertexAttribArray(0);
 			glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)0);
+			// Texture Coordinates
+			glEnableVertexAttribArray(1);
+			glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, texture));
 
 			glBindVertexArray(0);
 		}

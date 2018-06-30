@@ -22,7 +22,7 @@ namespace thundersurge {
 		}
 
 		void Camera::update(float delta) {
-			float mov = 10.0f * delta;
+			float mov = 1.0f * delta;
 			float rot = 100.0f * delta;
 
 			if (Keyboard::isKeyPressed(KEY_W))
