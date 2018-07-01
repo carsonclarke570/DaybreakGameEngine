@@ -57,6 +57,7 @@ namespace thundersurge {
 			glEnable(GL_TEXTURE_2D);
 			glEnable(GL_FRAMEBUFFER_SRGB);
 
+
 			return true;
 		}
 

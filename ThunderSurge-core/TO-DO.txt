@@ -5,4 +5,4 @@
 -Add lighting
 -Add 3D rendering engine
 -Add component system
--Remove or replace 2D engine components
+-Fix PhongShader bug

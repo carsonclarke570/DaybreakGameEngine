@@ -3,6 +3,7 @@
 #include "../thundersurge/core/math/math.h"
 
 #include "../thundersurge/graphics/shader/shader.h"
+#include "../thundersurge/graphics/shader/PhongShader.h"
 #include "../thundersurge/graphics/shader/BasicShader.h"
 #include "../thundersurge/graphics/renderer/Mesh.h"
 #include "../thundersurge/graphics/renderer/Texture.h"
@@ -39,7 +40,7 @@ namespace thundersurge {
 			}
 
 			void init() {
-				shader = new BasicShader();
+				shader = new PhongShader();
 				//shader->enable();
 
 				elapsed = 0.0f;
@@ -86,7 +87,7 @@ namespace thundersurge {
 				transform->setCamera(camera);
 
 				Texture texture("C:/Users/birdi/3D Objects/models/crate.jpg");
-				material = new Material(texture, vec3(0, 1, 0));
+				material = new Material(texture);
 			}
 
 			void update(float delta) {

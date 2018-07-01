@@ -69,6 +69,9 @@
     <ClCompile Include="thundersurge\graphics\shader\Shader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="thundersurge\graphics\shader\PhongShader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="thundersurge\core\input\keyboard.h">
@@ -152,10 +155,18 @@
     <ClInclude Include="thundersurge\graphics\shader\BasicShader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="thundersurge\graphics\shader\PhongShader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="thundersurge\graphics\lighting\Light.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="thundersurge\graphics\shader\shaders\basic.frag" />
     <None Include="thundersurge\graphics\shader\shaders\basic.vert" />
+    <None Include="thundersurge\graphics\shader\shaders\phong.frag" />
+    <None Include="thundersurge\graphics\shader\shaders\phong.vert" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="TO-DO.txt" />

@@ -161,6 +161,7 @@
     <ClCompile Include="thundersurge\graphics\buffer\VertexArray.cpp" />
     <ClCompile Include="thundersurge\graphics\renderer\Mesh.cpp" />
     <ClCompile Include="thundersurge\graphics\renderer\Texture.cpp" />
+    <ClCompile Include="thundersurge\graphics\shader\PhongShader.cpp" />
     <ClCompile Include="thundersurge\graphics\shader\Shader.cpp" />
     <ClCompile Include="thundersurge\graphics\window.cpp" />
     <ClCompile Include="thundersurge\core\input\Keyboard.cpp" />
@@ -180,10 +181,12 @@
     <ClInclude Include="thundersurge\graphics\buffer\Buffer.h" />
     <ClInclude Include="thundersurge\graphics\buffer\VertexArray.h" />
     <ClInclude Include="thundersurge\graphics\buffer\indexbuffer.h" />
+    <ClInclude Include="thundersurge\graphics\lighting\Light.h" />
     <ClInclude Include="thundersurge\graphics\renderer\Material.h" />
     <ClInclude Include="thundersurge\graphics\renderer\Texture.h" />
     <ClInclude Include="thundersurge\graphics\renderer\Mesh.h" />
     <ClInclude Include="thundersurge\graphics\shader\BasicShader.h" />
+    <ClInclude Include="thundersurge\graphics\shader\PhongShader.h" />
     <ClInclude Include="thundersurge\graphics\shader\Shader.h" />
     <ClInclude Include="thundersurge\graphics\window.h" />
     <ClInclude Include="thundersurge\core\input\Input.h" />
@@ -202,6 +205,8 @@
   <ItemGroup>
     <None Include="thundersurge\graphics\shader\shaders\basic.frag" />
     <None Include="thundersurge\graphics\shader\shaders\basic.vert" />
+    <None Include="thundersurge\graphics\shader\shaders\phong.frag" />
+    <None Include="thundersurge\graphics\shader\shaders\phong.vert" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="TO-DO.txt" />

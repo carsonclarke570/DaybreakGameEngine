@@ -56,6 +56,9 @@ namespace thundersurge {
 				Index* i = indices[x];
 				math::vec3 curPos = positions[i->posInd];
 				math::vec2 curTex = textures[i->texInd];
+				math::vec3 curNrm = normals[i->normalInd];
+
+				std::cout << curNrm << std::endl;
 
 				if (indexMap.count(i) == 0) {
 					modelVertInd = m_vertices.size();
@@ -64,6 +67,7 @@ namespace thundersurge {
 					Vertex v;
 					v.pos = curPos;
 					v.texture = curTex;
+					v.normal = curNrm;
 					m_vertices.push_back(v);
 				}
 				else {
@@ -110,6 +114,9 @@ namespace thundersurge {
 			// Texture Coordinates
 			glEnableVertexAttribArray(1);
 			glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, texture));
+			// Normals Coordinates
+			glEnableVertexAttribArray(2);
+			glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, normal));
 
 			glBindVertexArray(0);
 		}
