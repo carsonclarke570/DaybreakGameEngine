@@ -38,8 +38,6 @@ namespace thundersurge {
 			~Mesh();
 
 			void render();
-
-			friend std::ostream& operator<<(std::ostream& stream, const Mesh& mesh);
 		};
 	}
 }

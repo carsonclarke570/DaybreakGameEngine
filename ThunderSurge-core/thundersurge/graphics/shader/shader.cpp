@@ -66,10 +66,12 @@ namespace thundersurge {
 		}
 
 		GLint Shader::getUniformLocation(const GLchar* name) {
-			if (m_uniforms[name]) {
+			/*if (m_uniforms[name]) {
 				return m_uniforms[name];
 			}
 			return (m_uniforms[name] = glGetUniformLocation(m_shader, name));
+			*/
+			return glGetUniformLocation(m_shader, name);
 		}
 
 		void Shader::setUniform1f(const GLchar* name, float f) {

@@ -25,7 +25,7 @@ namespace thundersurge {
 
 		class TestGame : public Game {
 		private:
-			Shader* shader;
+			PhongShader* shader;
 			Transform* transform;
 			Mesh* mesh;
 			Camera* camera;
@@ -78,16 +78,22 @@ namespace thundersurge {
 
 				std::vector<GLuint> ind(indices, indices + sizeof(indices) / sizeof(GLuint));
 
-				mesh = new Mesh("C:/Users/birdi/3D Objects/models/cube.obj");
-				std::cout << mesh;
+				mesh = new Mesh("C:/Users/birdi/3D Objects/models/guitar.obj");
 				transform = new Transform();
 				transform->setScale(vec3(0.5f, 0.5f, 0.5f));
 
 				camera = new Camera();
 				transform->setCamera(camera);
 
-				Texture texture("C:/Users/birdi/3D Objects/models/crate.jpg");
+				Texture texture("C:/Users/birdi/3D Objects/models/capsule.jpg");
 				material = new Material(texture);
+
+				DirectionalLight d;
+				d.base.color = vec3(1, 1, 1);
+				d.base.intensity = 1.0f;
+				d.direction = vec3(0, 1, 0);
+
+				shader->setDirectionalLight(d);
 			}
 
 			void update(float delta) {

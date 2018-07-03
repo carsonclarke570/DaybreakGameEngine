@@ -58,8 +58,6 @@ namespace thundersurge {
 				math::vec2 curTex = textures[i->texInd];
 				math::vec3 curNrm = normals[i->normalInd];
 
-				std::cout << curNrm << std::endl;
-
 				if (indexMap.count(i) == 0) {
 					modelVertInd = m_vertices.size();
 					indexMap[i] = modelVertInd;
