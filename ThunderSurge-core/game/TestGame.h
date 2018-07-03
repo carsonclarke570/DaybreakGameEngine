@@ -78,14 +78,14 @@ namespace thundersurge {
 
 				std::vector<GLuint> ind(indices, indices + sizeof(indices) / sizeof(GLuint));
 
-				mesh = new Mesh("C:/Users/birdi/3D Objects/models/guitar.obj");
+				mesh = new Mesh("C:/Users/birdi/3D Objects/res/models/chalet.obj");
 				transform = new Transform();
 				transform->setScale(vec3(0.5f, 0.5f, 0.5f));
 
 				camera = new Camera();
 				transform->setCamera(camera);
 
-				Texture texture("C:/Users/birdi/3D Objects/models/capsule.jpg");
+				Texture texture("C:/Users/birdi/3D Objects/res/textures/chalet.jpg");
 				material = new Material(texture);
 
 				DirectionalLight d;
@@ -104,7 +104,9 @@ namespace thundersurge {
 
 				float sinDelta = sin(elapsed);
 				//transform->setScale(vec3(sinDelta, sinDelta, sinDelta));
-				transform->setRotation(sinDelta * 180, vec3(0, 1, 0));
+				transform->setRotation(90.0f, vec3(0, 0, 1));
+				transform->setRotation(-90.0f, vec3(1, 0, 0));
+				//transform->setRotation(sinDelta * 180, vec3(0, 1, 0));
 			}
 
 			void render() {

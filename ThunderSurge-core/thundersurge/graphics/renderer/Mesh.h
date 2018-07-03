@@ -1,10 +1,11 @@
 #pragma once
 
-#include <map>
+#ifndef _MESH_H_
+#define _MESH_H_
+
+#include <GL/glew.h>
 
 #include "../../core/math/math.h"
-#include "../buffer/vertexarray.h"
-#include "../buffer/indexbuffer.h"
 #include "../../utils/FileUtils.h"
 
 namespace thundersurge {
@@ -30,7 +31,6 @@ namespace thundersurge {
 			GLuint m_vao, m_vbo, m_ibo;
 
 			void parseOBJ(const char* filename);
-			Index* parseOBJIndex(const char* str);
 			void load();
 		public:
 			Mesh(std::vector<Vertex>& vertices, std::vector<GLuint>& indices);
@@ -41,3 +41,4 @@ namespace thundersurge {
 		};
 	}
 }
+#endif 

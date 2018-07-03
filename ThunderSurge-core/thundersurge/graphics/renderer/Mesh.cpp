@@ -1,5 +1,8 @@
 #include "Mesh.h"
 
+#define TINYOBJLOADER_IMPLEMENTATION
+#include <tiny_obj_loader.h>
+
 namespace thundersurge {
 
 	namespace graphics {
@@ -18,80 +21,39 @@ namespace thundersurge {
 		}
 
 		void Mesh::parseOBJ(const char* filename) {
-			std::vector<std::string> lines = FileUtils::split(FileUtils::read_file(filename), '\n');
+			tinyobj::attrib_t attrib;
+			std::vector<tinyobj::shape_t> shapes;
+			std::vector<tinyobj::material_t> materials;
+			std::string err;
 
-			std::vector<math::vec3> positions;
-			std::vector<math::vec2> textures;
-			std::vector<math::vec3> normals;
-			std::vector<Index*> indices;
+			if (!tinyobj::LoadObj(&attrib, &shapes, &materials, &err, filename)) {
+				throw std::runtime_error(err);
+			}
 
-			std::vector<math::vec2> texCoord;
+			for (const auto& shape : shapes) {
+				for (const auto& index : shape.mesh.indices) {
+					Vertex vertex;
 
-			for (std::string line : lines) {
-				std::vector<std::string> tokens = FileUtils::split(line, ' ');
+					vertex.pos.m_x = attrib.vertices[3 * index.vertex_index + 0];
+					vertex.pos.m_y = attrib.vertices[3 * index.vertex_index + 1];
+					vertex.pos.m_z = attrib.vertices[3 * index.vertex_index + 2];
 
-				if (tokens.size() == 0 || !tokens[0].compare("#")) {
-					continue;
-				}
-				else if (tokens[0].compare("v") == 0) {
-					positions.push_back(math::vec3(stof(tokens[1]), stof(tokens[2]), stof(tokens[3])));
-				}
-				else if (tokens[0].compare("vt") == 0) {
-					textures.push_back(math::vec2(stof(tokens[1]), stof(tokens[2])));
-				}
-				else if (tokens[0].compare("vn") == 0) {
-					normals.push_back(math::vec3(stof(tokens[1]), stof(tokens[2]), stof(tokens[3])));
-				}
-				else if (tokens[0].compare("f") == 0) {
-					indices.push_back(parseOBJIndex(tokens[1].c_str()));
-					indices.push_back(parseOBJIndex(tokens[2].c_str()));
-					indices.push_back(parseOBJIndex(tokens[3].c_str()));
+					if (index.texcoord_index >= 0) {
+						vertex.texture.m_x = attrib.texcoords[2 * index.texcoord_index + 0];
+						vertex.texture.m_y = attrib.texcoords[2 * index.texcoord_index + 1];
+					}
+
+					if (index.normal_index >= 0) {
+						vertex.normal.m_x = attrib.normals[3 * index.normal_index + 0];
+						vertex.normal.m_y = attrib.normals[3 * index.normal_index + 1];
+						vertex.normal.m_z = attrib.normals[3 * index.normal_index + 2];
+					}
+
+					m_vertices.push_back(vertex);
+					m_indices.push_back(m_indices.size());
 				}
 			}
 
-			std::map<Index*, GLuint> indexMap;
-			GLuint modelVertInd;
-
-			for (int x = 0; x < indices.size(); x++) {
-				Index* i = indices[x];
-				math::vec3 curPos = positions[i->posInd];
-				math::vec2 curTex = textures[i->texInd];
-				math::vec3 curNrm = normals[i->normalInd];
-
-				if (indexMap.count(i) == 0) {
-					modelVertInd = m_vertices.size();
-					indexMap[i] = modelVertInd;
-
-					Vertex v;
-					v.pos = curPos;
-					v.texture = curTex;
-					v.normal = curNrm;
-					m_vertices.push_back(v);
-				}
-				else {
-					modelVertInd = indexMap[i];
-				}
-				
-				m_indices.push_back(modelVertInd);
-			}
-
-			for (int x = 0; x < indices.size(); x++) {
-				delete indices[x];
-			}
-		}
-
-		Index* Mesh::parseOBJIndex(const char* str) {
-			std::vector<std::string> vals = FileUtils::split(str, '/');
-			
-			Index* i = new Index();
-			i->posInd = stoi(vals[0]) - 1;
-
-			if (vals.size() > 1) {
-				if (vals[1].length() != 0) {
-					i->texInd = stoi(vals[1]) - 1;
-				}
-			}
-			return i;
 		}
 
 		void Mesh::load() {
