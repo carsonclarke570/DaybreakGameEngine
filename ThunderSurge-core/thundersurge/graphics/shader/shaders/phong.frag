@@ -32,9 +32,12 @@ uniform DirLight dirLight;
 vec3 calcDirLight(DirLight light, vec3 normal, vec3 viewDir);
 
 void main() {
-	vec3 light = calcDirLight(dirLight, normal0, viewPos) + ambience;
+	vec3 norm = normalize(normal0);
+	vec3 view = normalize(viewPos - worldPos0);
 
-	fragColor = vec4(light * vec3(texture(material.diffuse, texCoord0)), 1.0);
+	vec3 light = calcDirLight(dirLight, norm, view);
+
+	fragColor = vec4(light, 1.0);
 }
 
 vec3 calcDirLight(DirLight light, vec3 normal, vec3 viewDir)

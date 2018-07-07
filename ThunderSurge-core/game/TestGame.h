@@ -30,10 +30,7 @@ namespace thundersurge {
 		class TestGame : public Game {
 		private:
 			PhongShader* shader;
-			Transform* transform;
-			Mesh* mesh;
 			Camera* camera;
-			Material* material;
 
 			GameObject* root;
 
@@ -54,15 +51,14 @@ namespace thundersurge {
 
 				elapsed = 0.0f;
 
-				mesh = new Mesh("C:/Users/birdi/3D Objects/res/models/cube.obj");
-				transform = new Transform();
-				transform->setScale(vec3(0.5f, 0.5f, 0.5f));
+				Mesh mesh = Mesh("C:/Users/birdi/3D Objects/res/models/cube.obj");
 
 				camera = new Camera();
-				transform->setCamera(camera);
+				Transform::setCamera(camera);
 
 				Texture texture("C:/Users/birdi/3D Objects/res/textures/cube.jpg");
-				material = new Material(texture);
+				Texture spec("C:/Users/birdi/3D Objects/res/textures/cube_specular.jpg");
+				Material material = Material(texture, spec);
 
 				DirectionalLight d;
 				d.direction = vec3(-0.2f, -1.0f, -0.3f);
@@ -72,7 +68,9 @@ namespace thundersurge {
 
 				shader->setDirectionalLight(d);
 
-				root->addComponent(new MeshRenderer(*mesh, *material));
+				root->addComponent(new MeshRenderer(mesh, material));
+
+				
 			}
 
 			void update(float delta) {
@@ -83,8 +81,6 @@ namespace thundersurge {
 
 				float sinDelta = sin(elapsed);
 				//transform->setScale(vec3(sinDelta, sinDelta, sinDelta));
-				transform->setRotation(90.0f, vec3(0, 0, 1));
-				transform->setRotation(-90.0f, vec3(1, 0, 0));
 				//transform->setRotation(sinDelta * 180, vec3(0, 1, 0));
 				root->updateAll(delta);
 			}
