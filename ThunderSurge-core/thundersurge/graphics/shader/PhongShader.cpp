@@ -6,7 +6,6 @@ namespace thundersurge {
 
 	namespace graphics {
 
-		vec3 PhongShader::m_ambience(0.03f, 0.03f, 0.03f);
 		DirectionalLight PhongShader::m_directionalLight;
 	
 		PhongShader::PhongShader() 
@@ -35,8 +34,6 @@ namespace thundersurge {
 			setUniform1i("material.diffuse", 0);
 			setUniform1i("material.specular", 1);
 			setUniform1f("material.specPow", material.getSpecularPower());
-
-			setUniform3f("ambience", m_ambience);
 
 			setUniformLight("dirLight", m_directionalLight);
 

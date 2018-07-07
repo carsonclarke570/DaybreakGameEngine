@@ -73,13 +73,15 @@ namespace thundersurge {
 
 		void Camera::rotateY(float angle) {
 			vec3 haxis = yAxis.cross(m_forward).normalize();
-			m_forward = m_forward.rotate(angle, yAxis).normalize();
+			//m_forward = m_forward.rotate(angle, yAxis).normalize();
+			m_forward = (Quaternion(yAxis, angle).toRotationMatrix() * m_forward).normalize();
 			m_up = m_forward.cross(haxis).normalize();
 		}
 
 		void Camera::rotateX(float angle) {
 			vec3 haxis = yAxis.cross(m_forward).normalize();
-			m_forward = m_forward.rotate(angle, haxis).normalize();
+			//m_forward = m_forward.rotate(angle, haxis).normalize();
+			m_forward = (Quaternion(haxis, angle).toRotationMatrix() * m_forward).normalize();
 			m_up = m_forward.cross(haxis).normalize();
 		}
 

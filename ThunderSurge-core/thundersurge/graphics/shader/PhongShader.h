@@ -14,7 +14,6 @@ namespace thundersurge {
 
 		class PhongShader : public Shader {
 		private:
-			static vec3 m_ambience;
 			static DirectionalLight m_directionalLight;
 		public:
 			PhongShader();
@@ -24,7 +23,6 @@ namespace thundersurge {
 			void setUniformLight(const GLchar* name, const BaseLight& light);
 			void setUniformLight(const GLchar* name, const DirectionalLight& light);
 
-			inline void setAmbience(const vec3& ambience) { m_ambience = ambience; }
 			inline void setDirectionalLight(const DirectionalLight& directionalLight) { m_directionalLight = directionalLight; }
 		};
 	}

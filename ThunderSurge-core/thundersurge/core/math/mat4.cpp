@@ -88,6 +88,24 @@ namespace thundersurge {
 			return result;
 		}
 
+		mat4 mat4::rotation(const vec3& forward, const vec3& up, const vec3& right) {
+			mat4 result;
+			
+			result.m_m[0 + 0 * 4] = right.m_x;
+			result.m_m[1 + 0 * 4] = up.m_x;
+			result.m_m[2 + 0 * 4] = forward.m_x;
+
+			result.m_m[0 + 1 * 4] = right.m_y;
+			result.m_m[1 + 1 * 4] = up.m_y;
+			result.m_m[2 + 1 * 4] = forward.m_y;
+
+			result.m_m[0 + 2 * 4] = right.m_z;
+			result.m_m[1 + 2 * 4] = up.m_z;
+			result.m_m[2 + 2 * 4] = forward.m_z;
+
+			return result;
+		}
+
 		mat4 mat4::scale(const vec3& scale) {
 			mat4 result(1.0f);
 
@@ -132,11 +150,27 @@ namespace thundersurge {
 			return *this;
 		}
 
+		vec3 mat4::mul(const vec3& other) {
+			float x = m_m[0 + 0 * 4] * other.m_x + m_m[0 + 1 * 4] * other.m_y + m_m[0 + 2 * 4] * other.m_z + m_m[0 + 3 * 4];
+			float y = m_m[1 + 0 * 4] * other.m_x + m_m[1 + 1 * 4] * other.m_y + m_m[1 + 2 * 4] * other.m_z + m_m[1 + 3 * 4];
+			float z = m_m[2 + 0 * 4] * other.m_x + m_m[2 + 1 * 4] * other.m_y + m_m[2 + 2 * 4] * other.m_z + m_m[2 + 3 * 4];
+
+			return vec3(x, y, z);
+		}
+
 		mat4 operator*(mat4 left, const mat4& right) {
 			return left.mul(right);
 		}
 
+		vec3 operator*(mat4 left, const vec3& right) {
+			return left.mul(right);
+		}
+
 		mat4& mat4::operator*=(const mat4& other) {
+			return mul(other);
+		}
+
+		vec3 mat4::operator*=(const vec3& other) {
 			return mul(other);
 		}
 	}

@@ -2,7 +2,6 @@
 
 #include <iostream>
 #include "util.h"
-#include "Quaternion.h"
 
 namespace thundersurge {
 
@@ -21,7 +20,6 @@ namespace thundersurge {
 
 			float dot(const vec3& other) const;
 			vec3 cross(const vec3& other) const;
-			vec3 rotate(float angle, const vec3& axis);
 
 			float length() const;
 			vec3 normalize() const;
@@ -35,8 +33,6 @@ namespace thundersurge {
 			friend vec3 operator-(vec3 left, const float& right);
 			friend vec3 operator*(vec3 left, const float& right);
 			friend vec3 operator/(vec3 left, const float& right);
-
-			friend Quaternion operator*(Quaternion left, const vec3& right);
 
 			bool operator==(const vec3& other);
 			bool operator!=(const vec3& other);

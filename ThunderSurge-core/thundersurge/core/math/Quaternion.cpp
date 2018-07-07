@@ -8,6 +8,15 @@ namespace thundersurge {
 			m_x(x), m_y(y), m_z(z), m_w(w) {
 		}
 
+		Quaternion::Quaternion(const vec3& axis, float angle) {
+			float s = sin(toRadians(angle / 2));
+
+			m_x = axis.m_x * s;
+			m_y = axis.m_y * s;
+			m_z = axis.m_z * s;
+			m_w = cos(toRadians(angle / 2));
+		}
+
 		float Quaternion::length() const {
 			return (float) sqrt(m_x * m_x + m_y * m_y + m_z * m_z + m_w * m_w);
 		}
@@ -16,6 +25,7 @@ namespace thundersurge {
 			float len = length();
 			return Quaternion(m_x / len, m_y / len, m_z / len, m_w / len);
 		}
+
 		Quaternion Quaternion::conjugate() const {
 			return Quaternion(-m_x, -m_y, -m_z, m_w);
 		}
@@ -34,12 +44,29 @@ namespace thundersurge {
 			return *this;
 		}
 
+		mat4 Quaternion::toRotationMatrix() {
+			vec3 forward = vec3(2.0f * (m_x * m_z - m_w * m_y), 2.0f * (m_y * m_z + m_w * m_x), 1.0f - 2.0f * (m_x * m_x + m_y * m_y));
+			vec3 up = vec3(2.0f * (m_x * m_y + m_w * m_z), 1.0f - 2.0f * (m_x * m_x + m_z * m_z), 2.0f * (m_y * m_z - m_w * m_x));
+			vec3 right = vec3(1.0f - 2.0f * (m_y * m_y + m_z * m_z), 2.0f * (m_x * m_y - m_w * m_z), 2.0f * (m_x * m_z + m_w * m_y));
+
+			return mat4::rotation(forward, up, right);
+		}
+
 		Quaternion& Quaternion::operator*=(const Quaternion& other) {
 			return mul(other);
 		}
 
 		Quaternion operator*(Quaternion left, const Quaternion& right) {
 			return left.mul(right);
+		}
+
+		Quaternion operator*(Quaternion left, const vec3& right) {
+			float w = -left.getX() * right.m_x - left.getY() * right.m_y - left.getZ() * right.m_z;
+			float x = left.getW() * right.m_x + left.getY() * right.m_z - left.getZ() * right.m_y;
+			float y = left.getW() * right.m_y + left.getZ() * right.m_x - left.getX() * right.m_z;
+			float z = left.getW() * right.m_z + left.getX() * right.m_y - left.getY() * right.m_x;
+
+			return Quaternion(x, y, z, w);
 		}
 	}
 }

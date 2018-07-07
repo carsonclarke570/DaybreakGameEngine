@@ -24,7 +24,6 @@ in vec3 worldPos0;
 
 out vec4 fragColor;
 
-uniform vec3 ambience;
 uniform vec3 viewPos;
 uniform Material material;
 uniform DirLight dirLight;
