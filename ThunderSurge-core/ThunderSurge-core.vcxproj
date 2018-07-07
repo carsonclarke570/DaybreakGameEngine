@@ -156,6 +156,7 @@
     <ClCompile Include="game\Main.cpp" />
     <ClCompile Include="thundersurge\core\Camera.cpp" />
     <ClCompile Include="thundersurge\core\CoreEngine.cpp" />
+    <ClCompile Include="thundersurge\core\GameObject.cpp" />
     <ClCompile Include="thundersurge\core\math\Quaternion.cpp" />
     <ClCompile Include="thundersurge\core\Transform.cpp" />
     <ClCompile Include="thundersurge\graphics\buffer\Buffer.cpp" />
@@ -175,19 +176,21 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="game\TestGame.h" />
+    <ClInclude Include="thundersurge\components\GameComponent.h" />
+    <ClInclude Include="thundersurge\components\MeshRenderer.h" />
     <ClInclude Include="thundersurge\core\Camera.h" />
     <ClInclude Include="thundersurge\core\CoreEngine.h" />
     <ClInclude Include="thundersurge\core\Game.h" />
+    <ClInclude Include="thundersurge\core\GameObject.h" />
     <ClInclude Include="thundersurge\core\math\Quaternion.h" />
     <ClInclude Include="thundersurge\core\Transform.h" />
     <ClInclude Include="thundersurge\graphics\buffer\Buffer.h" />
     <ClInclude Include="thundersurge\graphics\buffer\VertexArray.h" />
     <ClInclude Include="thundersurge\graphics\buffer\indexbuffer.h" />
-    <ClInclude Include="thundersurge\graphics\lighting\Light.h" />
+    <ClInclude Include="thundersurge\components\Light.h" />
     <ClInclude Include="thundersurge\graphics\renderer\Material.h" />
     <ClInclude Include="thundersurge\graphics\renderer\Texture.h" />
     <ClInclude Include="thundersurge\graphics\renderer\Mesh.h" />
-    <ClInclude Include="thundersurge\graphics\shader\BasicShader.h" />
     <ClInclude Include="thundersurge\graphics\shader\PhongShader.h" />
     <ClInclude Include="thundersurge\graphics\shader\Shader.h" />
     <ClInclude Include="thundersurge\graphics\window.h" />
@@ -205,13 +208,14 @@
     <ClInclude Include="thundersurge\utils\Timer.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="thundersurge\graphics\shader\shaders\basic.frag" />
-    <None Include="thundersurge\graphics\shader\shaders\basic.vert" />
     <None Include="thundersurge\graphics\shader\shaders\phong.frag" />
     <None Include="thundersurge\graphics\shader\shaders\phong.vert" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="TO-DO.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="thundersurge\res\defaults\no_spec_map.jpg" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

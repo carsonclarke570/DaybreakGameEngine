@@ -8,10 +8,12 @@
 #include "../../core/math/math.h"
 #include "../../utils/fileutils.h"
 #include "../renderer/Material.h"
+#include "../../core/Transform.h"
 
 namespace thundersurge {
 
 	using namespace math;
+	using namespace core;
 
 	namespace graphics {
 
@@ -28,7 +30,7 @@ namespace thundersurge {
 			Shader(const char* ver, const char* frag);
 			~Shader();
 
-			virtual void update(const mat4& world, const mat4& projection, const Material& material) = 0;
+			virtual void update(Transform& transform, const Material& material) = 0;
 
 			void setUniform1f(const GLchar* name, float f);
 			void setUniform1i(const GLchar* name, int i);

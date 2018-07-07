@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Shader.h"
-#include "../lighting/Light.h"
+#include "../../components/Light.h"
 #include "../../core/math/math.h"
 #include "../../core/Transform.h"
 
@@ -19,7 +19,7 @@ namespace thundersurge {
 		public:
 			PhongShader();
 
-			void update(const mat4& world, const mat4& projection, const Material& material);
+			void update(Transform& transform, const Material& material);
 
 			void setUniformLight(const GLchar* name, const BaseLight& light);
 			void setUniformLight(const GLchar* name, const DirectionalLight& light);

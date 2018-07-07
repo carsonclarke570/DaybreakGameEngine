@@ -12,25 +12,24 @@ namespace thundersurge {
 
 		class Material {
 		private:
-			Texture m_texture;
-			vec3 m_color;
-			float m_specInt, m_specPow;
+			Texture m_diffuse;
+			Texture m_specular;
+			float m_specPow;
 		public:
-			Material(const Texture& texture, const vec3& color, const float& specInt, const float& specPow)
-				: m_texture(texture), m_color(color), m_specInt(specInt), m_specPow(specPow) {
+			Material(const Texture& diffuse, const Texture& specular, float specPow)
+				: m_diffuse(diffuse), m_specular(specular), m_specPow(specPow) {
 			}
 
-			Material(const Texture& texture, const vec3& color) 
-				: m_texture(texture), m_color(color), m_specInt(2), m_specPow(32) {
+			Material(const Texture& diffuse, const Texture& specular)
+				: m_diffuse(diffuse), m_specular(specular), m_specPow(32) {
 			}
 
-			Material(const Texture& texture) 
-				: m_texture(texture), m_color(vec3(1, 1, 1)), m_specInt(2), m_specPow(32) {
+			Material(const Texture& diffuse) 
+				: m_diffuse(diffuse), m_specular(Texture("thundersurge/res/defaults/no_spec_map.jpg")), m_specPow(32) {
 			}
 
-			inline Texture getTexture() const { return m_texture; }
-			inline vec3 getColor() const { return m_color; }
-			inline float getSpecularIntensity() const { return m_specInt; }
+			inline Texture getDiffuseTexture() const { return m_diffuse; }
+			inline Texture getSpeculartexture() const { return m_specular; }
 			inline float getSpecularPower() const { return m_specPow; }
 		};
 	}

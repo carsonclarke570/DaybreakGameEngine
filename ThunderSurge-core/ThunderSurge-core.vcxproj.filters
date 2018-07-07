@@ -72,6 +72,9 @@
     <ClCompile Include="thundersurge\graphics\shader\PhongShader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="thundersurge\core\GameObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="thundersurge\core\input\keyboard.h">
@@ -152,23 +155,32 @@
     <ClInclude Include="thundersurge\graphics\shader\Shader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="thundersurge\graphics\shader\BasicShader.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="thundersurge\graphics\shader\PhongShader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="thundersurge\graphics\lighting\Light.h">
+    <ClInclude Include="thundersurge\core\GameObject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="thundersurge\components\GameComponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="thundersurge\components\MeshRenderer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="thundersurge\components\Light.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="thundersurge\graphics\shader\shaders\basic.frag" />
-    <None Include="thundersurge\graphics\shader\shaders\basic.vert" />
     <None Include="thundersurge\graphics\shader\shaders\phong.frag" />
     <None Include="thundersurge\graphics\shader\shaders\phong.vert" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="TO-DO.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="thundersurge\res\defaults\no_spec_map.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>
