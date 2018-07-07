@@ -64,6 +64,14 @@ namespace thundersurge {
 				Texture texture("C:/Users/birdi/3D Objects/res/textures/cube.jpg");
 				material = new Material(texture);
 
+				DirectionalLight d;
+				d.direction = vec3(-0.2f, -1.0f, -0.3f);
+				d.base.ambient = vec3(0.05f, 0.05f, 0.05f);
+				d.base.diffuse = vec3(0.4f, 0.4f, 0.4f);
+				d.base.specular = vec3(0.5f, 0.5f, 0.5f);
+
+				shader->setDirectionalLight(d);
+
 				root->addComponent(new MeshRenderer(*mesh, *material));
 			}
 

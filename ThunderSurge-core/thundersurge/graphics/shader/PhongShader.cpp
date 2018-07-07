@@ -15,30 +15,32 @@ namespace thundersurge {
 
 		void PhongShader::setUniformLight(const GLchar* name, const BaseLight& light) {
 			std::string str(name);
-			setUniform3f((str + ".color").c_str(), light.color);
-			setUniform1f((str + ".intensity").c_str(), light.intensity);
+			setUniform3f((str + ".diffuse").c_str(), light.diffuse);
+			setUniform3f((str + ".ambient").c_str(), light.ambient);
+			setUniform3f((str + ".specular").c_str(), light.specular);
 		}
 
 		void PhongShader::setUniformLight(const GLchar* name, const DirectionalLight& light) {
 			std::string str(name);
-			setUniformLight((str + ".base").c_str(), light.base);
+			setUniformLight((str + ".light").c_str(), light.base);
 			setUniform3f((str + ".direction").c_str(), light.direction);
 		}
 
-		void PhongShader::update(Transform& transform, const Material& material) {
-			material.getTexture().bind();
+		void PhongShader::update(Transform& transform, Material& material) {
+			material.bind();
 
-			setUniformMat4("transformProjected", transform.getProjectedTransform());
-			setUniformMat4("transform", transform.getTransform());
-			setUniform3f("color", material.getColor());
+			setUniformMat4("projection", transform.getProjectedTransform());
+			setUniformMat4("model", transform.getTransform());
+			
+			setUniform1i("material.diffuse", 0);
+			setUniform1i("material.specular", 1);
+			setUniform1f("material.specPow", material.getSpecularPower());
 
-			setUniform3f("ambient", m_ambience);
-			setUniformLight("directionalLight", m_directionalLight);
+			setUniform3f("ambience", m_ambience);
 
-			setUniform1f("specularIntensity", material.getSpecularIntensity());
-			setUniform1f("specularPower", material.getSpecularPower());
+			setUniformLight("dirLight", m_directionalLight);
 
-			setUniform3f("eyePos", Transform::getCamera()->getPosition());
+			setUniform3f("viewPos", Transform::getCamera()->getPosition());
 		}
 	}
 }

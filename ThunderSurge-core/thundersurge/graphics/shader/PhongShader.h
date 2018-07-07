@@ -19,7 +19,7 @@ namespace thundersurge {
 		public:
 			PhongShader();
 
-			void update(Transform& transform, const Material& material);
+			void update(Transform& transform, Material& material);
 
 			void setUniformLight(const GLchar* name, const BaseLight& light);
 			void setUniformLight(const GLchar* name, const DirectionalLight& light);

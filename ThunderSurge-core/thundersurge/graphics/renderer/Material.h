@@ -28,8 +28,13 @@ namespace thundersurge {
 				: m_diffuse(diffuse), m_specular(Texture("thundersurge/res/defaults/no_spec_map.jpg")), m_specPow(32) {
 			}
 
-			inline Texture getDiffuseTexture() const { return m_diffuse; }
-			inline Texture getSpeculartexture() const { return m_specular; }
+			void bind() {
+				glActiveTexture(GL_TEXTURE0);
+				m_diffuse.bind();
+				glActiveTexture(GL_TEXTURE1);
+				m_specular.bind();
+			}
+
 			inline float getSpecularPower() const { return m_specPow; }
 		};
 	}

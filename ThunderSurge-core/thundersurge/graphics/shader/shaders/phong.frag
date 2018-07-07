@@ -1,70 +1,50 @@
 #version 330
 
+struct Material {
+    sampler2D diffuse;
+    sampler2D specular;
+    float specPow;
+}; 
+
+
+struct BaseLight {
+	vec3 ambient;
+    vec3 diffuse;
+    vec3 specular;
+};
+
+struct DirLight {
+    vec3 direction;
+	BaseLight light;
+};
+
 in vec2 texCoord0;
 in vec3 normal0;
 in vec3 worldPos0;
 
 out vec4 fragColor;
 
-struct BaseLight {
-    vec3 color;
-    float intensity;
-};
+uniform vec3 ambience;
+uniform vec3 viewPos;
+uniform Material material;
+uniform DirLight dirLight;
 
-struct DirectionalLight {
-    BaseLight base;
-    vec3 direction;
-};
-
-uniform vec3 color;
-uniform vec3 eyePos;
-uniform vec3 ambient;
-uniform sampler2D sampler;
-
-uniform float specularIntensity;
-uniform float specularPower;
-
-uniform DirectionalLight directionalLight;
-
-vec4 calcLight(BaseLight base, vec3 direction, vec3 normal) {
-	float diffuseFactor = dot(normal, -direction);
-
-	vec4 diffuseColor = vec4(0,0,0,0);
-	vec4 specularColor = vec4(0,0,0,0);
-
-	if (diffuseFactor > 0) {
-		diffuseColor = vec4(base.color, 1.0) * base.intensity * diffuseFactor;
-
-		vec3 dirToEye = normalize(eyePos - worldPos0);
-		vec3 ref = normalize(reflect(direction, normal));
-
-		float specularFactor = dot(dirToEye, ref);
-		specularFactor = pow(specularFactor, specularPower);
-
-		if (specularFactor > 0) {
-			specularColor = vec4(base.color, 1.0) * specularIntensity * specularFactor;
-		}
-	}
-
-	return diffuseColor + specularColor;
-}
-
-vec4 calcDirectionalLight(DirectionalLight directionalLight, vec3 normal) {
-    return calcLight(directionalLight.base, -directionalLight.direction, normal);
-}
+vec3 calcDirLight(DirLight light, vec3 normal, vec3 viewDir);
 
 void main() {
-	vec4 light = vec4(ambient, 1);
-	vec4 colorA = vec4(color, 1);
-	vec4 textureColor = texture(sampler, texCoord0.xy);
+	vec3 light = calcDirLight(dirLight, normal0, viewPos) + ambience;
 
-	if(textureColor != vec4(0,0,0,0)) {
-        colorA *= textureColor;
-	}
+	fragColor = vec4(light * vec3(texture(material.diffuse, texCoord0)), 1.0);
+}
 
-	vec3 normal = normalize(normal0);
-	
-	light += calcDirectionalLight(directionalLight, normal);
-
-	fragColor = colorA * light;
+vec3 calcDirLight(DirLight light, vec3 normal, vec3 viewDir)
+{
+    vec3 lightDir = normalize(-light.direction);
+    float diff = max(dot(normal, lightDir), 0.0);
+    vec3 reflectDir = reflect(-lightDir, normal);
+    float spec = pow(max(dot(viewDir, reflectDir), 0.0), material.specPow);
+    vec3 ambient = light.light.ambient * vec3(texture(material.diffuse, texCoord0));
+    vec3 diffuse = light.light.diffuse * diff * vec3(texture(material.diffuse, texCoord0));
+    vec3 specular = light.light.specular * spec * vec3(texture(material.specular, texCoord0));
+    return (ambient + diffuse + specular);
 }
