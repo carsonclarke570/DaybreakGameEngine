@@ -1,9 +1,11 @@
-#pragma once
-
 #include <FreeImage.h>
-#include <string>
 #include <GL/glew.h>
+#include <string>
+
 #include "../../utils/ImageLoader.h"
+
+#ifndef _TEXTURE_H_
+#define _TEXTURE_H_
 
 namespace thundersurge {
 
@@ -27,3 +29,5 @@ namespace thundersurge {
 		};
 	}
 }
+
+#endif

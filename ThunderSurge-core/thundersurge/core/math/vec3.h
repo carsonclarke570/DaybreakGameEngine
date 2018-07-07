@@ -1,7 +1,8 @@
-#pragma once
-
 #include <iostream>
 #include "util.h"
+
+#ifndef _VEC3_H_
+#define _VEC3_H_
 
 namespace thundersurge {
 
@@ -46,3 +47,5 @@ namespace thundersurge {
 		};
 	}
 }
+
+#endif

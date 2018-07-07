@@ -1,6 +1,7 @@
-#pragma once
-
 #include "../core/GameObject.h"
+
+#ifndef _GAME_COMPONENT_H_
+#define _GAME_COMPONENT_H_
 
 namespace thundersurge {
 
@@ -20,3 +21,5 @@ namespace thundersurge {
 		};
 	}
 }
+
+#endif 

@@ -1,9 +1,10 @@
-#pragma once
-
 #include "GameComponent.h"
 
 #include "../graphics/renderer/Mesh.h"
 #include "../graphics/renderer/Material.h"
+
+#ifndef _MESH_RENDERER_H_
+#define _MESH_RENDERER_H_
 
 namespace thundersurge {
 
@@ -30,3 +31,5 @@ namespace thundersurge {
 		};
 	}
 }
+
+#endif

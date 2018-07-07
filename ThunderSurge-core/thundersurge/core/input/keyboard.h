@@ -1,14 +1,15 @@
-#pragma once
-
 #include <iostream>
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 
+#define MAX_KEYS 1024
+
+#ifndef _KEYBOARD_H_
+#define _KEYBOARD_H_
+
 namespace thundersurge {
 
 	namespace input {
-
-#define MAX_KEYS 1024
 
 		class Keyboard {
 		private:
@@ -30,3 +31,5 @@ namespace thundersurge {
 		};
 	}
 }
+
+#endif

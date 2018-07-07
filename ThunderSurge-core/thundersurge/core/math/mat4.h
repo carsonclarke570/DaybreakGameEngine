@@ -1,7 +1,9 @@
 #pragma once
-
 #include "vec3.h"
 #include "util.h"
+
+#ifndef _MAT4_H_
+#define _MAT4_H_
 
 namespace thundersurge {
 	
@@ -36,3 +38,5 @@ namespace thundersurge {
 		};
 	}
 }
+
+#endif

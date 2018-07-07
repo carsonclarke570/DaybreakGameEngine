@@ -1,8 +1,9 @@
-#pragma once
-
 #include <string>
 #include <vector>
 #include <fstream>
+
+#ifndef _FILE_UTIL_H_
+#define _FILE_UTIL_H_
 
 namespace thundersurge {
 
@@ -44,3 +45,5 @@ namespace thundersurge {
 		}
 	};
 }
+
+#endif

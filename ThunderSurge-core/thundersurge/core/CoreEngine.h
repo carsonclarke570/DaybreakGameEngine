@@ -1,5 +1,3 @@
-#pragma once
-
 #define WIDTH 960
 #define HEIGHT 540
 #define TITLE "Game"
@@ -9,6 +7,9 @@
 #include "../graphics/Window.h"
 #include "../utils/Timer.h"
 #include "../core/Transform.h"
+
+#ifndef _CORE_ENGINE_H_
+#define _CORE_ENGINE_H_
 
 namespace thundersurge {
 
@@ -32,3 +33,5 @@ namespace thundersurge {
 		};
 	}
 }
+
+#endif

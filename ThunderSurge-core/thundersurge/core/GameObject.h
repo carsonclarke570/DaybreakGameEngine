@@ -1,10 +1,11 @@
-#pragma once
-
 #include <vector>
 
 #include "../core/CoreEngine.h"
 #include "../core/Transform.h"
 #include "../graphics/shader/Shader.h"
+
+#ifndef _GAME_OBJECT_H_
+#define _GAME_OBJECT_H_
 
 namespace thundersurge {
 
@@ -34,3 +35,5 @@ namespace thundersurge {
 		};
 	}
 }
+
+#endif

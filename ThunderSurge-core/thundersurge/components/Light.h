@@ -1,6 +1,5 @@
-#pragma once
-
-#include "../core/math/math.h"
+#ifndef _LIGHT_H_
+#define _LIGHT_H_
 
 namespace thundersurge {
 	
@@ -31,3 +30,5 @@ namespace thundersurge {
 		};
 	}
 }
+
+#endif

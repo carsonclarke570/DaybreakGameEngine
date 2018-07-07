@@ -1,6 +1,7 @@
-#pragma once
-
 #include <Windows.h>
+
+#ifndef _TIMER_H_
+#define _TIMER_H_
 
 namespace thundersurge {
 
@@ -28,3 +29,5 @@ namespace thundersurge {
 		}
 	};
 }
+
+#endif

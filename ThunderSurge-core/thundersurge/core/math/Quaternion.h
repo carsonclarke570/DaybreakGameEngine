@@ -1,8 +1,9 @@
-#pragma once
-
 #include <math.h>
 #include "vec3.h"
 #include "mat4.h"
+
+#ifndef _QUATERNION_H_
+#define _QUATERNION_H_
 
 namespace thundersurge {
 
@@ -35,3 +36,5 @@ namespace thundersurge {
 		};
 	}
 }
+
+#endif

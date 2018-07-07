@@ -1,8 +1,8 @@
-#pragma once
-
-
 #include "../../core/math/math.h"
 #include "Texture.h"
+
+#ifndef _MATERIAL_H_
+#define _MATERIAL_H_
 
 namespace thundersurge {
 
@@ -39,3 +39,5 @@ namespace thundersurge {
 		};
 	}
 }
+
+#endif

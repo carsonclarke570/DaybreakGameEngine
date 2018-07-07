@@ -4,6 +4,9 @@
 #include <FreeImage.h>
 #include <GL/glew.h>
 
+#ifndef _IMAGE_LOADER_H_
+#define _IMAGE_LOADER_H_
+
 namespace thundersurge {
 
 	static BYTE* loadImage(const char* filename, GLsizei* width, GLsizei* height) {
@@ -31,3 +34,5 @@ namespace thundersurge {
 		return result;
 	}
 }
+
+#endif

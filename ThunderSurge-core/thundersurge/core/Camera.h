@@ -1,8 +1,9 @@
-#pragma once
-
 #include "math/math.h"
 #include "input/input.h"
 #include "../graphics/window.h"
+
+#ifndef _CAMERA_H_
+#define _CAMERA_H_
 
 namespace thundersurge {
 
@@ -37,3 +38,5 @@ namespace thundersurge {
 		};
 	}
 }
+
+#endif

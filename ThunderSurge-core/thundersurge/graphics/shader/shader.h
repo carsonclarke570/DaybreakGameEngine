@@ -1,5 +1,3 @@
-#pragma once
-
 #include <GL/glew.h>
 #include <iostream>
 #include <vector>
@@ -9,6 +7,9 @@
 #include "../../utils/fileutils.h"
 #include "../renderer/Material.h"
 #include "../../core/Transform.h"
+
+#ifndef _SHADER_H_
+#define _SHADER_H_
 
 namespace thundersurge {
 
@@ -44,3 +45,5 @@ namespace thundersurge {
 		};
 	}
 }
+
+#endif

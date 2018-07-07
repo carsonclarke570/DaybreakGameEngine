@@ -1,16 +1,17 @@
-#pragma once
-
 #include "../../graphics/window.h"
 #include "../math/math.h"
 
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 
+#define MAX_BUTTONS 32
+
+#ifndef _MOUSE_H_
+#define _MOUSE_H_
+
 namespace thundersurge {
 
 	namespace input {
-
-#define MAX_BUTTONS 32
 
 		class Mouse {
 		private:
@@ -40,3 +41,5 @@ namespace thundersurge {
 		};
 	}
 }
+
+#endif
