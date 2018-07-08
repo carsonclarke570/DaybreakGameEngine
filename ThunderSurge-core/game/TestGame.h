@@ -6,8 +6,6 @@
 #include "../thundersurge/graphics/shader/PhongShader.h"
 #include "../thundersurge/graphics/renderer/Mesh.h"
 #include "../thundersurge/graphics/renderer/Texture.h"
-#include "../thundersurge/graphics/buffer/VertexArray.h"
-#include "../thundersurge/graphics/buffer/IndexBuffer.h"
 
 #include "../thundersurge/core/input/input.h"
 
@@ -17,6 +15,8 @@
 
 #include "../thundersurge/components/GameComponent.h"
 #include "../thundersurge/components/MeshRenderer.h"
+
+#include "../thundersurge/utils/Log.h"
 
 namespace thundersurge {
 
@@ -43,6 +43,8 @@ namespace thundersurge {
 			}
 
 			void init() {
+
+				Log::log("FUCK ME");
 
 				root = new GameObject();
 

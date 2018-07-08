@@ -159,13 +159,10 @@
     <ClCompile Include="thundersurge\core\GameObject.cpp" />
     <ClCompile Include="thundersurge\core\math\Quaternion.cpp" />
     <ClCompile Include="thundersurge\core\Transform.cpp" />
-    <ClCompile Include="thundersurge\graphics\buffer\Buffer.cpp" />
-    <ClCompile Include="thundersurge\graphics\buffer\IndexBuffer.cpp" />
-    <ClCompile Include="thundersurge\graphics\buffer\VertexArray.cpp" />
     <ClCompile Include="thundersurge\graphics\renderer\Mesh.cpp" />
     <ClCompile Include="thundersurge\graphics\renderer\Texture.cpp" />
     <ClCompile Include="thundersurge\graphics\shader\PhongShader.cpp" />
-    <ClCompile Include="thundersurge\graphics\shader\Shader.cpp" />
+    <ClCompile Include="thundersurge\graphics\shader\shader.cpp" />
     <ClCompile Include="thundersurge\graphics\window.cpp" />
     <ClCompile Include="thundersurge\core\input\Keyboard.cpp" />
     <ClCompile Include="thundersurge\core\input\mouse.cpp" />
@@ -184,15 +181,12 @@
     <ClInclude Include="thundersurge\core\GameObject.h" />
     <ClInclude Include="thundersurge\core\math\Quaternion.h" />
     <ClInclude Include="thundersurge\core\Transform.h" />
-    <ClInclude Include="thundersurge\graphics\buffer\Buffer.h" />
-    <ClInclude Include="thundersurge\graphics\buffer\VertexArray.h" />
-    <ClInclude Include="thundersurge\graphics\buffer\indexbuffer.h" />
     <ClInclude Include="thundersurge\components\Light.h" />
     <ClInclude Include="thundersurge\graphics\renderer\Material.h" />
     <ClInclude Include="thundersurge\graphics\renderer\Texture.h" />
     <ClInclude Include="thundersurge\graphics\renderer\Mesh.h" />
     <ClInclude Include="thundersurge\graphics\shader\PhongShader.h" />
-    <ClInclude Include="thundersurge\graphics\shader\Shader.h" />
+    <ClInclude Include="thundersurge\graphics\shader\shader.h" />
     <ClInclude Include="thundersurge\graphics\window.h" />
     <ClInclude Include="thundersurge\core\input\Input.h" />
     <ClInclude Include="thundersurge\core\input\keyboard.h" />
@@ -205,6 +199,7 @@
     <ClInclude Include="thundersurge\core\math\vec4.h" />
     <ClInclude Include="thundersurge\utils\FileUtils.h" />
     <ClInclude Include="thundersurge\utils\ImageLoader.h" />
+    <ClInclude Include="thundersurge\utils\Log.h" />
     <ClInclude Include="thundersurge\utils\Timer.h" />
   </ItemGroup>
   <ItemGroup>

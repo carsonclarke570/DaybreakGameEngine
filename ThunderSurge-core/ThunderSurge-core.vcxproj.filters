@@ -33,15 +33,6 @@
     <ClCompile Include="thundersurge\core\CoreEngine.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="thundersurge\graphics\buffer\Buffer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="thundersurge\graphics\buffer\IndexBuffer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="thundersurge\graphics\buffer\VertexArray.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="thundersurge\graphics\window.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -66,13 +57,13 @@
     <ClCompile Include="thundersurge\graphics\renderer\Texture.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="thundersurge\graphics\shader\Shader.cpp">
+    <ClCompile Include="thundersurge\core\GameObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="thundersurge\graphics\shader\PhongShader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="thundersurge\core\GameObject.cpp">
+    <ClCompile Include="thundersurge\graphics\shader\shader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -105,15 +96,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="thundersurge\core\Game.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="thundersurge\graphics\buffer\Buffer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="thundersurge\graphics\buffer\indexbuffer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="thundersurge\graphics\buffer\VertexArray.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="thundersurge\graphics\window.h">
@@ -152,12 +134,6 @@
     <ClInclude Include="thundersurge\graphics\renderer\Material.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="thundersurge\graphics\shader\Shader.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="thundersurge\graphics\shader\PhongShader.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="thundersurge\core\GameObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -168,6 +144,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="thundersurge\components\Light.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="thundersurge\utils\Log.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="thundersurge\graphics\shader\PhongShader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="thundersurge\graphics\shader\shader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
