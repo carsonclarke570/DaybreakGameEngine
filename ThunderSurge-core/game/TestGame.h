@@ -18,6 +18,7 @@
 #include "../thundersurge/components/Camera.h"
 #include "../thundersurge/components/FreeLook.h"
 #include "../thundersurge/components/FreeMove.h"
+#include "../thundersurge/components/Terrain.h"
 
 namespace thundersurge {
 
@@ -37,6 +38,7 @@ namespace thundersurge {
 			GameObject* moon;
 			GameObject* camera;
 			GameObject* sol;
+			GameObject* terrain;
 
 			float elapsed;
 		public:
@@ -60,7 +62,7 @@ namespace thundersurge {
 				camera->addComponent(new FreeLook(0.7f));
 				camera->addComponent(new FreeMove(1.0f));
 				camera->getTransform()->translate(vec3(0, 1, 0));
-				camera->getTransform()->rotate(-90, vec3(1, 0, 0));
+				camera->getTransform()->rotate(90, vec3(1, 0, 0));
 
 				root->addChild(camera);
 
@@ -78,7 +80,7 @@ namespace thundersurge {
 
 				sol = new GameObject();
 				sol->addComponent(new MeshRenderer(mesh, material));
-				
+				sol->getTransform()->translate(vec3(0, 1, 0));
 				sol->getTransform()->setScale(vec3(0.5, 0.5, 0.5));
 
 				root->addChild(sol);
@@ -97,6 +99,10 @@ namespace thundersurge {
 
 				planet->addChild(moon);
 
+				terrain = new GameObject();
+				terrain->addComponent(new Terrain(0, 0, material));
+
+				root->addChild(terrain);
 			}
 
 			void update(float delta) {

@@ -19,7 +19,7 @@ namespace thundersurge {
 
 			mat4 getProjection() {
 				mat4 rot = getTransform()->getRotation().toRotationMatrix();
-				mat4 trans = mat4::translation(getTransform()->getTranslation());
+				mat4 trans = mat4::translation(getTransform()->getTranslation() * vec3(-1, -1, -1));
 
 				return m_projection * (rot * trans);
 			}
