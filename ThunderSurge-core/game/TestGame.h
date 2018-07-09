@@ -49,14 +49,14 @@ namespace thundersurge {
 				shader = new PhongShader();
 				elapsed = 0.0f;
 
-				Mesh mesh = Mesh("C:/Users/birdi/3D Objects/res/models/cube.obj");
+				Mesh mesh = Mesh("C:/Users/birdi/3D Objects/models/cube.obj");
 
 				camera = new Camera(vec3(0, 1, 0));
 				Transform::setCamera(camera);
 
-				Texture texture("C:/Users/birdi/3D Objects/res/textures/cube.jpg");
-				Texture spec("C:/Users/birdi/3D Objects/res/textures/cube_specular.jpg");
-				Material material = Material(texture, spec);
+				Texture texture("C:/Users/birdi/3D Objects/models/crate.jpg");
+				//Texture spec("C:/Users/birdi/3D Objects/res/textures/cube_specular.jpg");
+				Material material = Material(texture);
 
 				DirectionalLight d;
 				d.direction = vec3(-0.2f, -1.0f, -0.3f);
@@ -101,6 +101,7 @@ namespace thundersurge {
 				planet->getTransform()->setTranslation(vec3(sinDelta, 0, cosDelta));
 				moon->getTransform()->setTranslation(vec3(s / 2, 0, c / 2));
 
+				root->getTransform()->setRotation(sinDelta * 180, vec3(0, 0, 1));
 				planet->getTransform()->setRotation(sinDelta * 180, vec3(1, 0, 0));
 				moon->getTransform()->setRotation(sinDelta * 180, vec3(0, 1, 0));
 				//std::cout << root->getTransform()->getScale() << std::endl;

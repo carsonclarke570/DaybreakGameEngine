@@ -13,17 +13,14 @@ namespace thundersurge {
 
 		Camera* Transform::m_camera = new Camera();
 
-		Transform::Transform() {
-			m_trans = math::vec3(0, 0, 0);
-			m_scale = math::vec3(1, 1, 1);
-			m_rotAxis = math::vec3(0, 0, 0);
-			m_rotAngle = 0;
+		Transform::Transform() :
+			m_trans(vec3(0, 0, 0)), m_scale(vec3(1, 1, 1)), m_rot(Quaternion(0, 0, 0, 1)) {
 		}
 
 		math::mat4 Transform::getTransform() {
 			using namespace math;
 			
-			return mat4::translation(m_trans) * (mat4::rotation(m_rotAngle, m_rotAxis) * mat4::scale(m_scale));
+			return mat4::translation(m_trans) * (m_rot.toRotationMatrix() * mat4::scale(m_scale));
 		}
 
 		math::mat4 Transform::getProjectedTransform() {
@@ -33,6 +30,18 @@ namespace thundersurge {
 			transform = mat4::camera(m_camera->getForward(), m_camera->getUp()) * (transform * getTransform());
 
 			return mat4::perspective(m_fov, m_aspect, m_zNear, m_zFar) * transform;
+		}
+
+		void Transform::rotate(const float angle, const math::vec3& axis) {
+			m_rot = (Quaternion(axis, angle) * m_rot).normalize();
+		}
+
+		void Transform::translate(const vec3& trans) {
+			m_trans = m_trans + trans;
+		}
+
+		void Transform::scale(const vec3& scale) {
+			m_scale = m_scale * scale;
 		}
 
 		void Transform::setProjection(float zNear, float zFar, float width, float height, float fov) {

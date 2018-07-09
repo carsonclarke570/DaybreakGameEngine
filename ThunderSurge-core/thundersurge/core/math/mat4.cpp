@@ -89,7 +89,7 @@ namespace thundersurge {
 		}
 
 		mat4 mat4::rotation(const vec3& forward, const vec3& up, const vec3& right) {
-			mat4 result;
+			mat4 result(1.0f);
 			
 			result.m_m[0 + 0 * 4] = right.m_x;
 			result.m_m[1 + 0 * 4] = up.m_x;
