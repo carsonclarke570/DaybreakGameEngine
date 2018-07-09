@@ -154,7 +154,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="game\Main.cpp" />
-    <ClCompile Include="thundersurge\core\Camera.cpp" />
     <ClCompile Include="thundersurge\core\CoreEngine.cpp" />
     <ClCompile Include="thundersurge\core\GameObject.cpp" />
     <ClCompile Include="thundersurge\core\math\Quaternion.cpp" />
@@ -173,10 +172,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="game\TestGame.h" />
+    <ClInclude Include="thundersurge\components\Camera.h" />
+    <ClInclude Include="thundersurge\components\FreeLook.h" />
+    <ClInclude Include="thundersurge\components\FreeMove.h" />
     <ClInclude Include="thundersurge\components\GameComponent.h" />
     <ClInclude Include="thundersurge\components\MeshRenderer.h" />
     <ClInclude Include="thundersurge\components\Terrain.h" />
-    <ClInclude Include="thundersurge\core\Camera.h" />
     <ClInclude Include="thundersurge\core\CoreEngine.h" />
     <ClInclude Include="thundersurge\core\Game.h" />
     <ClInclude Include="thundersurge\core\GameObject.h" />

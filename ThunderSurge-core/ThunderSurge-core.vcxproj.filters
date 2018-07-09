@@ -45,9 +45,6 @@
     <ClCompile Include="thundersurge\core\math\Quaternion.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="thundersurge\core\Camera.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="thundersurge\core\input\Keyboard.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -110,9 +107,6 @@
     <ClInclude Include="thundersurge\utils\FileUtils.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="thundersurge\core\Camera.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="thundersurge\core\math\Quaternion.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -156,6 +150,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="thundersurge\utils\Log.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="thundersurge\components\Camera.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="thundersurge\components\FreeLook.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="thundersurge\components\FreeMove.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

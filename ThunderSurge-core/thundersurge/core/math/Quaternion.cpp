@@ -56,6 +56,12 @@ namespace thundersurge {
 			return mul(other);
 		}
 
+		vec3 Quaternion::rotate(const vec3& toRot) {
+			Quaternion conj = conjugate();
+			Quaternion w = (*this * toRot) * conj;
+			return vec3(w.m_x, w.m_y, w.m_z);
+		}
+
 		Quaternion operator*(Quaternion left, const Quaternion& right) {
 			return left.mul(right);
 		}

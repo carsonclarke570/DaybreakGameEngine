@@ -28,7 +28,7 @@ namespace thundersurge {
 		void PhongShader::update(Transform* transform, Material& material) {
 			material.bind();
 
-			setUniformMat4("projection", transform->getProjectedTransform());
+			//setUniformMat4("projection", transform->getProjectedTransform());
 			setUniformMat4("model", transform->getTransform());
 			
 			setUniform1i("material.diffuse", 0);
@@ -37,7 +37,7 @@ namespace thundersurge {
 
 			setUniformLight("dirLight", m_directionalLight);
 
-			setUniform3f("viewPos", Transform::getCamera()->getPosition());
+			//setUniform3f("viewPos", Transform::getCamera()->getPosition());
 		}
 	}
 }

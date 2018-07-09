@@ -29,6 +29,11 @@ namespace thundersurge {
 
 			Quaternion& operator*=(const Quaternion& other);
 
+			vec3 rotate(const vec3& toRot);
+			inline vec3 getRight() { return rotate(vec3(1, 0, 0)); }
+			inline vec3 getLeft() { return rotate(vec3(-1, 0, 0)); }
+			inline vec3 getForward() { return rotate(vec3(0, 0, 1)); }
+
 			inline float getX() { return m_x; }
 			inline float getY() { return m_y; }
 			inline float getZ() { return m_z; }
