@@ -32,6 +32,8 @@ namespace thundersurge {
 			Camera* camera;
 
 			GameObject* root;
+			GameObject* planet;
+			GameObject* moon;
 
 			float elapsed;
 		public:
@@ -44,10 +46,7 @@ namespace thundersurge {
 			void init() {
 
 				root = new GameObject();
-
 				shader = new PhongShader();
-				//shader->enable();
-
 				elapsed = 0.0f;
 
 				Mesh mesh = Mesh("C:/Users/birdi/3D Objects/res/models/cube.obj");
@@ -68,7 +67,22 @@ namespace thundersurge {
 				shader->setDirectionalLight(d);
 
 				root->addComponent(new MeshRenderer(mesh, material));
-				root->getTransform()->setScale(vec3(0.5, 0.5, 0.6));
+				
+				root->getTransform()->setScale(vec3(0.5, 0.5, 0.5));
+
+				planet = new GameObject();
+				planet->addComponent(new MeshRenderer(mesh, material));
+
+				planet->getTransform()->setScale(vec3(0.2, 0.2, 0.2));
+
+				root->addChild(planet);
+
+				moon = new GameObject();
+				moon->addComponent(new MeshRenderer(mesh, material));
+
+				moon->getTransform()->setScale(vec3(0.1, 0.1, 0.1));
+
+				planet->addChild(moon);
 			}
 
 			void update(float delta) {
@@ -76,8 +90,19 @@ namespace thundersurge {
 				camera->update(delta);
 
 				elapsed += delta;
+				
+				float e2 = 2 * elapsed;
 
 				float sinDelta = sin(elapsed);
+				float cosDelta = cos(elapsed);
+
+				float s = sin(e2);
+				float c = cos(e2);
+				planet->getTransform()->setTranslation(vec3(sinDelta, 0, cosDelta));
+				moon->getTransform()->setTranslation(vec3(s / 2, 0, c / 2));
+
+				planet->getTransform()->setRotation(sinDelta * 180, vec3(1, 0, 0));
+				moon->getTransform()->setRotation(sinDelta * 180, vec3(0, 1, 0));
 				//std::cout << root->getTransform()->getScale() << std::endl;
 				//transform->setScale(vec3(sinDelta, sinDelta, sinDelta));
 				//transform->setRotation(sinDelta * 180, vec3(0, 1, 0));

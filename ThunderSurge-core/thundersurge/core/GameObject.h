@@ -1,7 +1,6 @@
 #include <vector>
 
 #include "../core/CoreEngine.h"
-#include "../core/Transform.h"
 #include "../graphics/shader/Shader.h"
 
 #ifndef _GAME_OBJECT_H_
@@ -17,8 +16,8 @@ namespace thundersurge {
 		private:
 			std::vector<GameObject*> m_children;
 			std::vector<GameComponent*> m_components;
-			Transform* m_transform;
-			CoreEngine* m_engine;
+			Transform* m_localTransform;
+			Transform* m_parentTransform;
 
 			void update(float delta);
 			void render(Shader* shader);
@@ -30,8 +29,8 @@ namespace thundersurge {
 
 			void updateAll(float delta);
 			void renderAll(Shader* shader);
-
-			Transform* getTransform() const { return m_transform; }
+		
+			inline Transform* getTransform() { return m_localTransform; }
 		};
 	}
 }

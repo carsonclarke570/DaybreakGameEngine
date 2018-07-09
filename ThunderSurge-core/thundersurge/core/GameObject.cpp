@@ -8,12 +8,12 @@ namespace thundersurge {
 		GameObject::GameObject() {
 			m_children = std::vector<GameObject*>();
 			m_components = std::vector<GameComponent*>();
-			m_transform = new Transform();
-			std::cout << m_transform << std::endl;
+			m_localTransform = new Transform();
 		}
 
 		GameObject& GameObject::addChild(GameObject* child) {
 			m_children.push_back(child);
+			child->m_parentTransform = m_localTransform;
 			return *this;
 		}
 		GameObject& GameObject::addComponent(GameComponent* component) {
@@ -23,10 +23,14 @@ namespace thundersurge {
 		}
 
 		void GameObject::updateAll(float delta) {
+			if (m_parentTransform != NULL) {
+				m_localTransform->setTranslation(m_localTransform->getTranslation() + m_parentTransform->getTranslation());
+			}
+			
 			update(delta);
 
 			for (int i = 0; i < m_children.size(); i++) {
-				m_children[i]->update(delta);
+				m_children[i]->updateAll(delta);
 			}
 		}
 
@@ -34,7 +38,7 @@ namespace thundersurge {
 			render(shader);
 			
 			for (int i = 0; i < m_children.size(); i++) {
-				m_children[i]->render(shader);
+				m_children[i]->renderAll(shader); /// parent * m_relative
 			}
 		}
 

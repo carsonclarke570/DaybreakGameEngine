@@ -17,6 +17,7 @@ namespace thundersurge {
 			virtual void render(Shader* shader) = 0;
 
 			inline void setParent(GameObject* parent) { m_parent = parent; }
+
 			inline Transform* getTransform() { return m_parent->getTransform(); }
 		};
 	}
