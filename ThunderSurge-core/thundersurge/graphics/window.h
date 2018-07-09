@@ -3,6 +3,7 @@
 #include <GLFW/glfw3.h>
 
 #include "../core/input/input.h"
+#include "../utils/Log.h"
 
 #ifndef _WINDOW_H_
 #define _WINDOW_H_

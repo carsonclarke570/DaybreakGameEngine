@@ -21,6 +21,7 @@ namespace thundersurge {
 			bool m_mouselocked;
 		public:
 			Camera();
+			Camera(const vec3& pos);
 			Camera(vec3 pos, vec3 forward, vec3 up);
 
 			void update(float delta);

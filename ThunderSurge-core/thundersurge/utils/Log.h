@@ -10,16 +10,31 @@ namespace thundersurge {
 
 	class Log {
 	private:
-		static bool enabled;
+		inline static char* getTime() {
+			time_t now = system_clock::to_time_t(system_clock::now());
+			char* time = ctime(&now);
+			time[24] = 0;
+			return time;
+		}
 	public:
 		static void log(const char* message) {
-			time_t now = system_clock::to_time_t(system_clock::now());
-			if (enabled)
-				printf("[%s] %s", ctime(&now), message);
+			if (true) {
+				printf("[%s] %s\n", getTime(), message);
+			}
+		}
+
+		static void logOk(const char* message) {
+			if (true) {
+				printf("[%s]\tOK:  %s\n", getTime(), message);
+			}
+		}
+
+		static void logErr(const char* message) {
+			if (true) {
+				printf("[%s] ERROR: %s\n", getTime(), message);
+			}
 		}
 	};
-
-	bool Log::enabled = true;
 }
 
 #endif

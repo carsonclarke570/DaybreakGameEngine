@@ -33,6 +33,8 @@ namespace thundersurge {
 			inline void setScale(const math::vec3& scale) { m_scale = scale; }
 			inline void setRotation(const float angle, const math::vec3& axis) { m_rotAngle = angle; m_rotAxis = axis; }
 
+			inline vec3& getScale() { return m_scale; }
+
 			static inline void setCamera(Camera* camera) { m_camera = camera; }
 			static inline Camera* getCamera() { return m_camera; }
 		};

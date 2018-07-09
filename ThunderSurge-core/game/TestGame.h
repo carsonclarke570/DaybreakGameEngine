@@ -16,7 +16,6 @@
 #include "../thundersurge/components/GameComponent.h"
 #include "../thundersurge/components/MeshRenderer.h"
 
-#include "../thundersurge/utils/Log.h"
 
 namespace thundersurge {
 
@@ -44,8 +43,6 @@ namespace thundersurge {
 
 			void init() {
 
-				Log::log("FUCK ME");
-
 				root = new GameObject();
 
 				shader = new PhongShader();
@@ -55,7 +52,7 @@ namespace thundersurge {
 
 				Mesh mesh = Mesh("C:/Users/birdi/3D Objects/res/models/cube.obj");
 
-				camera = new Camera();
+				camera = new Camera(vec3(0, 1, 0));
 				Transform::setCamera(camera);
 
 				Texture texture("C:/Users/birdi/3D Objects/res/textures/cube.jpg");
@@ -71,8 +68,7 @@ namespace thundersurge {
 				shader->setDirectionalLight(d);
 
 				root->addComponent(new MeshRenderer(mesh, material));
-
-				
+				root->getTransform()->setScale(vec3(0.5, 0.5, 0.6));
 			}
 
 			void update(float delta) {
@@ -82,6 +78,7 @@ namespace thundersurge {
 				elapsed += delta;
 
 				float sinDelta = sin(elapsed);
+				//std::cout << root->getTransform()->getScale() << std::endl;
 				//transform->setScale(vec3(sinDelta, sinDelta, sinDelta));
 				//transform->setRotation(sinDelta * 180, vec3(0, 1, 0));
 				root->updateAll(delta);

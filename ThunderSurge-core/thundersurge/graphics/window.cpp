@@ -26,16 +26,20 @@ namespace thundersurge {
 		}
 
 		bool Window::init() {
+			Log::log("Initializing window...");
 			if (!glfwInit()) {
-				std::cout << "Failed to initialize GLFW!" << std::endl;
+				Log::logErr("Failed to initialize GLFW");
 				return false;
 			}
+			Log::logOk("Initialized GLFW");
 
 			m_window = glfwCreateWindow(m_width, m_height, m_title, NULL, NULL);
 			if (!m_window) {
-				std::cout << "Failed to create GLFW window" << std::endl;
+				Log::logErr("Failed to create GLFW window");
 				return false;
 			}
+			Log::logOk("Created GLFW window");
+
 			glfwMakeContextCurrent(m_window);
 			glfwSetWindowSizeCallback(m_window, window_resize);
 			glfwSetKeyCallback(m_window, Keyboard::key_callback);
@@ -44,9 +48,10 @@ namespace thundersurge {
 			glfwSwapInterval(0.0);
 
 			if (glewInit() != GLEW_OK) {
-				std::cout << "Failed to initialize GLEW!" << std::endl;
+				Log::logErr("Failed to initialize GLEW!");
 				return false;
 			}
+			Log::logOk("Initialized GLEW");
 			std::cout << "OpenGL " << glGetString(GL_VERSION) << std::endl;
 
 			glFrontFace(GL_CCW);

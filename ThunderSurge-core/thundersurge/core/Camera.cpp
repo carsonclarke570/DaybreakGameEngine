@@ -14,6 +14,14 @@ namespace thundersurge {
 			m_mouselocked = false;
 		}
 
+		Camera::Camera(const vec3& pos) {
+			m_pos = pos;
+			m_forward = math::vec3(0, 0, 1);
+			m_up = math::vec3(0, 1, 0);
+
+			m_mouselocked = false;
+		}
+
 		Camera::Camera(vec3 pos, vec3 forward, vec3 up) {
 			m_pos = pos;
 			m_forward = forward.normalize();

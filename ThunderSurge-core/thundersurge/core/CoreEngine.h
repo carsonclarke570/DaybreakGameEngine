@@ -7,6 +7,7 @@
 #include "../graphics/Window.h"
 #include "../utils/Timer.h"
 #include "../core/Transform.h"
+#include "../utils/Log.h"
 
 #ifndef _CORE_ENGINE_H_
 #define _CORE_ENGINE_H_

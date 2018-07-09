@@ -175,6 +175,7 @@
     <ClInclude Include="game\TestGame.h" />
     <ClInclude Include="thundersurge\components\GameComponent.h" />
     <ClInclude Include="thundersurge\components\MeshRenderer.h" />
+    <ClInclude Include="thundersurge\components\Terrain.h" />
     <ClInclude Include="thundersurge\core\Camera.h" />
     <ClInclude Include="thundersurge\core\CoreEngine.h" />
     <ClInclude Include="thundersurge\core\Game.h" />
@@ -189,7 +190,7 @@
     <ClInclude Include="thundersurge\graphics\shader\shader.h" />
     <ClInclude Include="thundersurge\graphics\window.h" />
     <ClInclude Include="thundersurge\core\input\Input.h" />
-    <ClInclude Include="thundersurge\core\input\keyboard.h" />
+    <ClInclude Include="thundersurge\core\input\Keyboard.h" />
     <ClInclude Include="thundersurge\core\input\mouse.h" />
     <ClInclude Include="thundersurge\core\math\mat4.h" />
     <ClInclude Include="thundersurge\core\math\math.h" />

@@ -53,7 +53,9 @@ namespace thundersurge {
 				frames++;
 				t += delta;
 				if (t >= 1.0f) {
-					printf("FPS: %d\n", frames);
+					char message[14];
+					sprintf(message, "FPS: %d", frames);
+					Log::log(message);
 					t = 0;
 					frames = 0;
 				}

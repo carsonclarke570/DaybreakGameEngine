@@ -25,7 +25,7 @@ namespace thundersurge {
 
 			void render(Shader* shader) {
 				shader->enable();
-				shader->update(*getTransform(), m_material);
+				shader->update(getTransform(), m_material);
 				m_mesh.render();
 			}
 		};

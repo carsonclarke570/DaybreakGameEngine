@@ -11,13 +11,13 @@ namespace thundersurge {
 
 		class GameComponent {
 		private:
-			GameObject m_parent;
+			GameObject* m_parent;
 		public:
 			virtual void update(float delta) = 0;
 			virtual void render(Shader* shader) = 0;
 
-			inline void setParent(const GameObject& parent) { m_parent = parent; }
-			inline Transform* getTransform() { return m_parent.getTransform(); }
+			inline void setParent(GameObject* parent) { m_parent = parent; }
+			inline Transform* getTransform() { return m_parent->getTransform(); }
 		};
 	}
 }

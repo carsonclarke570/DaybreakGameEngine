@@ -25,11 +25,11 @@ namespace thundersurge {
 			setUniform3f((str + ".direction").c_str(), light.direction);
 		}
 
-		void PhongShader::update(Transform& transform, Material& material) {
+		void PhongShader::update(Transform* transform, Material& material) {
 			material.bind();
 
-			setUniformMat4("projection", transform.getProjectedTransform());
-			setUniformMat4("model", transform.getTransform());
+			setUniformMat4("projection", transform->getProjectedTransform());
+			setUniformMat4("model", transform->getTransform());
 			
 			setUniform1i("material.diffuse", 0);
 			setUniform1i("material.specular", 1);

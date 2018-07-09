@@ -68,9 +68,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="thundersurge\core\input\keyboard.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="thundersurge\core\input\mouse.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -146,13 +143,19 @@
     <ClInclude Include="thundersurge\components\Light.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="thundersurge\utils\Log.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="thundersurge\graphics\shader\PhongShader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="thundersurge\graphics\shader\shader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="thundersurge\core\input\Keyboard.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="thundersurge\components\Terrain.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="thundersurge\utils\Log.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

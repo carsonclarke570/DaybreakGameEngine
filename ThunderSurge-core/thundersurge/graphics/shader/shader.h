@@ -31,7 +31,7 @@ namespace thundersurge {
 			Shader(const char* ver, const char* frag);
 			~Shader();
 
-			virtual void update(Transform& transform, Material& material) = 0;
+			virtual void update(Transform* transform, Material& material) = 0;
 
 			void setUniform1f(const GLchar* name, float f);
 			void setUniform1i(const GLchar* name, int i);

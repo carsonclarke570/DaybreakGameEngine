@@ -9,6 +9,7 @@ namespace thundersurge {
 			m_children = std::vector<GameObject*>();
 			m_components = std::vector<GameComponent*>();
 			m_transform = new Transform();
+			std::cout << m_transform << std::endl;
 		}
 
 		GameObject& GameObject::addChild(GameObject* child) {
@@ -17,6 +18,7 @@ namespace thundersurge {
 		}
 		GameObject& GameObject::addComponent(GameComponent* component) {
 			m_components.push_back(component);
+			component->setParent(this);
 			return *this;
 		}
 
