@@ -1,26 +1,26 @@
 #pragma once
 
-#include "../aurora/core/math/math.h"
-			
-#include "../aurora/graphics/shader/shader.h"
-#include "../aurora/graphics/shader/PhongShader.h"
-#include "../aurora/graphics/renderer/Mesh.h"
-#include "../aurora/graphics/renderer/Texture.h"
-			 
-#include "../aurora/core/input/input.h"
-			
-#include "../aurora/core/Game.h"
-#include "../aurora/core/Transform.h"
-#include "../aurora/core/GameObject.h"
-		
-#include "../aurora/components/GameComponent.h"
-#include "../aurora/components/MeshRenderer.h"
-#include "../aurora/components/Camera.h"
-#include "../aurora/components/FreeLook.h"
-#include "../aurora/components/FreeMove.h"
-#include "../aurora/components/Terrain.h"
+#include "../daybreak/core/math/math.h"
 
-namespace aurora {
+#include "../daybreak/graphics/shader/shader.h"
+#include "../daybreak/graphics/shader/PhongShader.h"
+#include "../daybreak/graphics/renderer/Mesh.h"
+#include "../daybreak/graphics/renderer/Texture.h"
+			
+#include "../daybreak/core/input/input.h"
+			
+#include "../daybreak/core/Game.h"
+#include "../daybreak/core/Transform.h"
+#include "../daybreak/core/GameObject.h"
+			
+#include "../daybreak/components/GameComponent.h"
+#include "../daybreak/components/MeshRenderer.h"
+#include "../daybreak/components/Camera.h"
+#include "../daybreak/components/FreeLook.h"
+#include "../daybreak/components/FreeMove.h"
+#include "../daybreak/components/Terrain.h"
+
+namespace daybreak {
 
 	namespace core {
 

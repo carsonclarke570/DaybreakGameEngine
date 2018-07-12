@@ -1,11 +1,11 @@
-#include "../aurora/core/CoreEngine.h"
+#include "../daybreak/core/CoreEngine.h"
 #include "TestGame.h"
 
-#include "../aurora/utils/fileutils.h"
+#include "../daybreak/utils/fileutils.h"
 
 int main()
 {
-	using namespace aurora;
+	using namespace daybreak;
 	using namespace core;
 
 	Game* g = new TestGame();
