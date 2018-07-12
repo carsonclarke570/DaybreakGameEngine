@@ -15,162 +15,162 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="thundersurge\core\input\mouse.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="thundersurge\core\math\mat4.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="thundersurge\core\math\vec2.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="thundersurge\core\math\vec3.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="thundersurge\core\math\vec4.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="thundersurge\core\CoreEngine.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="thundersurge\graphics\window.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="thundersurge\core\Transform.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="game\Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="thundersurge\core\math\Quaternion.cpp">
+    <ClCompile Include="aurora\core\input\Keyboard.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="thundersurge\core\input\Keyboard.cpp">
+    <ClCompile Include="aurora\core\input\mouse.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="thundersurge\graphics\renderer\Mesh.cpp">
+    <ClCompile Include="aurora\core\math\mat4.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="thundersurge\graphics\renderer\Texture.cpp">
+    <ClCompile Include="aurora\core\math\Quaternion.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="thundersurge\core\GameObject.cpp">
+    <ClCompile Include="aurora\core\math\vec2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="thundersurge\graphics\shader\PhongShader.cpp">
+    <ClCompile Include="aurora\core\math\vec3.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="thundersurge\graphics\shader\shader.cpp">
+    <ClCompile Include="aurora\core\math\vec4.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="aurora\core\CoreEngine.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="aurora\core\GameObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="aurora\core\Transform.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="aurora\graphics\renderer\Mesh.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="aurora\graphics\renderer\Texture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="aurora\graphics\shader\PhongShader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="aurora\graphics\shader\shader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="aurora\graphics\window.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="thundersurge\core\input\mouse.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="thundersurge\core\math\mat4.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="thundersurge\core\math\math.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="thundersurge\core\math\util.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="thundersurge\core\math\vec2.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="thundersurge\core\math\vec3.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="thundersurge\core\math\vec4.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="thundersurge\core\CoreEngine.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="thundersurge\core\Game.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="thundersurge\graphics\window.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="thundersurge\utils\Timer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="game\TestGame.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="thundersurge\core\Transform.h">
+    <ClInclude Include="aurora\components\Camera.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="thundersurge\utils\FileUtils.h">
+    <ClInclude Include="aurora\components\FreeLook.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="thundersurge\core\math\Quaternion.h">
+    <ClInclude Include="aurora\components\FreeMove.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="thundersurge\utils\ImageLoader.h">
+    <ClInclude Include="aurora\components\GameComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="thundersurge\core\input\Input.h">
+    <ClInclude Include="aurora\components\Light.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="thundersurge\graphics\renderer\Mesh.h">
+    <ClInclude Include="aurora\components\MeshRenderer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="thundersurge\graphics\renderer\Texture.h">
+    <ClInclude Include="aurora\components\Terrain.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="thundersurge\graphics\renderer\Material.h">
+    <ClInclude Include="aurora\core\input\Input.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="thundersurge\core\GameObject.h">
+    <ClInclude Include="aurora\core\input\Keyboard.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="thundersurge\components\GameComponent.h">
+    <ClInclude Include="aurora\core\input\mouse.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="thundersurge\components\MeshRenderer.h">
+    <ClInclude Include="aurora\core\math\mat4.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="thundersurge\components\Light.h">
+    <ClInclude Include="aurora\core\math\math.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="thundersurge\graphics\shader\PhongShader.h">
+    <ClInclude Include="aurora\core\math\Quaternion.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="thundersurge\graphics\shader\shader.h">
+    <ClInclude Include="aurora\core\math\util.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="thundersurge\core\input\Keyboard.h">
+    <ClInclude Include="aurora\core\math\vec2.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="thundersurge\components\Terrain.h">
+    <ClInclude Include="aurora\core\math\vec3.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="thundersurge\utils\Log.h">
+    <ClInclude Include="aurora\core\math\vec4.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="thundersurge\components\Camera.h">
+    <ClInclude Include="aurora\core\CoreEngine.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="thundersurge\components\FreeLook.h">
+    <ClInclude Include="aurora\core\Game.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="thundersurge\components\FreeMove.h">
+    <ClInclude Include="aurora\core\GameObject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="aurora\core\Transform.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="aurora\graphics\renderer\Material.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="aurora\graphics\renderer\Mesh.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="aurora\graphics\renderer\Texture.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="aurora\graphics\shader\PhongShader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="aurora\graphics\shader\shader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="aurora\graphics\window.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="aurora\utils\FileUtils.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="aurora\utils\ImageLoader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="aurora\utils\Log.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="aurora\utils\Timer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="thundersurge\graphics\shader\shaders\phong.frag" />
-    <None Include="thundersurge\graphics\shader\shaders\phong.vert" />
+    <None Include="aurora\graphics\shader\shaders\phong.frag" />
+    <None Include="aurora\graphics\shader\shaders\phong.vert" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="TO-DO.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="thundersurge\res\defaults\no_spec_map.jpg">
+    <Image Include="aurora\res\defaults\no_spec_map.jpg">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

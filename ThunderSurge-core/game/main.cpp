@@ -1,11 +1,11 @@
-#include "../thundersurge/core/CoreEngine.h"
+#include "../aurora/core/CoreEngine.h"
 #include "TestGame.h"
 
-#include "../thundersurge/utils/fileutils.h"
+#include "../aurora/utils/fileutils.h"
 
 int main()
 {
-	using namespace thundersurge;
+	using namespace aurora;
 	using namespace core;
 
 	Game* g = new TestGame();

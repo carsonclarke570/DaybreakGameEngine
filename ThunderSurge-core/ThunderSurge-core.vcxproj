@@ -154,65 +154,65 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="game\Main.cpp" />
-    <ClCompile Include="thundersurge\core\CoreEngine.cpp" />
-    <ClCompile Include="thundersurge\core\GameObject.cpp" />
-    <ClCompile Include="thundersurge\core\math\Quaternion.cpp" />
-    <ClCompile Include="thundersurge\core\Transform.cpp" />
-    <ClCompile Include="thundersurge\graphics\renderer\Mesh.cpp" />
-    <ClCompile Include="thundersurge\graphics\renderer\Texture.cpp" />
-    <ClCompile Include="thundersurge\graphics\shader\PhongShader.cpp" />
-    <ClCompile Include="thundersurge\graphics\shader\shader.cpp" />
-    <ClCompile Include="thundersurge\graphics\window.cpp" />
-    <ClCompile Include="thundersurge\core\input\Keyboard.cpp" />
-    <ClCompile Include="thundersurge\core\input\mouse.cpp" />
-    <ClCompile Include="thundersurge\core\math\mat4.cpp" />
-    <ClCompile Include="thundersurge\core\math\vec2.cpp" />
-    <ClCompile Include="thundersurge\core\math\vec3.cpp" />
-    <ClCompile Include="thundersurge\core\math\vec4.cpp" />
+    <ClCompile Include="aurora\core\CoreEngine.cpp" />
+    <ClCompile Include="aurora\core\GameObject.cpp" />
+    <ClCompile Include="aurora\core\math\Quaternion.cpp" />
+    <ClCompile Include="aurora\core\Transform.cpp" />
+    <ClCompile Include="aurora\graphics\renderer\Mesh.cpp" />
+    <ClCompile Include="aurora\graphics\renderer\Texture.cpp" />
+    <ClCompile Include="aurora\graphics\shader\PhongShader.cpp" />
+    <ClCompile Include="aurora\graphics\shader\shader.cpp" />
+    <ClCompile Include="aurora\graphics\window.cpp" />
+    <ClCompile Include="aurora\core\input\Keyboard.cpp" />
+    <ClCompile Include="aurora\core\input\mouse.cpp" />
+    <ClCompile Include="aurora\core\math\mat4.cpp" />
+    <ClCompile Include="aurora\core\math\vec2.cpp" />
+    <ClCompile Include="aurora\core\math\vec3.cpp" />
+    <ClCompile Include="aurora\core\math\vec4.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="game\TestGame.h" />
-    <ClInclude Include="thundersurge\components\Camera.h" />
-    <ClInclude Include="thundersurge\components\FreeLook.h" />
-    <ClInclude Include="thundersurge\components\FreeMove.h" />
-    <ClInclude Include="thundersurge\components\GameComponent.h" />
-    <ClInclude Include="thundersurge\components\MeshRenderer.h" />
-    <ClInclude Include="thundersurge\components\Terrain.h" />
-    <ClInclude Include="thundersurge\core\CoreEngine.h" />
-    <ClInclude Include="thundersurge\core\Game.h" />
-    <ClInclude Include="thundersurge\core\GameObject.h" />
-    <ClInclude Include="thundersurge\core\math\Quaternion.h" />
-    <ClInclude Include="thundersurge\core\Transform.h" />
-    <ClInclude Include="thundersurge\components\Light.h" />
-    <ClInclude Include="thundersurge\graphics\renderer\Material.h" />
-    <ClInclude Include="thundersurge\graphics\renderer\Texture.h" />
-    <ClInclude Include="thundersurge\graphics\renderer\Mesh.h" />
-    <ClInclude Include="thundersurge\graphics\shader\PhongShader.h" />
-    <ClInclude Include="thundersurge\graphics\shader\shader.h" />
-    <ClInclude Include="thundersurge\graphics\window.h" />
-    <ClInclude Include="thundersurge\core\input\Input.h" />
-    <ClInclude Include="thundersurge\core\input\Keyboard.h" />
-    <ClInclude Include="thundersurge\core\input\mouse.h" />
-    <ClInclude Include="thundersurge\core\math\mat4.h" />
-    <ClInclude Include="thundersurge\core\math\math.h" />
-    <ClInclude Include="thundersurge\core\math\util.h" />
-    <ClInclude Include="thundersurge\core\math\vec2.h" />
-    <ClInclude Include="thundersurge\core\math\vec3.h" />
-    <ClInclude Include="thundersurge\core\math\vec4.h" />
-    <ClInclude Include="thundersurge\utils\FileUtils.h" />
-    <ClInclude Include="thundersurge\utils\ImageLoader.h" />
-    <ClInclude Include="thundersurge\utils\Log.h" />
-    <ClInclude Include="thundersurge\utils\Timer.h" />
+    <ClInclude Include="aurora\components\Camera.h" />
+    <ClInclude Include="aurora\components\FreeLook.h" />
+    <ClInclude Include="aurora\components\FreeMove.h" />
+    <ClInclude Include="aurora\components\GameComponent.h" />
+    <ClInclude Include="aurora\components\MeshRenderer.h" />
+    <ClInclude Include="aurora\components\Terrain.h" />
+    <ClInclude Include="aurora\core\CoreEngine.h" />
+    <ClInclude Include="aurora\core\Game.h" />
+    <ClInclude Include="aurora\core\GameObject.h" />
+    <ClInclude Include="aurora\core\math\Quaternion.h" />
+    <ClInclude Include="aurora\core\Transform.h" />
+    <ClInclude Include="aurora\components\Light.h" />
+    <ClInclude Include="aurora\graphics\renderer\Material.h" />
+    <ClInclude Include="aurora\graphics\renderer\Texture.h" />
+    <ClInclude Include="aurora\graphics\renderer\Mesh.h" />
+    <ClInclude Include="aurora\graphics\shader\PhongShader.h" />
+    <ClInclude Include="aurora\graphics\shader\shader.h" />
+    <ClInclude Include="aurora\graphics\window.h" />
+    <ClInclude Include="aurora\core\input\Input.h" />
+    <ClInclude Include="aurora\core\input\Keyboard.h" />
+    <ClInclude Include="aurora\core\input\mouse.h" />
+    <ClInclude Include="aurora\core\math\mat4.h" />
+    <ClInclude Include="aurora\core\math\math.h" />
+    <ClInclude Include="aurora\core\math\util.h" />
+    <ClInclude Include="aurora\core\math\vec2.h" />
+    <ClInclude Include="aurora\core\math\vec3.h" />
+    <ClInclude Include="aurora\core\math\vec4.h" />
+    <ClInclude Include="aurora\utils\FileUtils.h" />
+    <ClInclude Include="aurora\utils\ImageLoader.h" />
+    <ClInclude Include="aurora\utils\Log.h" />
+    <ClInclude Include="aurora\utils\Timer.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="thundersurge\graphics\shader\shaders\phong.frag" />
-    <None Include="thundersurge\graphics\shader\shaders\phong.vert" />
+    <None Include="aurora\graphics\shader\shaders\phong.frag" />
+    <None Include="aurora\graphics\shader\shaders\phong.vert" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="TO-DO.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="thundersurge\res\defaults\no_spec_map.jpg" />
+    <Image Include="aurora\res\defaults\no_spec_map.jpg" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
