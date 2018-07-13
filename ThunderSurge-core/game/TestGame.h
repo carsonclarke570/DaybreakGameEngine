@@ -12,6 +12,7 @@
 #include "../daybreak/core/Game.h"
 #include "../daybreak/core/Transform.h"
 #include "../daybreak/core/GameObject.h"
+#include "../daybreak/core/noise/Noise.h"
 			
 #include "../daybreak/components/GameComponent.h"
 #include "../daybreak/components/MeshRenderer.h"
@@ -49,6 +50,18 @@ namespace daybreak {
 			}
 
 			void init() {
+
+				Noise::seed(time(NULL));
+				float x = 0, y = 0;
+
+				for (int r = 0; r < 10; r++) {
+					for (int c = 0; c < 10; c++) {
+						x += 0.01;
+						std::cout << Noise::perlin(x, y) << " ";
+					}
+					std::cout << std::endl;
+					y += 0.01;
+				}
 
 				root = new GameObject();
 				shader = new PhongShader();
@@ -124,8 +137,6 @@ namespace daybreak {
 				//transform->setScale(vec3(sinDelta, sinDelta, sinDelta));
 				//transform->setRotation(sinDelta * 180, vec3(0, 1, 0));
 				root->updateAll(delta);
-
-				std::cout << camera->getTransform()->getRotation().getRight() << std::endl;
 			}
 
 			void render() {

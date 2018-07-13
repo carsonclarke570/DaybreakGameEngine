@@ -63,6 +63,12 @@
     <ClCompile Include="daybreak\graphics\window.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="daybreak\core\noise\Noise.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="daybreak\core\noise\FastNoise.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="game\TestGame.h">
@@ -159,6 +165,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="daybreak\utils\Timer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="daybreak\core\noise\Noise.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="daybreak\core\noise\FastNoise.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

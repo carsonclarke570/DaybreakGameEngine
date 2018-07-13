@@ -21,6 +21,7 @@ namespace daybreak {
 			float length();
 			vec2& normalize();
 
+
 			friend vec2 operator+(vec2 left, const vec2& right);
 			friend vec2 operator-(vec2 left, const vec2& right);
 			friend vec2 operator*(vec2 left, const vec2& right);

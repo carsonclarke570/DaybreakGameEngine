@@ -35,8 +35,6 @@ namespace daybreak {
 			void update(float delta) {
 				float movamt = m_speed * delta;
 
-				//std::cout << getTransform()->getForward() << std::endl;
-
 				if (Keyboard::isKeyPressed(m_forward) || Keyboard::isKeyDown(m_forward))
 					move(getTransform()->getRotation().getForward(), movamt);
 				if (Keyboard::isKeyPressed(m_back) || Keyboard::isKeyDown(m_back))

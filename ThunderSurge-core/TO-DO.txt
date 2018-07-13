@@ -1,1 +1,4 @@
 -Finish lighting
+-Condense math library
+-Replace dependency on FastNoise
+-Replace dependency on tinyobjloader

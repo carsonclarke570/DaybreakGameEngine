@@ -154,6 +154,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="daybreak\core\noise\FastNoise.cpp" />
+    <ClCompile Include="daybreak\core\noise\Noise.cpp" />
     <ClCompile Include="game\Main.cpp" />
     <ClCompile Include="daybreak\core\CoreEngine.cpp" />
     <ClCompile Include="daybreak\core\GameObject.cpp" />
@@ -172,6 +174,8 @@
     <ClCompile Include="daybreak\core\math\vec4.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="daybreak\core\noise\FastNoise.h" />
+    <ClInclude Include="daybreak\core\noise\Noise.h" />
     <ClInclude Include="game\TestGame.h" />
     <ClInclude Include="daybreak\components\Camera.h" />
     <ClInclude Include="daybreak\components\FreeLook.h" />

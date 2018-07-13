@@ -26,6 +26,12 @@ namespace daybreak {
 				m_mouseLocked = false;
 			}
 
+			FreeLook(float sensitivity, int unlockKey) {
+				m_sensitivity = sensitivity;
+				m_unlockKey = unlockKey;
+				m_mouseLocked = false;
+			}
+
 			void update(float delta) {
 				vec2 center = vec2(Window::getWidth() / 2, Window::getHeight() / 2);
 				vec2 d;

@@ -2,11 +2,12 @@
 #define _TERRAIN_H_
 
 #define SIZE 16
-#define VERTEX_COUNT 16
+#define VERTEX_COUNT 1000
 #define AMPLITUDE 1
 #define SEED 0xCAFE
 
 #include "MeshRenderer.h"
+#include "../core/noise/FastNoise.h"
 
 namespace daybreak {
 
@@ -19,16 +20,21 @@ namespace daybreak {
 			Mesh generate() {
 				std::vector<Vertex> vertices(VERTEX_COUNT * VERTEX_COUNT); 
 				std::vector<GLuint> indices(6 * (VERTEX_COUNT - 1) * (VERTEX_COUNT - 1));
+				FastNoise perlin;
+				perlin.SetNoiseType(FastNoise::Perlin);
 
 				int ptr = 0;
+				float x = 0.0f, y = 0.0f;
 				for (float i = 0; i < VERTEX_COUNT; i += 1.0f) {
 					for (float j = 0; j < VERTEX_COUNT; j += 1.0f) {
 						Vertex v;
-						v.pos = vec3(j / (VERTEX_COUNT - 1) * SIZE, getHeight(i, j), i / (VERTEX_COUNT - 1) * SIZE);
+						v.pos = vec3(j / (VERTEX_COUNT - 1) * SIZE, ((perlin.GetNoise(x, y) + 1.0f) / 2.0f) * AMPLITUDE, i / (VERTEX_COUNT - 1) * SIZE);
 						v.texture = vec2(j / (VERTEX_COUNT - 1), i / (VERTEX_COUNT - 1));
 						vertices[ptr] = v;
 						ptr++;
+						x += 0.01f;
 					}
+					y += 0.01f;
 				}
 
 				ptr = 0;
@@ -54,9 +60,8 @@ namespace daybreak {
 				MeshRenderer(generate(), material), m_x(x), m_z(z){
 			}
 
-			float getHeight(int x, int z) {
-				srand(x * 342235 + z * 324332 + SEED);
-				return (float) rand() / (float) RAND_MAX;
+			float getHeight(float x, float z) {
+				return Noise::perlin(x, z) * AMPLITUDE;
 			}
 
 			void update(float delta) {
