@@ -4,7 +4,7 @@
 
 #include "Game.h"
 
-#include "../graphics/Window.h"
+#include "../core/Window.h"
 #include "../utils/Timer.h"
 #include "../core/Transform.h"
 #include "../utils/Log.h"
@@ -15,8 +15,6 @@
 namespace daybreak {
 
 	namespace core {
-
-		using namespace graphics;
 
 		class CoreEngine {
 		private:

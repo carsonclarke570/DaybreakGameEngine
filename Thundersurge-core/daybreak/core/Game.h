@@ -6,7 +6,6 @@ namespace daybreak {
 	namespace core {
 
 		class Game {
-		protected:
 		public:
 			virtual void init() = 0;
 			virtual void update(float delta) = 0;

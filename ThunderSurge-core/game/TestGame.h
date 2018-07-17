@@ -2,10 +2,10 @@
 
 #include "../daybreak/core/math/math.h"
 
-#include "../daybreak/graphics/shader/shader.h"
-#include "../daybreak/graphics/shader/PhongShader.h"
-#include "../daybreak/graphics/renderer/Mesh.h"
-#include "../daybreak/graphics/renderer/Texture.h"
+#include "../daybreak/graphics/shader.h"
+#include "../daybreak/graphics/PhongShader.h"
+#include "../daybreak/graphics/Mesh.h"
+#include "../daybreak/graphics/Texture.h"
 			
 #include "../daybreak/core/input/input.h"
 			

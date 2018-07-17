@@ -63,17 +63,17 @@ namespace daybreak {
 		}
 
 		void Mouse::setMousePosition(double x, double y) {
-			using namespace daybreak::graphics;
+			using namespace daybreak::core;
 			glfwSetCursorPos(Window::getWindow(), x, y);
 		}
 
 		void Mouse::hideCursor() {
-			using namespace daybreak::graphics;
+			using namespace daybreak::core;
 			glfwSetInputMode(Window::getWindow(), GLFW_CURSOR, GLFW_CURSOR_HIDDEN);
 		}
 
 		void Mouse::showCursor() {
-			using namespace daybreak::graphics;
+			using namespace daybreak::core;
 			glfwSetInputMode(Window::getWindow(), GLFW_CURSOR, GLFW_CURSOR_NORMAL);
 		}
 	}

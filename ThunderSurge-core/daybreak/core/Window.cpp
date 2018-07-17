@@ -2,9 +2,9 @@
 
 namespace daybreak {
 
-	namespace graphics {
+	namespace core {
 
-		const char* Window::m_title = "ThunderSurge Game";
+		const char* Window::m_title = "Daybreak";
 		int Window::m_width = 960;
 		int Window::m_height = 540;
 		GLFWwindow* Window::m_window = NULL;

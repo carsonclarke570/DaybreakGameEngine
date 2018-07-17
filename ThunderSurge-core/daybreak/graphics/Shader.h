@@ -3,10 +3,12 @@
 #include <vector>
 #include <map>
 
-#include "../../core/math/math.h"
-#include "../../utils/fileutils.h"
-#include "../renderer/Material.h"
-#include "../../core/Transform.h"
+#include "../core/math/math.h"
+#include "../core/Transform.h"
+
+#include "../utils/fileutils.h"
+
+#include "Material.h"
 
 #ifndef _SHADER_H_
 #define _SHADER_H_

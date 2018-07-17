@@ -2,7 +2,7 @@
 #include <GL/glew.h>
 #include <string>
 
-#include "../../utils/ImageLoader.h"
+#include "../utils/ImageLoader.h"
 
 #ifndef _TEXTURE_H_
 #define _TEXTURE_H_

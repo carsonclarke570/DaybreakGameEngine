@@ -1,7 +1,7 @@
 #include "Shader.h"
-#include "../../components/Light.h"
-#include "../../core/math/math.h"
-#include "../../core/Transform.h"
+#include "../components/Light.h"
+#include "../core/math/math.h"
+#include "../core/Transform.h"
 
 #ifndef _PHONG_SHADER_H_
 #define _PHONG_SHADER_H_

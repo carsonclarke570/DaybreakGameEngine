@@ -3,13 +3,11 @@
 
 #include "GameComponent.h"
 #include "../core/input/input.h"
-#include "../graphics/window.h"
+#include "../core/window.h"
 
 namespace daybreak {
 
 	namespace components {
-
-		using namespace graphics;
 
 		class FreeLook : public GameComponent {
 		private:

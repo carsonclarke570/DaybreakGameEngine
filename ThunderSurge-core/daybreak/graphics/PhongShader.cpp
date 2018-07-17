@@ -9,7 +9,7 @@ namespace daybreak {
 		DirectionalLight PhongShader::m_directionalLight;
 	
 		PhongShader::PhongShader() 
-			: Shader("daybreak/graphics/shader/shaders/phong.vert", "daybreak/graphics/shader/shaders/phong.frag") {
+			: Shader("daybreak/graphics/shaders/phong.vert", "daybreak/graphics/shaders/phong.frag") {
 		}
 
 		void PhongShader::setUniformLight(const GLchar* name, const BaseLight& light) {

@@ -156,16 +156,16 @@
   <ItemGroup>
     <ClCompile Include="daybreak\core\noise\FastNoise.cpp" />
     <ClCompile Include="daybreak\core\noise\Noise.cpp" />
+    <ClCompile Include="daybreak\core\Window.cpp" />
     <ClCompile Include="game\Main.cpp" />
     <ClCompile Include="daybreak\core\CoreEngine.cpp" />
     <ClCompile Include="daybreak\core\GameObject.cpp" />
     <ClCompile Include="daybreak\core\math\Quaternion.cpp" />
     <ClCompile Include="daybreak\core\Transform.cpp" />
-    <ClCompile Include="daybreak\graphics\renderer\Mesh.cpp" />
-    <ClCompile Include="daybreak\graphics\renderer\Texture.cpp" />
-    <ClCompile Include="daybreak\graphics\shader\PhongShader.cpp" />
-    <ClCompile Include="daybreak\graphics\shader\shader.cpp" />
-    <ClCompile Include="daybreak\graphics\window.cpp" />
+    <ClCompile Include="daybreak\graphics\Mesh.cpp" />
+    <ClCompile Include="daybreak\graphics\Texture.cpp" />
+    <ClCompile Include="daybreak\graphics\PhongShader.cpp" />
+    <ClCompile Include="daybreak\graphics\Shader.cpp" />
     <ClCompile Include="daybreak\core\input\Keyboard.cpp" />
     <ClCompile Include="daybreak\core\input\mouse.cpp" />
     <ClCompile Include="daybreak\core\math\mat4.cpp" />
@@ -189,12 +189,12 @@
     <ClInclude Include="daybreak\core\math\Quaternion.h" />
     <ClInclude Include="daybreak\core\Transform.h" />
     <ClInclude Include="daybreak\components\Light.h" />
-    <ClInclude Include="daybreak\graphics\renderer\Material.h" />
-    <ClInclude Include="daybreak\graphics\renderer\Texture.h" />
-    <ClInclude Include="daybreak\graphics\renderer\Mesh.h" />
-    <ClInclude Include="daybreak\graphics\shader\PhongShader.h" />
-    <ClInclude Include="daybreak\graphics\shader\shader.h" />
-    <ClInclude Include="daybreak\graphics\window.h" />
+    <ClInclude Include="daybreak\graphics\Material.h" />
+    <ClInclude Include="daybreak\graphics\Texture.h" />
+    <ClInclude Include="daybreak\graphics\Mesh.h" />
+    <ClInclude Include="daybreak\graphics\PhongShader.h" />
+    <ClInclude Include="daybreak\graphics\Shader.h" />
+    <ClInclude Include="daybreak\core\Window.h" />
     <ClInclude Include="daybreak\core\input\Input.h" />
     <ClInclude Include="daybreak\core\input\Keyboard.h" />
     <ClInclude Include="daybreak\core\input\mouse.h" />
@@ -210,8 +210,8 @@
     <ClInclude Include="daybreak\utils\Timer.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="daybreak\graphics\shader\shaders\phong.frag" />
-    <None Include="daybreak\graphics\shader\shaders\phong.vert" />
+    <None Include="daybreak\graphics\shaders\phong.frag" />
+    <None Include="daybreak\graphics\shaders\phong.vert" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="TO-DO.txt" />

@@ -1,7 +1,7 @@
 #include <GL/glew.h>
 
-#include "../../core/math/math.h"
-#include "../../utils/FileUtils.h"
+#include "../core/math/math.h"
+#include "../utils/FileUtils.h"
 
 #ifndef _MESH_H_
 #define _MESH_H_

@@ -1,4 +1,4 @@
-#include "../../core/math/math.h"
+#include "../core/math/math.h"
 #include "Texture.h"
 
 #ifndef _MATERIAL_H_

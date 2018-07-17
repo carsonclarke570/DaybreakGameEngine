@@ -2,7 +2,7 @@
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 
-#include "../core/input/input.h"
+#include "input/input.h"
 #include "../utils/Log.h"
 
 #ifndef _WINDOW_H_
@@ -10,7 +10,7 @@
 
 namespace daybreak {
 	
-	namespace graphics {
+	namespace core {
 		
 		using namespace input;
 

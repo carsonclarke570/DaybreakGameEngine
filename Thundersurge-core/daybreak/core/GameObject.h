@@ -1,7 +1,7 @@
 #include <vector>
 
 #include "../core/CoreEngine.h"
-#include "../graphics/shader/Shader.h"
+#include "../graphics/Shader.h"
 
 #ifndef _GAME_OBJECT_H_
 #define _GAME_OBJECT_H_
@@ -9,6 +9,8 @@
 namespace daybreak {
 
 	namespace core {
+
+		using namespace graphics;
 
 		class GameComponent;
 
