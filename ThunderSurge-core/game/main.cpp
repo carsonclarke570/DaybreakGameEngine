@@ -1,7 +1,7 @@
-#include "../daybreak/core/CoreEngine.h"
+#include "../daybreak/core/Daybreak.h"
+#include "../daybreak/utils/fileutils.h"
 #include "TestGame.h"
 
-#include "../daybreak/utils/fileutils.h"
 
 int main()
 {
@@ -10,8 +10,8 @@ int main()
 
 	Game* g = new TestGame();
 
-	CoreEngine* engine = new CoreEngine(g);
-	engine->start();
+	Daybreak::load(g);
+	Daybreak::start();
 
 	return 0;
 }

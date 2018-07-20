@@ -1,3 +1,6 @@
+#ifndef _CORE_ENGINE_H_
+#define _CORE_ENGINE_H_
+
 #define WIDTH 960
 #define HEIGHT 540
 #define TITLE "Game"
@@ -9,26 +12,22 @@
 #include "../core/Transform.h"
 #include "../utils/Log.h"
 
-#ifndef _CORE_ENGINE_H_
-#define _CORE_ENGINE_H_
-
 namespace daybreak {
 
 	namespace core {
 
-		class CoreEngine {
+		class Daybreak {
 		private:
-			Game* m_game;
-			bool m_isRunning;
+			static Game* m_game;
+			static bool m_isRunning;
 
-			void run();
-			bool quit();
+			static void run();
+			static bool quit();
 		public:
-			CoreEngine(Game* game);
-			~CoreEngine();
 
-			void start();
-			void stop();
+			static void load(Game* game);
+			static void start();
+			static void stop();
 		};
 	}
 }

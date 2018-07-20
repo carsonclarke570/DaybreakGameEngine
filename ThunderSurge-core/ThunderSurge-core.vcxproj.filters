@@ -39,9 +39,6 @@
     <ClCompile Include="daybreak\core\math\vec4.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="daybreak\core\CoreEngine.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="daybreak\core\GameObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -67,6 +64,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="daybreak\core\Window.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="daybreak\core\Daybreak.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -125,9 +125,6 @@
     <ClInclude Include="daybreak\core\math\vec4.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="daybreak\core\CoreEngine.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="daybreak\core\Game.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -173,10 +170,18 @@
     <ClInclude Include="daybreak\core\Window.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="daybreak\core\Daybreak.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="daybreak\graphics\Forward.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="daybreak\graphics\shaders\phong.frag" />
     <None Include="daybreak\graphics\shaders\phong.vert" />
+    <None Include="daybreak\graphics\shaders\forward-ambient.frag" />
+    <None Include="daybreak\graphics\shaders\forward-ambient.vert" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="TO-DO.txt" />

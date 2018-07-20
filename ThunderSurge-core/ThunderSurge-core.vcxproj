@@ -158,7 +158,7 @@
     <ClCompile Include="daybreak\core\noise\Noise.cpp" />
     <ClCompile Include="daybreak\core\Window.cpp" />
     <ClCompile Include="game\Main.cpp" />
-    <ClCompile Include="daybreak\core\CoreEngine.cpp" />
+    <ClCompile Include="daybreak\core\Daybreak.cpp" />
     <ClCompile Include="daybreak\core\GameObject.cpp" />
     <ClCompile Include="daybreak\core\math\Quaternion.cpp" />
     <ClCompile Include="daybreak\core\Transform.cpp" />
@@ -176,6 +176,7 @@
   <ItemGroup>
     <ClInclude Include="daybreak\core\noise\FastNoise.h" />
     <ClInclude Include="daybreak\core\noise\Noise.h" />
+    <ClInclude Include="daybreak\graphics\Forward.h" />
     <ClInclude Include="game\TestGame.h" />
     <ClInclude Include="daybreak\components\Camera.h" />
     <ClInclude Include="daybreak\components\FreeLook.h" />
@@ -183,7 +184,7 @@
     <ClInclude Include="daybreak\components\GameComponent.h" />
     <ClInclude Include="daybreak\components\MeshRenderer.h" />
     <ClInclude Include="daybreak\components\Terrain.h" />
-    <ClInclude Include="daybreak\core\CoreEngine.h" />
+    <ClInclude Include="daybreak\core\Daybreak.h" />
     <ClInclude Include="daybreak\core\Game.h" />
     <ClInclude Include="daybreak\core\GameObject.h" />
     <ClInclude Include="daybreak\core\math\Quaternion.h" />
@@ -210,6 +211,8 @@
     <ClInclude Include="daybreak\utils\Timer.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="daybreak\graphics\shaders\forward-ambient.frag" />
+    <None Include="daybreak\graphics\shaders\forward-ambient.vert" />
     <None Include="daybreak\graphics\shaders\phong.frag" />
     <None Include="daybreak\graphics\shaders\phong.vert" />
   </ItemGroup>

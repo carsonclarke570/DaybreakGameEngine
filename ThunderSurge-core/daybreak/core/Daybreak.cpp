@@ -1,38 +1,35 @@
-#include "CoreEngine.h"
+#include "Daybreak.h"
 
 namespace daybreak {
 
 	namespace core {
 
-		CoreEngine::CoreEngine(Game* game) {
+		Game* Daybreak::m_game = nullptr;
+		bool Daybreak::m_isRunning = false;
+
+		void Daybreak::load(Game* game) {
 			Window::create(TITLE, WIDTH, HEIGHT);
-			m_isRunning = false;
 			m_game = game;
 
 			Mouse::init();
 			Keyboard::init();
 		}
 
-		CoreEngine::~CoreEngine() {
-			Window::dispose();
-			delete m_game;
-		}
-
-		void CoreEngine::start() {
+		void Daybreak::start() {
 			if (m_isRunning) {
 				return;
 			}
 			run();
 		}
 
-		void CoreEngine::stop() {
+		void Daybreak::stop() {
 			if (!m_isRunning) {
 				return;
 			}
 			m_isRunning = false;
 		}
 
-		void CoreEngine::run() {
+		void Daybreak::run() {
 
 			Timer time;
 			float t = 0;
@@ -60,9 +57,10 @@ namespace daybreak {
 					frames = 0;
 				}
 			}
+			Window::dispose();
 		}
 
-		bool CoreEngine::quit() {
+		bool Daybreak::quit() {
 			return Window::closed() || m_game->quit();
 		}
 	}

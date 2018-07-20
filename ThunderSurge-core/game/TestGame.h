@@ -3,7 +3,7 @@
 #include "../daybreak/core/math/math.h"
 
 #include "../daybreak/graphics/shader.h"
-#include "../daybreak/graphics/PhongShader.h"
+#include "../daybreak/graphics/Forward.h"
 #include "../daybreak/graphics/Mesh.h"
 #include "../daybreak/graphics/Texture.h"
 			
@@ -32,7 +32,7 @@ namespace daybreak {
 
 		class TestGame : public Game {
 		private:
-			PhongShader* shader;
+			Shader* shader;
 
 			GameObject* root;
 			GameObject* planet;
@@ -66,7 +66,7 @@ namespace daybreak {
 				}
 
 				root = new GameObject();
-				shader = new PhongShader();
+				shader = new Ambient();
 				elapsed = 0.0f;
 
 				camera = new GameObject();
@@ -84,13 +84,13 @@ namespace daybreak {
 				Texture spec("C:/Users/birdi/3D Objects/res/textures/cube_specular.jpg");
 				Material material = Material(texture, spec);
 
-				DirectionalLight d;
-				d.direction = vec3(-0.2f, -1.0f, -0.3f);
-				d.base.ambient = vec3(0.05f, 0.05f, 0.05f);
-				d.base.diffuse = vec3(0.4f, 0.4f, 0.4f);
-				d.base.specular = vec3(0.5f, 0.5f, 0.5f);
+				//DirectionalLight d;
+				//d.direction = vec3(-0.2f, -1.0f, -0.3f);
+				//d.base.ambient = vec3(0.05f, 0.05f, 0.05f);
+				//d.base.diffuse = vec3(0.4f, 0.4f, 0.4f);
+				//d.base.specular = vec3(0.5f, 0.5f, 0.5f);
 
-				shader->setDirectionalLight(d);
+				//shader->setDirectionalLight(d);
 
 				sol = new GameObject();
 				sol->addComponent(new MeshRenderer(mesh, material));

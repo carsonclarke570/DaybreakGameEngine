@@ -1,6 +1,6 @@
 #include <vector>
 
-#include "../core/CoreEngine.h"
+#include "../core/Daybreak.h"
 #include "../graphics/Shader.h"
 
 #ifndef _GAME_OBJECT_H_
