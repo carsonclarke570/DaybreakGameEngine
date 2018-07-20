@@ -1,4 +1,10 @@
--Finish lighting
+-Implement forward rendering (lighting)
+-Fix Terrain generation
+-SceneManager
+	-Memory Management
+	-Scene file storage
+	-Multithreaded loading
+-Do optimization analysis
 -Condense math library
 -Replace dependency on FastNoise
 -Replace dependency on tinyobjloader

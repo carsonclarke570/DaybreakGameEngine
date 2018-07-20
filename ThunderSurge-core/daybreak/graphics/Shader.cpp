@@ -62,40 +62,45 @@ namespace daybreak {
 			glDeleteShader(vertex);
 			glDeleteShader(frag);
 
+			GLint maxUniformNameLen, noOfUniforms;
+			glGetProgramiv(program, GL_ACTIVE_UNIFORM_MAX_LENGTH, &maxUniformNameLen);
+			glGetProgramiv(program, GL_ACTIVE_UNIFORMS, &noOfUniforms);
+
+			GLint read, size;
+			GLenum type;
+
+			std::vector<GLchar>unifN(maxUniformNameLen, 0);
+			for (GLint i = 0; i < noOfUniforms; ++i) {
+				glGetActiveUniform(program, i, maxUniformNameLen, &read, &size, &type, unifN.data());
+				m_uniforms[std::string(unifN.data())] = glGetUniformLocation(program, unifN.data());
+			}
+
 			return program;
 		}
 
-		GLint Shader::getUniformLocation(const GLchar* name) {
-			/*if (m_uniforms[name]) {
-				return m_uniforms[name];
-			}
-			return (m_uniforms[name] = glGetUniformLocation(m_shader, name));
-			*/
-			return glGetUniformLocation(m_shader, name);
-		}
 
 		void Shader::setUniform1f(const GLchar* name, float f) {
-			glUniform1f(getUniformLocation(name), f);
+			glUniform1f(m_uniforms[name], f);
 		}
 
 		void Shader::setUniform1i(const GLchar* name, int i) {
-			glUniform1i(getUniformLocation(name), i);
+			glUniform1i(m_uniforms[name], i);
 		}
 
 		void Shader::setUniform2f(const GLchar* name, const math::vec2& v) {
-			glUniform2f(getUniformLocation(name), v.m_x, v.m_y);
+			glUniform2f(m_uniforms[name], v.m_x, v.m_y);
 		}
 
 		void Shader::setUniform3f(const GLchar* name, const math::vec3& v) {
-			glUniform3f(getUniformLocation(name), v.m_x, v.m_y, v.m_z);
+			glUniform3f(m_uniforms[name], v.m_x, v.m_y, v.m_z);
 		}
 
 		void Shader::setUniform4f(const GLchar* name, const math::vec4& v) {
-			glUniform4f(getUniformLocation(name), v.m_x, v.m_y, v.m_z, v.m_w);
+			glUniform4f(m_uniforms[name], v.m_x, v.m_y, v.m_z, v.m_w);
 		}
 
 		void Shader::setUniformMat4(const GLchar* name, const math::mat4& m) {
-			glUniformMatrix4fv(getUniformLocation(name), 1, GL_FALSE, m.m_m);
+			glUniformMatrix4fv(m_uniforms[name], 1, GL_FALSE, m.m_m);
 		}
 
 		void Shader::enable() const {

@@ -1,7 +1,7 @@
 #include <GL/glew.h>
 #include <iostream>
 #include <vector>
-#include <map>
+#include <unordered_map>
 
 #include "../core/math/math.h"
 #include "../core/Transform.h"
@@ -23,12 +23,11 @@ namespace daybreak {
 		class Shader {
 		private:
 			GLuint m_shader;
-			std::map<const GLchar*, GLuint> m_uniforms;
+			std::unordered_map<std::string, GLint> m_uniforms;
 			const char* m_ver;
 			const char* m_frag;
 
 			GLuint load();
-			GLint getUniformLocation(const GLchar* name);
 		public:
 			Shader(const char* ver, const char* frag);
 			~Shader();

@@ -1,6 +1,7 @@
 #include <string>
 #include <vector>
 #include <fstream>
+#include "Log.h"
 
 #ifndef _FILE_UTIL_H_
 #define _FILE_UTIL_H_
@@ -11,6 +12,14 @@ namespace daybreak {
 	public:
 		static std::string read_file(const char* filepath) {
 			FILE* file = fopen(filepath, "rt");
+
+			if (file == NULL) {
+				char* message = new char[30 + sizeof(filepath)];
+				sprintf(message, "Could not open file: %s", filepath);
+				Log::logErr(message);
+				exit(0);
+			}
+
 			fseek(file, 0, SEEK_END);
 			unsigned long len = ftell(file);
 			char* data = new char[len + 1];

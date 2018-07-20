@@ -51,6 +51,8 @@ namespace daybreak {
 
 			void init() {
 
+				//testing noise
+
 				Noise::seed(time(NULL));
 				float x = 0, y = 0;
 
