@@ -6,7 +6,7 @@ namespace daybreak {
 
 		Scene::Scene() {
 			m_root = new GameObject();
-			m_default = new Ambient();
+			m_default = new AmbientShader();
 		}
 
 		Scene::~Scene() {
@@ -19,10 +19,28 @@ namespace daybreak {
 
 		void Scene::render() {
 			m_root->renderAll(m_default);
+
+			glEnable(GL_BLEND);
+			glBlendFunc(GL_ONE, GL_ONE);
+			glDepthMask(false);
+			glDepthFunc(GL_EQUAL);
+
+			for (BaseLight* light : m_lights) {
+				m_root->renderAll(light->shader);
+			}
+
+			glDepthFunc(GL_LESS);
+			glDepthMask(true);
+			glDisable(GL_BLEND);
 		}
 
 		void Scene::addGameObject(GameObject* object) {
 			m_root->addChild(object);
+		}
+
+		void Scene::addLight(BaseLight* light) {
+			m_root->addChild((new GameObject())->addComponent(light));
+			m_lights.push_back(light);
 		}
 	}
 }

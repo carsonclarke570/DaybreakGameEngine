@@ -4,6 +4,15 @@ namespace daybreak {
 
 	namespace core {
 
+		void GLAPIENTRY
+			MessageCallback(GLenum source,
+				GLenum type,
+				GLuint id,
+				GLenum severity,
+				GLsizei length,
+				const GLchar* message,
+				const void* userParam);
+
 		const char* Window::m_title = "Daybreak";
 		int Window::m_width = 960;
 		int Window::m_height = 540;
@@ -62,8 +71,29 @@ namespace daybreak {
 			glEnable(GL_TEXTURE_2D);
 			glEnable(GL_FRAMEBUFFER_SRGB);
 
+			
+
+			// During init, enable debug output
+			glEnable(GL_DEBUG_OUTPUT);
+			glDebugMessageCallback(MessageCallback, 0);
 
 			return true;
+		}
+
+
+
+		void GLAPIENTRY
+			MessageCallback(GLenum source,
+				GLenum type,
+				GLuint id,
+				GLenum severity,
+				GLsizei length,
+				const GLchar* message,
+				const void* userParam)
+		{
+			fprintf(stderr, "GL CALLBACK: %s type = 0x%x, severity = 0x%x, message = %s\n",
+				(type == GL_DEBUG_TYPE_ERROR ? "** GL ERROR **" : ""),
+				type, severity, message);
 		}
 
 		bool Window::closed() {

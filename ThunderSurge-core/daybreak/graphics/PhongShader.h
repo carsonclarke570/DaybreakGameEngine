@@ -6,6 +6,7 @@
 #ifndef _PHONG_SHADER_H_
 #define _PHONG_SHADER_H_
 
+/*
 namespace daybreak {
 
 	namespace graphics {
@@ -29,4 +30,5 @@ namespace daybreak {
 	}
 }
 
+*/
 #endif

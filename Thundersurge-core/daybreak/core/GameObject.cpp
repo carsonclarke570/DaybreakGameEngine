@@ -26,15 +26,15 @@ namespace daybreak {
 			*/
 		}
 
-		GameObject& GameObject::addChild(GameObject* child) {
+		GameObject* GameObject::addChild(GameObject* child) {
 			m_children.push_back(child);
 			child->m_parentTransform = m_localTransform;
-			return *this;
+			return this;
 		}
-		GameObject& GameObject::addComponent(GameComponent* component) {
+		GameObject* GameObject::addComponent(GameComponent* component) {
 			m_components.push_back(component);
 			component->setParent(this);
-			return *this;
+			return this;
 		}
 
 		void GameObject::updateAll(float delta) {

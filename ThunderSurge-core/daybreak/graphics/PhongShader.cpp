@@ -2,6 +2,7 @@
 
 #include "PhongShader.h"
 
+/*
 namespace daybreak {
 
 	namespace graphics {
@@ -41,3 +42,4 @@ namespace daybreak {
 		}
 	}
 }
+*/

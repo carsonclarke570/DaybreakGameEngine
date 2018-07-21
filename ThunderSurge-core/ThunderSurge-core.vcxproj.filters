@@ -193,7 +193,8 @@
     <None Include="daybreak\graphics\shaders\phong.frag" />
     <None Include="daybreak\graphics\shaders\phong.vert" />
     <None Include="daybreak\graphics\shaders\forward-ambient.frag" />
-    <None Include="daybreak\graphics\shaders\forward-ambient.vert" />
+    <None Include="daybreak\graphics\shaders\forward-lighting.vert" />
+    <None Include="daybreak\graphics\shaders\forward-directional.frag" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="TO-DO.txt" />

@@ -1,31 +1,27 @@
-#include <Windows.h>
-
 #ifndef _TIMER_H_
 #define _TIMER_H_
 
+#include <chrono>
+
 namespace daybreak {
+
+	using namespace std::chrono;
 
 	class Timer {
 	private:
-		LARGE_INTEGER m_start;
-		double m_frequency;
+		typedef high_resolution_clock Clock;
+		Clock::time_point m_epoch;
 	public:
 		Timer() {
-			LARGE_INTEGER frequency;
-			QueryPerformanceFrequency(&frequency);
-			m_frequency = 1.0 / frequency.QuadPart;
-			QueryPerformanceCounter(&m_start);
+			m_epoch = Clock::now();
 		}
 
 		void reset() {
-			QueryPerformanceCounter(&m_start);
+			m_epoch = Clock::now();
 		}
 
 		float elapsed() {
-			LARGE_INTEGER current;
-			QueryPerformanceCounter(&current);
-			unsigned __int64 cycles = current.QuadPart - m_start.QuadPart;
-			return (float)(cycles * m_frequency);
+			return duration_cast<microseconds>(Clock::now() - m_epoch).count() / 1000000.0f;
 		}
 	};
 }

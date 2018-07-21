@@ -1,4 +1,5 @@
 -Implement forward rendering (lighting)
+	-Fix bug where movement causes forward rendering not to work
 -Fix Terrain generation
 -SceneManager
 	-Memory Management

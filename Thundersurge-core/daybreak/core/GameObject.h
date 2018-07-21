@@ -27,8 +27,8 @@ namespace daybreak {
 			GameObject();
 			~GameObject();
 			
-			GameObject& addChild(GameObject* child);
-			GameObject& addComponent(GameComponent* component);
+			GameObject* addChild(GameObject* child);
+			GameObject* addComponent(GameComponent* component);
 
 			void updateAll(float delta);
 			void renderAll(Shader* shader);

@@ -98,6 +98,8 @@ namespace daybreak {
 
 				//shader->setDirectionalLight(d);
 
+				solar_system->addLight(new DirectionalLight(vec3(-0.2f, -1.0f, -0.3f), vec3(0.4f, 0.4f, 0.4f), 0.5f));
+
 				sol = new GameObject();
 				sol->addComponent(new MeshRenderer(mesh, material));
 				sol->getTransform()->setScale(vec3(0.5, 0.5, 0.5));
