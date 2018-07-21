@@ -76,7 +76,7 @@ namespace daybreak {
 
 				camera = new GameObject();
 
-				Mesh* mesh = new Mesh("C:/Users/birdi/3D Objects/res/models/cube.obj");
+				Mesh* mesh = new Mesh("C:/Users/birdi/3D Objects/res/models/sphere.obj");
 
 				camera->addComponent(new Camera(mat4::perspective(70.0f, 16.0f / 9.0f, 0.1f, 1000.0f)));
 				camera->addComponent(new FreeLook(1.0f));
@@ -102,21 +102,21 @@ namespace daybreak {
 
 				sol = new GameObject();
 				sol->addComponent(new MeshRenderer(mesh, material));
-				sol->getTransform()->setScale(vec3(0.5, 0.5, 0.5));
+				sol->getTransform()->setScale(vec3(0.05, 0.05, 0.05));
 
 				solar_system->addGameObject(sol);
 
 				planet = new GameObject();
 				planet->addComponent(new MeshRenderer(mesh, material));
 
-				planet->getTransform()->setScale(vec3(0.2, 0.2, 0.2));
+				planet->getTransform()->setScale(vec3(0.02, 0.02, 0.02));
 
 				sol->addChild(planet);
 
 				moon = new GameObject();
 				moon->addComponent(new MeshRenderer(mesh, material));
 
-				moon->getTransform()->setScale(vec3(0.1, 0.1, 0.1));
+				moon->getTransform()->setScale(vec3(0.01, 0.01, 0.01));
 
 				planet->addChild(moon);
 
@@ -142,7 +142,7 @@ namespace daybreak {
 				float s = sin(e2);
 				float c = cos(e2);
 				sol->getTransform()->setTranslation(vec3(sinDelta, 1, 0));
-				planet->getTransform()->setTranslation(vec3(sinDelta, 0, cosDelta));
+				planet->getTransform()->setTranslation(vec3(2 * sinDelta, 0, 2 * cosDelta));
 				moon->getTransform()->setTranslation(vec3(s / 2, 0, c / 2));
 
 				sol->getTransform()->setRotation(sinDelta * 180, vec3(0, 0, 1));
@@ -151,7 +151,7 @@ namespace daybreak {
 
 				x += delta;
 
-				if (x > 3.0f) {
+				if (Keyboard::isKeyPressed(KEY_C)) {
 					x = 0.0f;
 					if (SceneManager::getActive().compare("Sol") == 0) {
 						SceneManager::setActive("Ter");

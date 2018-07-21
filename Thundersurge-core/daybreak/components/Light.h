@@ -31,7 +31,7 @@ namespace daybreak {
 		struct DirectionalLight : public BaseLight {
 
 			DirectionalLight(const vec3& direction, const vec3& color, float intensity) : BaseLight(color, intensity) {
-				shader = new AmbientShader();//new DirectionalShader(direction, color, intensity);
+				shader = new DirectionalShader(direction, color, intensity);
 			}
 
 			void update(float delta) {

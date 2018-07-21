@@ -17,6 +17,7 @@ namespace daybreak {
 
 			void update(Transform* transform, Material* material) {
 				material->bind();
+				enable();
 				setUniformMat4("model", transform->getTransform());
 				setUniform1i("material.diffuse", 0);
 				setUniform3f("ambience", m_ambience);

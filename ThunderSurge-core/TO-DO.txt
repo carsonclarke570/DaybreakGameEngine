@@ -1,5 +1,6 @@
+TO-DO
+
 -Implement forward rendering (lighting)
-	-Fix bug where movement causes forward rendering not to work
 -Fix Terrain generation
 -SceneManager
 	-Memory Management
@@ -9,3 +10,7 @@
 -Condense math library
 -Replace dependency on FastNoise
 -Replace dependency on tinyobjloader
+
+BUGS
+
+-Keyboard input isn't smooth

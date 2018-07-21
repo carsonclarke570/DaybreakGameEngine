@@ -16,5 +16,5 @@ uniform vec3 ambient;
 uniform Material material;
 
 void main() {
-	fragColor = texture2D(material.diffuse, texture0) * vec4(ambient, 1);
+	fragColor = vec4(ambient * vec3(texture(material.diffuse, texture0)), 1.0);
 }

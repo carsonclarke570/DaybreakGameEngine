@@ -32,6 +32,7 @@ namespace daybreak {
 				shader->enable();
 				shader->update(getTransform(), m_material);
 				m_mesh->render();
+				shader->disable();
 			}
 		};
 	}

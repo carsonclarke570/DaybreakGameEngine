@@ -14,7 +14,6 @@ namespace daybreak {
 			GameObject* m_root;
 			Shader* m_default;
 			std::vector<BaseLight*> m_lights;
-
 		public:
 			Scene();
 			~Scene();
