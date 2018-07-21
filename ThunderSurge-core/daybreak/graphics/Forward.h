@@ -15,8 +15,8 @@ namespace daybreak {
 				m_ambience = vec3(0.1f, 0.1f, 0.1f);
 			}
 
-			void update(Transform* transform, Material& material) {
-				material.bind();
+			void update(Transform* transform, Material* material) {
+				material->bind();
 
 				//setUniformMat4("projection", transform->getProjectedTransform());
 				setUniformMat4("model", transform->getTransform());

@@ -3,8 +3,8 @@
 #include "TestGame.h"
 
 
-int main()
-{
+
+int main() {
 	using namespace daybreak;
 	using namespace core;
 

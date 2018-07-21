@@ -14,11 +14,16 @@ namespace daybreak {
 
 		class MeshRenderer : public GameComponent {
 		private:
-			Mesh m_mesh;
-			Material m_material;
+			Mesh* m_mesh;
+			Material* m_material;
 		public:
-			MeshRenderer(const Mesh& mesh, const Material& material) 
+			MeshRenderer(Mesh* mesh, Material* material) 
 				: m_mesh(mesh), m_material(material) {
+			}
+
+			~MeshRenderer() {
+				//delete m_mesh;
+				//delete m_material;
 			}
 
 			void update(float delta) {}
@@ -26,7 +31,7 @@ namespace daybreak {
 			void render(Shader* shader) {
 				shader->enable();
 				shader->update(getTransform(), m_material);
-				m_mesh.render();
+				m_mesh->render();
 			}
 		};
 	}

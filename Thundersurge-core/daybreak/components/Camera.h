@@ -17,6 +17,10 @@ namespace daybreak {
 				: m_projection(projection) {
 			}
 
+			~Camera() {
+
+			}
+
 			mat4 getProjection() {
 				mat4 rot = getTransform()->getRotation().toRotationMatrix();
 				mat4 trans = mat4::translation(getTransform()->getTranslation() *  vec3(-1, -1, -1));

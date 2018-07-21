@@ -2,10 +2,15 @@
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 
+#include "../../utils/Log.h"
+
 #define MAX_KEYS 1024
 
 #ifndef _KEYBOARD_H_
 #define _KEYBOARD_H_
+
+#define UP 0
+#define DOWN 1
 
 namespace daybreak {
 
@@ -13,14 +18,8 @@ namespace daybreak {
 
 		class Keyboard {
 		private:
-			static enum KEY_ACTION {
-				UNDEFINED,
-				PRESSED,
-				RELEASED,
-				HELD
-			};
-
-			static KEY_ACTION m_keys[MAX_KEYS];
+			static char m_keys[MAX_KEYS];
+			static char m_prevKeys[MAX_KEYS];
 		public:
 			static void init();
 			static bool isKeyPressed(unsigned int keycode);

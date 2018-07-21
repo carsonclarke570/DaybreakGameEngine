@@ -18,6 +18,8 @@ namespace daybreak {
 		}
 
 		Mesh::~Mesh() {
+			//m_vertices.clear();
+			//m_indices.clear();
 		}
 
 		void Mesh::parseOBJ(const char* filename) {

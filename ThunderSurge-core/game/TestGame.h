@@ -1,18 +1,19 @@
 #pragma once
 
-#include "../daybreak/core/math/math.h"
-
 #include "../daybreak/graphics/shader.h"
 #include "../daybreak/graphics/Forward.h"
 #include "../daybreak/graphics/Mesh.h"
 #include "../daybreak/graphics/Texture.h"
 			
 #include "../daybreak/core/input/input.h"
+#include "../daybreak/core/math/math.h"
+#include "../daybreak/core/noise/Noise.h"
 			
 #include "../daybreak/core/Game.h"
 #include "../daybreak/core/Transform.h"
 #include "../daybreak/core/GameObject.h"
-#include "../daybreak/core/noise/Noise.h"
+
+#include "../daybreak/core/scene/SceneManager.h"
 			
 #include "../daybreak/components/GameComponent.h"
 #include "../daybreak/components/MeshRenderer.h"
@@ -20,6 +21,7 @@
 #include "../daybreak/components/FreeLook.h"
 #include "../daybreak/components/FreeMove.h"
 #include "../daybreak/components/Terrain.h"
+
 
 namespace daybreak {
 
@@ -32,16 +34,16 @@ namespace daybreak {
 
 		class TestGame : public Game {
 		private:
-			Shader* shader;
+			Scene* solar_system;
+			Scene* ground;
 
-			GameObject* root;
 			GameObject* planet;
 			GameObject* moon;
 			GameObject* camera;
 			GameObject* sol;
 			GameObject* terrain;
 
-			float elapsed;
+			float elapsed, x;
 		public:
 			TestGame() {
 			} 
@@ -50,6 +52,9 @@ namespace daybreak {
 			}
 
 			void init() {
+
+				solar_system = new Scene();
+				ground = new Scene();
 
 				//testing noise
 
@@ -65,24 +70,25 @@ namespace daybreak {
 					y += 0.01;
 				}
 
-				root = new GameObject();
-				shader = new Ambient();
+				//shader = new Ambient();
 				elapsed = 0.0f;
+				x = 0.0f;
 
 				camera = new GameObject();
 
-				Mesh mesh = Mesh("C:/Users/birdi/3D Objects/res/models/cube.obj");
+				Mesh* mesh = new Mesh("C:/Users/birdi/3D Objects/res/models/cube.obj");
 
 				camera->addComponent(new Camera(mat4::perspective(70.0f, 16.0f / 9.0f, 0.1f, 1000.0f)));
 				camera->addComponent(new FreeLook(1.0f));
 				camera->addComponent(new FreeMove(1.0f));
 				camera->getTransform()->translate(vec3(0, 1, 0));
 
-				root->addChild(camera);
+				solar_system->addGameObject(camera);
+				ground->addGameObject(camera);
 
 				Texture texture("C:/Users/birdi/3D Objects/res/textures/cube.jpg");
 				Texture spec("C:/Users/birdi/3D Objects/res/textures/cube_specular.jpg");
-				Material material = Material(texture, spec);
+				Material* material = new Material(texture, spec);
 
 				//DirectionalLight d;
 				//d.direction = vec3(-0.2f, -1.0f, -0.3f);
@@ -96,7 +102,7 @@ namespace daybreak {
 				sol->addComponent(new MeshRenderer(mesh, material));
 				sol->getTransform()->setScale(vec3(0.5, 0.5, 0.5));
 
-				root->addChild(sol);
+				solar_system->addGameObject(sol);
 
 				planet = new GameObject();
 				planet->addComponent(new MeshRenderer(mesh, material));
@@ -115,7 +121,12 @@ namespace daybreak {
 				terrain = new GameObject();
 				terrain->addComponent(new Terrain(0, 0, material));
 
-				root->addChild(terrain);
+				ground->addGameObject(terrain);
+
+				SceneManager::add("Sol", solar_system);
+				SceneManager::add("Ter", ground);
+
+				SceneManager::setActive("Sol");
 			}
 
 			void update(float delta) {
@@ -135,17 +146,23 @@ namespace daybreak {
 				sol->getTransform()->setRotation(sinDelta * 180, vec3(0, 0, 1));
 				planet->getTransform()->setRotation(sinDelta * 180, vec3(1, 0, 0));
 				moon->getTransform()->setRotation(sinDelta * 180, vec3(0, 1, 0));
-				//std::cout << root->getTransform()->getScale() << std::endl;
-				//transform->setScale(vec3(sinDelta, sinDelta, sinDelta));
-				//transform->setRotation(sinDelta * 180, vec3(0, 1, 0));
-				root->updateAll(delta);
+
+				x += delta;
+
+				if (x > 3.0f) {
+					x = 0.0f;
+					if (SceneManager::getActive().compare("Sol") == 0) {
+						SceneManager::setActive("Ter");
+					} else if (SceneManager::getActive().compare("Ter") == 0) {
+						SceneManager::setActive("Sol");
+					}
+				}
+
+				SceneManager::update(delta);
 			}
 
 			void render() {
-				root->renderAll(shader);
-				//shader->enable();
-				//shader->update(*transform, *material);
-				//mesh->render();
+				SceneManager::render();
 			}
 
 			bool quit() {

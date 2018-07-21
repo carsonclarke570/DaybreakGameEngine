@@ -11,6 +11,21 @@ namespace daybreak {
 			m_localTransform = new Transform();
 		}
 
+		GameObject::~GameObject() {
+			/* This doesn't work...
+			for (int i = 0; i < m_children.size(); i++) {
+				delete m_children[i];
+			}
+
+			for (int i = 0; i < m_components.size(); i++) {
+				delete m_components[i];
+			}
+
+			delete m_localTransform;
+			delete m_parentTransform;
+			*/
+		}
+
 		GameObject& GameObject::addChild(GameObject* child) {
 			m_children.push_back(child);
 			child->m_parentTransform = m_localTransform;

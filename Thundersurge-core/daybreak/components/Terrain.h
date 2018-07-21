@@ -17,7 +17,7 @@ namespace daybreak {
 		private:
 			float m_x, m_z;
 
-			Mesh generate() {
+			Mesh* generate() {
 				std::vector<Vertex> vertices(VERTEX_COUNT * VERTEX_COUNT); 
 				std::vector<GLuint> indices(6 * (VERTEX_COUNT - 1) * (VERTEX_COUNT - 1));
 				FastNoise perlin;
@@ -53,10 +53,10 @@ namespace daybreak {
 						indices[ptr++] = botR;
 					}
 				}
-				return Mesh(vertices, indices);
+				return new Mesh(vertices, indices);
 			}
 		public:
-			Terrain(float x, float z, const Material& material) :
+			Terrain(float x, float z, Material* material) :
 				MeshRenderer(generate(), material), m_x(x), m_z(z){
 			}
 
