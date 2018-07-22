@@ -33,9 +33,9 @@ namespace daybreak {
 			float m_intensity;
 		public:
 			DirectionalShader(const vec3& direction, const vec3& color, float intensity) : Shader("daybreak/graphics/shaders/forward-lighting.vert", "daybreak/graphics/shaders/forward-directional.frag") {
-				m_direction = direction;
 				m_color = color;
 				m_intensity = intensity;
+				m_direction = direction;
 			}
 
 			void update(Transform* transform, Material* material) {
@@ -49,6 +49,8 @@ namespace daybreak {
 				setUniform3f("light.diffuse", m_color);
 				setUniform3f("light.specular", vec3(m_intensity, m_intensity, m_intensity));
 			}
+
+			void setDiection(const vec3& direction) { m_direction = direction; }
 		};
 	}
 }

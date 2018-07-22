@@ -25,7 +25,7 @@ namespace daybreak {
 			glDepthMask(false);
 			glDepthFunc(GL_EQUAL);
 
-			for (BaseLight* light : m_lights) {
+			for (Light* light : m_lights) {
 				m_root->renderAll(light->shader);
 			}
 
@@ -38,8 +38,7 @@ namespace daybreak {
 			m_root->addChild(object);
 		}
 
-		void Scene::addLight(BaseLight* light) {
-			m_root->addChild((new GameObject())->addComponent(light));
+		void Scene::addLight(Light* light) {
 			m_lights.push_back(light);
 		}
 	}

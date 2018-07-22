@@ -10,34 +10,40 @@ namespace daybreak {
 
 		using namespace math;
 
-		struct BaseLight : public GameComponent {
+		struct Light : public GameComponent {
+
 			vec3 diffuse;
 			vec3 specular;
 			Shader* shader;
 
-			BaseLight() {
+			Light() {
 				diffuse = vec3(0, 0, 0);
 				specular = vec3(0, 0, 0);
 			}
 
-			BaseLight(const vec3& color, float intensity) {
+			Light(const vec3& color, float intensity) {
 				diffuse = color;
 				specular = vec3(intensity, intensity, intensity);
 			}
 
 			void render(Shader* shader) { }
+			void update(float delta) { }
 		};
 
-		struct DirectionalLight : public BaseLight {
+		struct DirectionalLight : public Light {
 
-			DirectionalLight(const vec3& direction, const vec3& color, float intensity) : BaseLight(color, intensity) {
+			vec3 direction;
+
+			DirectionalLight(const vec3& direction, const vec3& color, float intensity) : Light(color, intensity) {
 				shader = new DirectionalShader(direction, color, intensity);
 			}
 
-			void update(float delta) {
-				
+			void setDirection(const vec3& direction) {
+				((DirectionalShader*)shader)->setDiection(direction);
 			}
 		};
+
+
 	}
 }
 #endif

@@ -13,7 +13,7 @@ namespace daybreak {
 		private:
 			GameObject* m_root;
 			Shader* m_default;
-			std::vector<BaseLight*> m_lights;
+			std::vector<Light*> m_lights;
 		public:
 			Scene();
 			~Scene();
@@ -21,7 +21,7 @@ namespace daybreak {
 			void update(float delta);
 			void render();
 			void addGameObject(GameObject* object);
-			void addLight(BaseLight* light);
+			void addLight(Light* light);
 
 			GameObject* getRoot() { return m_root; }
 		};

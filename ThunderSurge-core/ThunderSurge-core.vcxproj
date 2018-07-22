@@ -176,10 +176,12 @@
     <ClCompile Include="daybreak\core\math\vec4.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="daybreak\components\Skybox.h" />
     <ClInclude Include="daybreak\core\noise\FastNoise.h" />
     <ClInclude Include="daybreak\core\noise\Noise.h" />
     <ClInclude Include="daybreak\core\scene\Scene.h" />
     <ClInclude Include="daybreak\core\scene\SceneManager.h" />
+    <ClInclude Include="daybreak\graphics\CubeMap.h" />
     <ClInclude Include="daybreak\graphics\Forward.h" />
     <ClInclude Include="game\TestGame.h" />
     <ClInclude Include="daybreak\components\Camera.h" />

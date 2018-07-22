@@ -188,6 +188,12 @@
     <ClInclude Include="daybreak\core\scene\SceneManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="daybreak\components\Skybox.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="daybreak\graphics\CubeMap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="daybreak\graphics\shaders\phong.frag" />
