@@ -1,9 +1,6 @@
 #ifndef _TERRAIN_H_
 #define _TERRAIN_H_
 
-#define SIZE 16
-#define VERTEX_COUNT 1000
-#define AMPLITUDE 1
 #define SEED 0xCAFE
 
 #include "MeshRenderer.h"
@@ -17,33 +14,43 @@ namespace daybreak {
 		private:
 			float m_x, m_z;
 
-			Mesh* generate() {
-				std::vector<Vertex> vertices(VERTEX_COUNT * VERTEX_COUNT); 
-				std::vector<GLuint> indices(6 * (VERTEX_COUNT - 1) * (VERTEX_COUNT - 1));
-				FastNoise perlin;
-				perlin.SetNoiseType(FastNoise::Perlin);
+			Mesh* generate(float size, float amplitude, int numVertices) {
+				std::vector<Vertex> vertices(numVertices * numVertices);
+				std::vector<GLuint> indices(6 * (numVertices - 1) * (numVertices - 1));
+				FastNoise noise;
+				noise.SetNoiseType(FastNoise::Simplex);
+				noise.SetSeed(SEED);
 
-				int ptr = 0;
 				float x = 0.0f, y = 0.0f;
-				for (float i = 0; i < VERTEX_COUNT; i += 1.0f) {
-					for (float j = 0; j < VERTEX_COUNT; j += 1.0f) {
+				float offset = 5.0f / (float) numVertices;
+				int ptr = 0;
+				for (float r = 0; r < numVertices; r += 1.0f) {
+					x = 0;
+					for (float c = 0; c < numVertices; c += 1.0f) {
 						Vertex v;
-						v.pos = vec3(j / (VERTEX_COUNT - 1) * SIZE, ((perlin.GetNoise(x, y) + 1.0f) / 2.0f) * AMPLITUDE, i / (VERTEX_COUNT - 1) * SIZE);
-						v.texture = vec2(j / (VERTEX_COUNT - 1), i / (VERTEX_COUNT - 1));
+						v.pos.m_x = c * size / ((float)numVertices - 1);
+						v.pos.m_y = noise.GetNoise(x, y) * amplitude;
+						v.pos.m_z = r * size / ((float)numVertices - 1);
+						v.texture.m_x = c / (float)numVertices;
+						v.texture.m_y = r / (float)numVertices;
+						v.normal.m_x = 0; // 2 * amplitude * (perlin.GetNoise(x, y - offset), perlin.GetNoise(x, y + offset));
+						v.normal.m_y = 4;
+						v.normal.m_z = 0;// 2 * amplitude * (perlin.GetNoise(x + offset, y), perlin.GetNoise(x - offset, y));
+						v.normal.normalize();
 						vertices[ptr] = v;
 						ptr++;
-						x += 0.01f;
+						x += offset;
 					}
-					y += 0.01f;
+					y += offset;
 				}
 
 				ptr = 0;
 				int topL, topR, botL, botR;
-				for (int z = 0; z < VERTEX_COUNT - 1; z++) {
-					for (int x = 0; x < VERTEX_COUNT - 1; x++) {
-						topL = (z * VERTEX_COUNT) + x;
+				for (int z = 0; z < numVertices - 1; z++) {
+					for (int x = 0; x < numVertices - 1; x++) {
+						topL = (z * numVertices) + x;
 						topR = topL + 1;
-						botL = ((z + 1) * VERTEX_COUNT) + x;
+						botL = ((z + 1) * numVertices) + x;
 						botR = botL + 1;
 						indices[ptr++] = topL;
 						indices[ptr++] = botL;
@@ -56,17 +63,15 @@ namespace daybreak {
 				return new Mesh(vertices, indices);
 			}
 		public:
-			Terrain(float x, float z, Material* material) :
-				MeshRenderer(generate(), material), m_x(x), m_z(z){
-			}
-
-			float getHeight(float x, float z) {
-				return Noise::perlin(x, z) * AMPLITUDE;
+			Terrain(float size, float amplitude, int numVertices, Material* material) :
+				MeshRenderer(generate(size, amplitude, numVertices), material) {
 			}
 
 			void update(float delta) {
-				getTransform()->setTranslation(vec3((-SIZE / 2) + m_x, 0, (-SIZE / 2) + m_z));
+				//getTransform()->setTranslation(vec3((-SIZE / 2), 0, (-SIZE / 2)));
 			}
+
+			//void addToScene(Scene* scene) { }
 		};
 	}
 }

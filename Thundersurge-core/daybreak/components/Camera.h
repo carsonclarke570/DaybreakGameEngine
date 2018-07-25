@@ -28,14 +28,20 @@ namespace daybreak {
 				return m_projection * (rot * trans);
 			}
 
+			vec3 getPosition() {
+				return getTransform()->getTranslation();
+			}
+
 			void update(float delta) {}
 
 			void render(Shader* shader) {
 				shader->enable();
 				shader->setUniformMat4("projection", getProjection());
-				shader->setUniform3f("viewPos", getTransform()->getTranslation());
+				shader->setUniform3f("viewPos", getPosition());
 				shader->disable();
 			}
+
+			
 		};
 	}
 }

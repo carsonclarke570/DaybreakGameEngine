@@ -50,6 +50,7 @@ namespace daybreak {
 			}
 
 			void render(Shader* shader) { }
+			//void addToScene(Scene* scene) { }
 		};
 	}
 }

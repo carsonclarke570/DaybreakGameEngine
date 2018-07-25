@@ -1,14 +1,13 @@
 #ifndef _SCENE_H_
 #define _SCENE_H_
 
-#include "../../components/GameComponent.h"
-#include "../../components/Light.h"
-#include "../../graphics/Forward.h"
+#include "../../core/GameObject.h"
+#include "../../components/ForwardLighting.h"
 
 namespace daybreak {
 
 	namespace core {
-	
+
 		class Scene {
 		private:
 			GameObject* m_root;

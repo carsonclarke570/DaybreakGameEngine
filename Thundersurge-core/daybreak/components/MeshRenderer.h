@@ -26,7 +26,7 @@ namespace daybreak {
 				//delete m_material;
 			}
 
-			void update(float delta) {}
+			void update(float delta) { }
 
 			void render(Shader* shader) {
 				shader->enable();
@@ -34,6 +34,8 @@ namespace daybreak {
 				m_mesh->render();
 				shader->disable();
 			}
+
+			//void addToScene(Scene* scene) { }
 		};
 	}
 }

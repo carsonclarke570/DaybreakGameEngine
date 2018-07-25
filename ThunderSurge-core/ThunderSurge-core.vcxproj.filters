@@ -57,9 +57,6 @@
     <ClCompile Include="daybreak\graphics\Texture.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="daybreak\graphics\PhongShader.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="daybreak\graphics\Shader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -90,9 +87,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="daybreak\components\GameComponent.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="daybreak\components\Light.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="daybreak\components\MeshRenderer.h">
@@ -167,9 +161,6 @@
     <ClInclude Include="daybreak\graphics\Texture.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="daybreak\graphics\PhongShader.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="daybreak\graphics\Shader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -191,13 +182,14 @@
     <ClInclude Include="daybreak\components\Skybox.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="daybreak\graphics\CubeMap.h">
+    <ClInclude Include="daybreak\core\scene\CameraManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="daybreak\components\ForwardLighting.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="daybreak\graphics\shaders\phong.frag" />
-    <None Include="daybreak\graphics\shaders\phong.vert" />
     <None Include="daybreak\graphics\shaders\forward-ambient.frag" />
     <None Include="daybreak\graphics\shaders\forward-lighting.vert" />
     <None Include="daybreak\graphics\shaders\forward-directional.frag" />

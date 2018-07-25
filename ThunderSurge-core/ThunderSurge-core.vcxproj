@@ -166,7 +166,6 @@
     <ClCompile Include="daybreak\core\Transform.cpp" />
     <ClCompile Include="daybreak\graphics\Mesh.cpp" />
     <ClCompile Include="daybreak\graphics\Texture.cpp" />
-    <ClCompile Include="daybreak\graphics\PhongShader.cpp" />
     <ClCompile Include="daybreak\graphics\Shader.cpp" />
     <ClCompile Include="daybreak\core\input\Keyboard.cpp" />
     <ClCompile Include="daybreak\core\input\mouse.cpp" />
@@ -176,12 +175,12 @@
     <ClCompile Include="daybreak\core\math\vec4.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="daybreak\components\Skybox.h" />
     <ClInclude Include="daybreak\core\noise\FastNoise.h" />
     <ClInclude Include="daybreak\core\noise\Noise.h" />
+    <ClInclude Include="daybreak\core\scene\CameraManager.h" />
     <ClInclude Include="daybreak\core\scene\Scene.h" />
     <ClInclude Include="daybreak\core\scene\SceneManager.h" />
-    <ClInclude Include="daybreak\graphics\CubeMap.h" />
+    <ClInclude Include="daybreak\components\Skybox.h" />
     <ClInclude Include="daybreak\graphics\Forward.h" />
     <ClInclude Include="game\TestGame.h" />
     <ClInclude Include="daybreak\components\Camera.h" />
@@ -195,11 +194,10 @@
     <ClInclude Include="daybreak\core\GameObject.h" />
     <ClInclude Include="daybreak\core\math\Quaternion.h" />
     <ClInclude Include="daybreak\core\Transform.h" />
-    <ClInclude Include="daybreak\components\Light.h" />
+    <ClInclude Include="daybreak\components\ForwardLighting.h" />
     <ClInclude Include="daybreak\graphics\Material.h" />
     <ClInclude Include="daybreak\graphics\Texture.h" />
     <ClInclude Include="daybreak\graphics\Mesh.h" />
-    <ClInclude Include="daybreak\graphics\PhongShader.h" />
     <ClInclude Include="daybreak\graphics\Shader.h" />
     <ClInclude Include="daybreak\core\Window.h" />
     <ClInclude Include="daybreak\core\input\Input.h" />
@@ -220,8 +218,6 @@
     <None Include="daybreak\graphics\shaders\forward-ambient.frag" />
     <None Include="daybreak\graphics\shaders\forward-directional.frag" />
     <None Include="daybreak\graphics\shaders\forward-lighting.vert" />
-    <None Include="daybreak\graphics\shaders\phong.frag" />
-    <None Include="daybreak\graphics\shaders\phong.vert" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="TO-DO.txt" />

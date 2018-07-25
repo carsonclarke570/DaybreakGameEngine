@@ -63,6 +63,7 @@ namespace daybreak {
 			}
 
 			void render(Shader* shader) { }
+			//void addToScene(Scene* scene) { }
 		};
 
 		const vec3 FreeLook::Y_AXIS = vec3(0, 1, 0);

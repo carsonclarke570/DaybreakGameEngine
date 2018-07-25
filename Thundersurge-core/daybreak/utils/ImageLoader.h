@@ -1,5 +1,3 @@
-#pragma once
-
 #include <string>
 #include <FreeImage.h>
 #include <GL/glew.h>

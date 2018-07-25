@@ -28,6 +28,7 @@ namespace daybreak {
 
 			void render(Shader* shader) { }
 			void update(float delta) { }
+			//void addToScene(Scene* scene) { }
 		};
 
 		struct DirectionalLight : public Light {

@@ -125,7 +125,7 @@ namespace daybreak {
 				planet->addChild(moon);
 
 				terrain = new GameObject();
-				terrain->addComponent(new Terrain(0, 0, material));
+				terrain->addComponent(new Terrain(10.0f, 1.0f, 100, material));
 
 				ground->addGameObject(terrain);
 
