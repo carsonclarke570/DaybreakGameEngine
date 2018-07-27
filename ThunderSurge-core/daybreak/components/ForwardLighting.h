@@ -1,7 +1,6 @@
 #ifndef _LIGHT_H_
 #define _LIGHT_H_
 
-#include "../graphics/Forward.h"
 #include "GameComponent.h"
 
 namespace daybreak {
@@ -26,9 +25,7 @@ namespace daybreak {
 				specular = vec3(intensity, intensity, intensity);
 			}
 
-			void render(Shader* shader) { }
 			void update(float delta) { }
-			//void addToScene(Scene* scene) { }
 		};
 
 		struct DirectionalLight : public Light {
@@ -36,11 +33,16 @@ namespace daybreak {
 			vec3 direction;
 
 			DirectionalLight(const vec3& direction, const vec3& color, float intensity) : Light(color, intensity) {
-				shader = new DirectionalShader(direction, color, intensity);
+				shader = new Shader("daybreak/graphics/shaders/forward-lighting.vert", "daybreak/graphics/shaders/forward-directional.frag");
+				this->direction = direction;
 			}
 
-			void setDirection(const vec3& direction) {
-				((DirectionalShader*)shader)->setDiection(direction);
+			void render(Shader* shader) { 
+				shader->enable();
+				shader->setUniform3f("light.direction", direction);
+				shader->setUniform3f("light.diffuse", diffuse);
+				std::cout << diffuse;
+				shader->setUniform3f("light.specular", specular);
 			}
 		};
 

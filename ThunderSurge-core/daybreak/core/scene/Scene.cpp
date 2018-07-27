@@ -6,7 +6,7 @@ namespace daybreak {
 
 		Scene::Scene() {
 			m_root = new GameObject();
-			m_default = new AmbientShader();
+			m_default = new Shader("daybreak/graphics/shaders/forward-lighting.vert", "daybreak/graphics/shaders/forward-ambient.frag");
 		}
 
 		Scene::~Scene() {
@@ -26,9 +26,11 @@ namespace daybreak {
 			glDepthFunc(GL_EQUAL);
 
 			for (Light* light : m_lights) {
+				light->render(light->shader);
 				m_root->renderAll(light->shader);
 			}
 
+			glDepthFunc(GL_LESS);
 			glDepthMask(true);
 			glDisable(GL_BLEND);
 
@@ -37,7 +39,7 @@ namespace daybreak {
 				m_skybox->render(m_skyboxShader);  
 			} */
 
-			glDepthFunc(GL_LESS);
+			
 		}
 
 		void Scene::addGameObject(GameObject* object) {

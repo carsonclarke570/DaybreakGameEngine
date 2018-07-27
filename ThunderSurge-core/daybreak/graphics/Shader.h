@@ -32,7 +32,7 @@ namespace daybreak {
 			Shader(const char* ver, const char* frag);
 			~Shader();
 
-			virtual void update(Transform* transform, Material* material) = 0;
+			void update(Transform* transform, Material* material);
 
 			void setUniform1f(const GLchar* name, float f);
 			void setUniform1i(const GLchar* name, int i);

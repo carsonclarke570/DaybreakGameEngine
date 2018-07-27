@@ -1,4 +1,4 @@
-#version 330
+#version 450
 
 struct Material {
     sampler2D diffuse;
@@ -12,9 +12,9 @@ in vec3 position0;
 
 out vec4 fragColor;
 
-uniform vec3 ambient;
 uniform Material material;
 
 void main() {
-	fragColor = vec4(ambient * vec3(texture(material.diffuse, texture0)), 1.0);
+	vec3 color = vec3(0.05, 0.05, 0.05) * vec3(texture(material.diffuse, texture0));
+	fragColor = vec4(color, 1.0);
 }

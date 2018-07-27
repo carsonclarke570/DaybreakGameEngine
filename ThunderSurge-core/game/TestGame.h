@@ -1,7 +1,6 @@
 #pragma once
 
 #include "../daybreak/graphics/shader.h"
-#include "../daybreak/graphics/Forward.h"
 #include "../daybreak/graphics/Mesh.h"
 #include "../daybreak/graphics/Texture.h"
 			
@@ -58,23 +57,8 @@ namespace daybreak {
 				solar_system = new Scene();
 				ground = new Scene();
 
-				//testing noise
-
-				Noise::seed(time(NULL));
-				float x = 0, y = 0;
-
-				for (int r = 0; r < 10; r++) {
-					for (int c = 0; c < 10; c++) {
-						x += 0.01;
-						std::cout << Noise::perlin(x, y) << " ";
-					}
-					std::cout << std::endl;
-					y += 0.01;
-				}
-
-				//shader = new Ambient();
 				elapsed = 0.0f;
-				x = 0.0f;
+				
 
 				camera = new GameObject();
 

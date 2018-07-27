@@ -170,9 +170,6 @@
     <ClInclude Include="daybreak\core\Daybreak.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="daybreak\graphics\Forward.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="daybreak\core\scene\Scene.h">
       <Filter>Header Files</Filter>
     </ClInclude>

@@ -181,7 +181,6 @@
     <ClInclude Include="daybreak\core\scene\Scene.h" />
     <ClInclude Include="daybreak\core\scene\SceneManager.h" />
     <ClInclude Include="daybreak\components\Skybox.h" />
-    <ClInclude Include="daybreak\graphics\Forward.h" />
     <ClInclude Include="game\TestGame.h" />
     <ClInclude Include="daybreak\components\Camera.h" />
     <ClInclude Include="daybreak\components\FreeLook.h" />

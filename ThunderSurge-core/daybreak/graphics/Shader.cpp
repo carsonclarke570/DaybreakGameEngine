@@ -73,34 +73,52 @@ namespace daybreak {
 			for (GLint i = 0; i < noOfUniforms; ++i) {
 				glGetActiveUniform(program, i, maxUniformNameLen, &read, &size, &type, unifN.data());
 				m_uniforms[std::string(unifN.data())] = glGetUniformLocation(program, unifN.data());
+				std::cout << unifN.data() << " ";
 			}
+			std::cout << std::endl;
 
 			return program;
 		}
 
+		void Shader::update(Transform* transform, Material* material) {
+			material->bind();
+			enable();
+			
+			setUniformMat4("model", transform->getTransform());
+			setUniform1i("material.diffuse", 0);
+			setUniform1i("material.specular", 1);
+			setUniform1f("material.specPow", material->getSpecularPower());
+		}
+
 
 		void Shader::setUniform1f(const GLchar* name, float f) {
-			glUniform1f(m_uniforms[name], f);
+			if (m_uniforms[name])
+				glUniform1f(m_uniforms[name], f);
 		}
 
 		void Shader::setUniform1i(const GLchar* name, int i) {
-			glUniform1i(m_uniforms[name], i);
+			if (m_uniforms[name])
+				glUniform1i(m_uniforms[name], i);
 		}
 
 		void Shader::setUniform2f(const GLchar* name, const math::vec2& v) {
-			glUniform2f(m_uniforms[name], v.m_x, v.m_y);
+			if (m_uniforms[name])
+				glUniform2f(m_uniforms[name], v.m_x, v.m_y);
 		}
 
 		void Shader::setUniform3f(const GLchar* name, const math::vec3& v) {
-			glUniform3f(m_uniforms[name], v.m_x, v.m_y, v.m_z);
+			if (m_uniforms[name])
+				glUniform3f(m_uniforms[name], v.m_x, v.m_y, v.m_z);
 		}
 
 		void Shader::setUniform4f(const GLchar* name, const math::vec4& v) {
-			glUniform4f(m_uniforms[name], v.m_x, v.m_y, v.m_z, v.m_w);
+			if (m_uniforms[name])
+				glUniform4f(m_uniforms[name], v.m_x, v.m_y, v.m_z, v.m_w);
 		}
 
 		void Shader::setUniformMat4(const GLchar* name, const math::mat4& m) {
-			glUniformMatrix4fv(m_uniforms[name], 1, GL_FALSE, m.m_m);
+			if (m_uniforms[name])
+				glUniformMatrix4fv(m_uniforms[name], 1, GL_FALSE, m.m_m);
 		}
 
 		void Shader::enable() const {

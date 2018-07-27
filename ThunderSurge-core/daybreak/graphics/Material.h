@@ -35,6 +35,12 @@ namespace daybreak {
 				m_specular.bind();
 			}
 
+			void unbind() {
+				glActiveTexture(GL_TEXTURE0);
+				m_diffuse.unbind();
+				m_specular.unbind();
+			}
+
 			inline float getSpecularPower() const { return m_specPow; }
 		};
 	}

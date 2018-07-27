@@ -37,8 +37,8 @@ namespace daybreak {
 			void render(Shader* shader) {
 				shader->enable();
 				shader->setUniformMat4("projection", getProjection());
-				shader->setUniform3f("viewPos", getPosition());
-				shader->disable();
+				//shader->setUniform3f("viewPos", getPosition());
+				//shader->disable();
 			}
 
 			
