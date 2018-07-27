@@ -42,6 +42,7 @@ namespace daybreak {
 				shader->setUniform3f("light.direction", direction);
 				shader->setUniform3f("light.diffuse", diffuse);
 				shader->setUniform3f("light.specular", specular);
+				shader->disable();
 			}
 		};
 

@@ -30,8 +30,10 @@ namespace daybreak {
 
 			void render(Shader* shader) {
 				shader->enable();
+				m_material->bind();
 				shader->update(getTransform(), m_material);
 				m_mesh->render();
+				m_material->unbind();
 				shader->disable();
 			}
 

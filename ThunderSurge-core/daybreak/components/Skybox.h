@@ -101,7 +101,6 @@ namespace daybreak {
 			}
 
 			void render(Shader* shader) {
-				shader->enable();
 
 			}
 

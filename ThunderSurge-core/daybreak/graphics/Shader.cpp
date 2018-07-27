@@ -84,9 +84,6 @@ namespace daybreak {
 		}
 
 		void Shader::update(Transform* transform, Material* material) {
-			material->bind();
-			enable();
-			
 			setUniformMat4("model", transform->getTransform());
 			setUniform1i("material.diffuse", 0);
 			setUniform1i("material.specular", 1);
