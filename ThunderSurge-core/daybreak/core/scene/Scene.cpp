@@ -26,7 +26,6 @@ namespace daybreak {
 			glDepthFunc(GL_EQUAL);
 
 			for (Light* light : m_lights) {
-				light->render(light->shader);
 				m_root->renderAll(light->shader);
 			}
 

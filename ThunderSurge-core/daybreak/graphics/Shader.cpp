@@ -73,9 +73,12 @@ namespace daybreak {
 			for (GLint i = 0; i < noOfUniforms; ++i) {
 				glGetActiveUniform(program, i, maxUniformNameLen, &read, &size, &type, unifN.data());
 				m_uniforms[std::string(unifN.data())] = glGetUniformLocation(program, unifN.data());
-				std::cout << unifN.data() << " ";
+				
 			}
-			std::cout << std::endl;
+
+			// If you wan to see active uniforms
+			//for (auto& t : m_uniforms)
+				//std::cout << t.first << " " << "\n";
 
 			return program;
 		}
