@@ -9,6 +9,7 @@ namespace daybreak {
 	namespace math {
 
 		struct vec3 {
+
 			float m_x, m_y, m_z;
 
 			vec3();

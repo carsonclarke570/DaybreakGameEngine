@@ -3,6 +3,8 @@
 
 #include "GameComponent.h"
 
+#include "../graphics/UniformBuffer.h"
+
 namespace daybreak {
 
 	namespace components {
@@ -12,9 +14,11 @@ namespace daybreak {
 		class Camera : public GameComponent {
 		private:
 			mat4 m_projection;
+			UniformBuffer m_modelView;
+			UniformBuffer m_cameraPosition;
 		public:
 			Camera(const mat4& projection)
-				: m_projection(projection) {
+				: m_projection(projection), m_modelView(2 * sizeof(mat4), 0), m_cameraPosition(sizeof(vec3), 1) {
 			}
 
 			~Camera() {
@@ -22,10 +26,11 @@ namespace daybreak {
 			}
 
 			mat4 getProjection() {
-				mat4 rot = getTransform()->getRotation().toRotationMatrix();
-				mat4 trans = mat4::translation(getTransform()->getTranslation() *  vec3(-1, -1, -1));
+				return m_projection;
+			}
 
-				return m_projection * (rot * trans);
+			mat4 getView() {
+				return getTransform()->getRotation().toRotationMatrix() * mat4::translation(getTransform()->getTranslation() *  vec3(-1, -1, -1));
 			}
 
 			vec3 getPosition() {
@@ -35,10 +40,9 @@ namespace daybreak {
 			void update(float delta) {}
 
 			void render(Shader* shader) {
-				shader->enable();
-				shader->setUniformMat4("projection", getProjection());
-				shader->setUniform3f("viewPos", getPosition());
-				shader->disable();
+				m_modelView.setData(0, getView());
+				m_modelView.setData(sizeof(mat4), getProjection());
+				m_cameraPosition.setData(0, getPosition());
 			}
 
 			

@@ -159,6 +159,7 @@
     <ClCompile Include="daybreak\core\scene\Scene.cpp" />
     <ClCompile Include="daybreak\core\scene\SceneManager.cpp" />
     <ClCompile Include="daybreak\core\Window.cpp" />
+    <ClCompile Include="daybreak\graphics\Uniform.cpp" />
     <ClCompile Include="game\Main.cpp" />
     <ClCompile Include="daybreak\core\Daybreak.cpp" />
     <ClCompile Include="daybreak\core\GameObject.cpp" />
@@ -181,6 +182,7 @@
     <ClInclude Include="daybreak\core\scene\Scene.h" />
     <ClInclude Include="daybreak\core\scene\SceneManager.h" />
     <ClInclude Include="daybreak\components\Skybox.h" />
+    <ClInclude Include="daybreak\graphics\UniformBuffer.h" />
     <ClInclude Include="game\TestGame.h" />
     <ClInclude Include="daybreak\components\Camera.h" />
     <ClInclude Include="daybreak\components\FreeLook.h" />

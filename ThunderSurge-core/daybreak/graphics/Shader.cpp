@@ -73,8 +73,12 @@ namespace daybreak {
 			for (GLint i = 0; i < noOfUniforms; ++i) {
 				glGetActiveUniform(program, i, maxUniformNameLen, &read, &size, &type, unifN.data());
 				m_uniforms[std::string(unifN.data())] = glGetUniformLocation(program, unifN.data());
-				
 			}
+
+			GLuint sys = glGetUniformBlockIndex(m_shader, "SYS_View");
+			glUniformBlockBinding(m_shader, sys, 0);
+			sys = glGetUniformBlockIndex(m_shader, "SYS_Camera");
+			glUniformBlockBinding(m_shader, sys, 1);
 
 			// If you wan to see active uniforms
 			//for (auto& t : m_uniforms)

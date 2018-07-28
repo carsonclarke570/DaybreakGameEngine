@@ -18,7 +18,10 @@ in vec3 position0;
 
 out vec4 fragColor;
 
-uniform vec3 viewPos;
+layout (std140) uniform SYS_Camera {
+	vec3 viewPos;
+};
+
 uniform Material material;
 uniform DirectionalLight light;
 

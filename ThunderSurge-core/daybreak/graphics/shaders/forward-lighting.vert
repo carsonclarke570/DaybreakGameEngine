@@ -8,11 +8,15 @@ out vec2 texture0;
 out vec3 normal0;
 out vec3 position0;
 
+layout (std140) uniform SYS_View {
+	mat4 view;
+	mat4 projection;
+};
+
 uniform mat4 model;
-uniform mat4 projection;
 
 void main() {
-    gl_Position = projection * model * vec4(position, 1.0);
+    gl_Position = projection * view * model * vec4(position, 1.0);
 
     texture0 = texture;
     normal0 = mat3(transpose(inverse(model))) * normal;
