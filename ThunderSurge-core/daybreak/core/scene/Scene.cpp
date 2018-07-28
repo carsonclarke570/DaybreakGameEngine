@@ -26,20 +26,13 @@ namespace daybreak {
 			glDepthFunc(GL_EQUAL);
 
 			for (Light* light : m_lights) {
-				light->render(light->shader);
+				light->update();
 				m_root->renderAll(light->shader);
 			}
 
 			glDepthFunc(GL_LESS);
 			glDepthMask(true);
 			glDisable(GL_BLEND);
-
-			/*if (m_skybox != NULL) {
-				glDepthFunc(GL_LEQUAL);
-				m_skybox->render(m_skyboxShader);  
-			} */
-
-			
 		}
 
 		void Scene::addGameObject(GameObject* object) {

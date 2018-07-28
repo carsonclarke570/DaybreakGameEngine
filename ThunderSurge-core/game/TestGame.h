@@ -88,6 +88,8 @@ namespace daybreak {
 				solar_system->addLight(dir);
 				ground->addLight(dir);
 
+				
+
 				sol = new GameObject();
 				sol->addComponent(new MeshRenderer(mesh, material));
 				sol->getTransform()->setScale(vec3(0.5, 0.5, 0.5));
@@ -119,6 +121,8 @@ namespace daybreak {
 				SceneManager::add("Ter", ground);
 
 				SceneManager::setActive("Sol");
+
+				
 			}
 
 			void update(float delta) {

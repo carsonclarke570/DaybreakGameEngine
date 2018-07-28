@@ -31,7 +31,10 @@ namespace daybreak {
 			void render(Shader* shader) {
 				shader->enable();
 				m_material->bind();
-				shader->update(getTransform(), m_material);
+				shader->setUniformMat4("model", getTransform()->getTransform());
+				shader->setUniform1i("material.diffuse", 0);
+				shader->setUniform1i("material.specular", 1);
+				shader->setUniform1f("material.specPow", m_material->getSpecularPower());
 				m_mesh->render();
 				m_material->unbind();
 				shader->disable();

@@ -25,7 +25,10 @@ namespace daybreak {
 				specular = vec3(intensity, intensity, intensity);
 			}
 
+			virtual void update() = 0;
+
 			void update(float delta) { }
+			void render(Shader* shader) { }
 		};
 
 		struct DirectionalLight : public Light {
@@ -37,7 +40,7 @@ namespace daybreak {
 				this->direction = direction;
 			}
 
-			void render(Shader* shader) { 
+			void update() { 
 				shader->enable();
 				shader->setUniform3f("light.direction", direction);
 				shader->setUniform3f("light.diffuse", diffuse);

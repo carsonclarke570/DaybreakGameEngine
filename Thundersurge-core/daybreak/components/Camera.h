@@ -15,10 +15,9 @@ namespace daybreak {
 		private:
 			mat4 m_projection;
 			UniformBuffer m_modelView;
-			UniformBuffer m_cameraPosition;
 		public:
 			Camera(const mat4& projection)
-				: m_projection(projection), m_modelView(2 * sizeof(mat4), 0), m_cameraPosition(sizeof(vec3), 1) {
+				: m_projection(projection), m_modelView(2 * sizeof(mat4), 0)  {
 			}
 
 			~Camera() {
@@ -42,7 +41,9 @@ namespace daybreak {
 			void render(Shader* shader) {
 				m_modelView.setData(0, getView());
 				m_modelView.setData(sizeof(mat4), getProjection());
-				m_cameraPosition.setData(0, getPosition());
+				shader->enable();
+				shader->setUniform3f("viewPos", getPosition());
+				shader->disable();
 			}
 
 			

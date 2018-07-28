@@ -66,63 +66,47 @@ namespace daybreak {
 			glGetProgramiv(program, GL_ACTIVE_UNIFORM_MAX_LENGTH, &maxUniformNameLen);
 			glGetProgramiv(program, GL_ACTIVE_UNIFORMS, &noOfUniforms);
 
-			GLint read, size;
+			/*GLint read, size;
 			GLenum type;
 
 			std::vector<GLchar>unifN(maxUniformNameLen, 0);
 			for (GLint i = 0; i < noOfUniforms; ++i) {
 				glGetActiveUniform(program, i, maxUniformNameLen, &read, &size, &type, unifN.data());
 				m_uniforms[std::string(unifN.data())] = glGetUniformLocation(program, unifN.data());
-			}
-
-			GLuint sys = glGetUniformBlockIndex(m_shader, "SYS_View");
-			glUniformBlockBinding(m_shader, sys, 0);
-			sys = glGetUniformBlockIndex(m_shader, "SYS_Camera");
-			glUniformBlockBinding(m_shader, sys, 1);
+			} */
 
 			// If you wan to see active uniforms
-			//for (auto& t : m_uniforms)
-				//std::cout << t.first << " " << "\n";
+			for (auto& t : m_uniforms)
+				std::cout << t.first << " ";
+
+			std::cout << std::endl;
 
 			return program;
 		}
 
-		void Shader::update(Transform* transform, Material* material) {
-			setUniformMat4("model", transform->getTransform());
-			setUniform1i("material.diffuse", 0);
-			setUniform1i("material.specular", 1);
-			setUniform1f("material.specPow", material->getSpecularPower());
-		}
-
 
 		void Shader::setUniform1f(const GLchar* name, float f) {
-			if (m_uniforms[name])
-				glUniform1f(m_uniforms[name], f);
+			glUniform1f(glGetUniformLocation(m_shader, name), f);
 		}
 
 		void Shader::setUniform1i(const GLchar* name, int i) {
-			if (m_uniforms[name])
-				glUniform1i(m_uniforms[name], i);
+			glUniform1i(glGetUniformLocation(m_shader, name), i);
 		}
 
 		void Shader::setUniform2f(const GLchar* name, const math::vec2& v) {
-			if (m_uniforms[name])
-				glUniform2f(m_uniforms[name], v.m_x, v.m_y);
+			glUniform2f(glGetUniformLocation(m_shader, name), v.m_x, v.m_y);
 		}
 
 		void Shader::setUniform3f(const GLchar* name, const math::vec3& v) {
-			if (m_uniforms[name])
-				glUniform3f(m_uniforms[name], v.m_x, v.m_y, v.m_z);
+			glUniform3f(glGetUniformLocation(m_shader, name), v.m_x, v.m_y, v.m_z);
 		}
 
 		void Shader::setUniform4f(const GLchar* name, const math::vec4& v) {
-			if (m_uniforms[name])
-				glUniform4f(m_uniforms[name], v.m_x, v.m_y, v.m_z, v.m_w);
+			glUniform4f(glGetUniformLocation(m_shader, name), v.m_x, v.m_y, v.m_z, v.m_w);
 		}
 
 		void Shader::setUniformMat4(const GLchar* name, const math::mat4& m) {
-			if (m_uniforms[name])
-				glUniformMatrix4fv(m_uniforms[name], 1, GL_FALSE, m.m_m);
+			glUniformMatrix4fv(glGetUniformLocation(m_shader, name), 1, GL_FALSE, m.m_m);
 		}
 
 		void Shader::enable() const {

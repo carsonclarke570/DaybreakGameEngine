@@ -8,7 +8,7 @@ out vec2 texture0;
 out vec3 normal0;
 out vec3 position0;
 
-layout (std140) uniform SYS_View {
+layout (std140, binding = 0) uniform SYS_View {
 	mat4 view;
 	mat4 projection;
 };
