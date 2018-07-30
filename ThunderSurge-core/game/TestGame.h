@@ -37,6 +37,7 @@ namespace daybreak {
 			Scene* ground;
 
 			Light* dir;
+			SpotLight* spot;
 
 			GameObject* planet;
 			GameObject* moon;
@@ -59,22 +60,34 @@ namespace daybreak {
 
 				elapsed = 0.0f;
 				
-
 				camera = new GameObject();
 
 				Mesh* mesh = new Mesh("C:/Users/birdi/3D Objects/res/models/cube.obj");
 
-				camera->addComponent(new Camera(mat4::perspective(70.0f, 16.0f / 9.0f, 0.1f, 1000.0f)));
+				camera->addComponent(new Camera(mat4::perspective(45.0f, 16.0f / 9.0f, 0.1f, 100.0f)));
 				camera->addComponent(new FreeLook(1.0f));
 				camera->addComponent(new FreeMove(1.0f));
-				camera->getTransform()->translate(vec3(0, 1, 0));
+				camera->getTransform()->translate(vec3(0, 0, 0));
 
 				solar_system->addGameObject(camera);
 				ground->addGameObject(camera);
 
 				Texture texture("C:/Users/birdi/3D Objects/res/textures/cube.jpg");
-				Texture spec("C:/Users/birdi/3D Objects/res/textures/cube_specular.jpg");
-				Material* material = new Material(texture, spec);
+				Texture spec("C:/Users/birdi/3D Objects/res/textures/cube.jpg");
+				Material* material = new Material(texture);
+
+
+				Skybox* sky = new Skybox(
+					100.0f,
+					"C:/Users/birdi/3D Objects/res/textures/right.jpg", 
+					"C:/Users/birdi/3D Objects/res/textures/left.jpg",
+					"C:/Users/birdi/3D Objects/res/textures/top.jpg",
+					"C:/Users/birdi/3D Objects/res/textures/bottom.jpg",
+					"C:/Users/birdi/3D Objects/res/textures/front.jpg",
+					"C:/Users/birdi/3D Objects/res/textures/back.jpg"
+				);
+
+				solar_system->addSkybox(sky);
 
 				//DirectionalLight d;
 				//d.direction = vec3(-0.2f, -1.0f, -0.3f);
@@ -85,14 +98,14 @@ namespace daybreak {
 				//shader->setDirectionalLight(d);
 
 				dir = new DirectionalLight(vec3(0, -1, 0), vec3(0.4f, 0.4f, 0.4f), 0.5f);
+				spot = new SpotLight(camera->getTransform()->getTranslation(), camera->getTransform()->getRotation().getBack(), vec3(1, 1, 1), 0.5f);
+				solar_system->addLight(spot);
 				solar_system->addLight(dir);
 				ground->addLight(dir);
 
-				
-
 				sol = new GameObject();
 				sol->addComponent(new MeshRenderer(mesh, material));
-				sol->getTransform()->setScale(vec3(0.5, 0.5, 0.5));
+				sol->getTransform()->setScale(vec3(0.2, 0.2, 0.2));
 
 				solar_system->addGameObject(sol);
 
@@ -114,15 +127,11 @@ namespace daybreak {
 				terrain->addComponent(new Terrain(10.0f, 1.0f, 100, material));
 
 				ground->addGameObject(terrain);
-
 				solar_system->addGameObject(terrain);
 
 				SceneManager::add("Sol", solar_system);
 				SceneManager::add("Ter", ground);
-
 				SceneManager::setActive("Sol");
-
-				
 			}
 
 			void update(float delta) {
@@ -139,11 +148,12 @@ namespace daybreak {
 				moon->getTransform()->setTranslation(vec3(s / 2, 0, c / 2));
 				sol->getTransform()->setTranslation(vec3(0, 1, 0));
 
-				//dir->getTransform()->setTranslation(vec3(0, 0, 1));
-
 				sol->getTransform()->setRotation(sinDelta * 180, vec3(0, 0, 1));
 				planet->getTransform()->setRotation(sinDelta * 180, vec3(1, 0, 0));
 				moon->getTransform()->setRotation(sinDelta * 180, vec3(0, 1, 0));
+
+				spot->position = camera->getTransform()->getTranslation();
+				spot->direction = camera->getTransform()->getRotation().getForward();
 
 				x += delta;
 

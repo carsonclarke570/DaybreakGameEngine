@@ -9,54 +9,55 @@ namespace daybreak {
 
 		using namespace std;
 
-		class Skybox : public GameComponent {
+		class Skybox {
 		private:
 			GLuint m_id, m_vao, m_vbo;
+			Shader* m_shader;
 
-			GLuint load(vector<string> faces) {
+			void load(vector<string> faces, int size) {
 
-				vector<vec3> cubemap {
-					vec3(-1.0f,  1.0f, -1.0f),
-					vec3(-1.0f, -1.0f, -1.0f),
-					vec3(1.0f, -1.0f, -1.0f),
-					vec3(1.0f, -1.0f, -1.0f),
-					vec3(1.0f,  1.0f, -1.0f),
-					vec3(-1.0f,  1.0f, -1.0f),
+				float cubemap[] = {     
+					-size,  size, -size,
+					-size, -size, -size,
+					size, -size, -size,
+					size, -size, -size,
+					size,  size, -size,
+					-size,  size, -size,
 
-					vec3(-1.0f, -1.0f,  1.0f),
-					vec3(-1.0f, -1.0f, -1.0f),
-					vec3(-1.0f,  1.0f, -1.0f),
-					vec3(-1.0f,  1.0f, -1.0f),
-					vec3(-1.0f,  1.0f,  1.0f),
-					vec3(-1.0f, -1.0f,  1.0f),
+					-size, -size,  size,
+					-size, -size, -size,
+					-size,  size, -size,
+					-size,  size, -size,
+					-size,  size,  size,
+					-size, -size,  size,
 
-					vec3(1.0f, -1.0f, -1.0f),
-					vec3(1.0f, -1.0f,  1.0f),
-					vec3(1.0f,  1.0f,  1.0f),
-					vec3(1.0f,  1.0f,  1.0f),
-					vec3(1.0f,  1.0f, -1.0f),
-					vec3(1.0f, -1.0f, -1.0f),
+					size, -size, -size,
+					size, -size,  size,
+					size,  size,  size,
+					size,  size,  size,
+					size,  size, -size,
+					size, -size, -size,
 
-					vec3(-1.0f, -1.0f,  1.0f),
-					vec3(-1.0f,  1.0f,  1.0f),
-					vec3(1.0f,  1.0f,  1.0f) ,
-					vec3(1.0f,  1.0f,  1.0f) ,
-					vec3(1.0f, -1.0f,  1.0f) ,
-					vec3(-1.0f, -1.0f,  1.0f),
+					-size, -size,  size,
+					-size,  size,  size,
+					size,  size,  size,
+					size,  size,  size,
+					size, -size,  size,
+					-size, -size,  size,
 
-					vec3(-1.0f,  1.0f, -1.0f),
-					vec3(1.0f,  1.0f, -1.0f),
-					vec3(1.0f,  1.0f,  1.0f),
-					vec3(1.0f,  1.0f,  1.0f),
-					vec3(-1.0f,  1.0f,  1.0f),
-					vec3(-1.0f,  1.0f, -1.0f),
+					-size,  size, -size,
+					size,  size, -size,
+					size,  size,  size,
+					size,  size,  size,
+					-size,  size,  size,
+					-size,  size, -size,
 
-					vec3(-1.0f, -1.0f, -1.0f),
-					vec3(-1.0f, -1.0f,  1.0f),
-					vec3(1.0f, -1.0f, -1.0f),
-					vec3(1.0f, -1.0f, -1.0f),
-					vec3(-1.0f, -1.0f,  1.0f),
-					vec3(1.0f, -1.0f,  1.0f	)
+					-size, -size, -size,
+					-size, -size,  size,
+					size, -size, -size,
+					size, -size, -size,
+					-size, -size,  size,
+					size, -size,  size
 				};
 
 				glGenVertexArrays(1, &m_vao);
@@ -65,7 +66,7 @@ namespace daybreak {
 				glBindVertexArray(m_vao);
 				glBindBuffer(GL_ARRAY_BUFFER, m_vbo);
 
-				glBufferData(GL_ARRAY_BUFFER, sizeof(cubemap), &cubemap[0], GL_STATIC_DRAW);
+				glBufferData(GL_ARRAY_BUFFER, sizeof(cubemap), &cubemap, GL_STATIC_DRAW);
 				glEnableVertexAttribArray(0);
 				glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
 
@@ -92,19 +93,24 @@ namespace daybreak {
 
 			}
 		public:
-			Skybox(string right, string left, string top, string bottom, string front, string back) {
-				load(vector<string> { right, left, top, bottom, front, back });
+			Skybox(int size, string right, string left, string top, string bottom, string front, string back) {
+				load(vector<string> { right, left, top, bottom, front, back }, size);
+				m_shader = new Shader("daybreak/graphics/shaders/skybox.vert", "daybreak/graphics/shaders/skybox.frag");
+				m_shader->enable();
+				m_shader->setUniform1i("skybox", 0);
+				m_shader->disable();
 			}
 
-			void update(float delta) {
-
+			void render() {
+				m_shader->enable();
+				m_shader->setUniform1i("skybox", 0);
+				glBindVertexArray(m_vao);
+				glActiveTexture(GL_TEXTURE0);
+				glBindTexture(GL_TEXTURE_CUBE_MAP, m_id);
+				glDrawArrays(GL_TRIANGLES, 0, 36);
+				glBindVertexArray(0);
+				m_shader->disable();
 			}
-
-			void render(Shader* shader) {
-
-			}
-
-			//void addToScene(Scene* scene) { }
 		};
 	}
 }

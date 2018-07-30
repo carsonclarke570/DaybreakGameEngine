@@ -15,6 +15,10 @@ namespace daybreak {
 
 		void Scene::update(float delta) {
 			m_root->updateAll(delta);
+
+			for (Light* light : m_lights) {
+				light->update();
+			}
 		}
 
 		void Scene::render() {
@@ -26,13 +30,18 @@ namespace daybreak {
 			glDepthFunc(GL_EQUAL);
 
 			for (Light* light : m_lights) {
-				light->update();
 				m_root->renderAll(light->shader);
 			}
 
-			glDepthFunc(GL_LESS);
 			glDepthMask(true);
 			glDisable(GL_BLEND);
+
+			if (m_skybox != NULL) {
+				glDepthFunc(GL_LEQUAL);
+				m_skybox->render();
+			}
+
+			glDepthFunc(GL_LESS);
 		}
 
 		void Scene::addGameObject(GameObject* object) {
@@ -41,6 +50,10 @@ namespace daybreak {
 
 		void Scene::addLight(Light* light) {
 			m_lights.push_back(light);
+		}
+
+		void Scene::addSkybox(Skybox* skybox) {
+			m_skybox = skybox;
 		}
 	}
 }

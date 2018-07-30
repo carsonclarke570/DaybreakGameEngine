@@ -178,7 +178,6 @@
   <ItemGroup>
     <ClInclude Include="daybreak\core\noise\FastNoise.h" />
     <ClInclude Include="daybreak\core\noise\Noise.h" />
-    <ClInclude Include="daybreak\core\scene\CameraManager.h" />
     <ClInclude Include="daybreak\core\scene\Scene.h" />
     <ClInclude Include="daybreak\core\scene\SceneManager.h" />
     <ClInclude Include="daybreak\components\Skybox.h" />
@@ -219,6 +218,9 @@
     <None Include="daybreak\graphics\shaders\forward-ambient.frag" />
     <None Include="daybreak\graphics\shaders\forward-directional.frag" />
     <None Include="daybreak\graphics\shaders\forward-lighting.vert" />
+    <None Include="daybreak\graphics\shaders\forward-spot.frag" />
+    <None Include="daybreak\graphics\shaders\skybox.frag" />
+    <None Include="daybreak\graphics\shaders\skybox.vert" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="TO-DO.txt" />

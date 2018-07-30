@@ -3,6 +3,7 @@
 
 #include "../../core/GameObject.h"
 #include "../../components/ForwardLighting.h"
+#include "../../components/Skybox.h"
 
 namespace daybreak {
 
@@ -12,6 +13,7 @@ namespace daybreak {
 		private:
 			GameObject* m_root;
 			Shader* m_default;
+			Skybox* m_skybox;
 			std::vector<Light*> m_lights;
 		public:
 			Scene();
@@ -21,6 +23,7 @@ namespace daybreak {
 			void render();
 			void addGameObject(GameObject* object);
 			void addLight(Light* light);
+			void addSkybox(Skybox* skybox);
 
 			GameObject* getRoot() { return m_root; }
 		};

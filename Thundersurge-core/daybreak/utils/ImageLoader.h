@@ -24,7 +24,7 @@ namespace daybreak {
 		if (!dib) {
 			return nullptr;
 		}
-
+		FreeImage_FlipVertical(dib);
 		BYTE* result = FreeImage_GetBits(dib);
 		*width = FreeImage_GetWidth(dib);
 		*height = FreeImage_GetHeight(dib);

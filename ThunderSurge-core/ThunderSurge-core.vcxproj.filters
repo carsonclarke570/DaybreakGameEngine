@@ -182,9 +182,6 @@
     <ClInclude Include="daybreak\components\Skybox.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="daybreak\core\scene\CameraManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="daybreak\components\ForwardLighting.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -196,6 +193,9 @@
     <None Include="daybreak\graphics\shaders\forward-ambient.frag" />
     <None Include="daybreak\graphics\shaders\forward-lighting.vert" />
     <None Include="daybreak\graphics\shaders\forward-directional.frag" />
+    <None Include="daybreak\graphics\shaders\forward-spot.frag" />
+    <None Include="daybreak\graphics\shaders\skybox.vert" />
+    <None Include="daybreak\graphics\shaders\skybox.frag" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="TO-DO.txt" />
