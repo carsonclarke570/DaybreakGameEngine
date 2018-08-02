@@ -6,10 +6,15 @@ struct Material {
     float specPow;
 }; 
 
+struct BaseLight {
+	vec3 ambient;
+	vec3 diffuse;
+    vec3 specular;
+};
+
 struct DirectionalLight {
     vec3 direction;
-    vec3 diffuse;
-    vec3 specular;
+    BaseLight light;
 };
 
 in vec2 texture0;
@@ -30,8 +35,9 @@ void main() {
 	vec3 reflectDir = reflect(-lightDir, normal);
 
 	float spec = pow(max(dot(normalize(viewPos - position0), reflectDir), 0.0), material.specPow);
-	vec3 diffuse = light.diffuse * diff * vec3(texture(material.diffuse, texture0));
-	vec3 specular = light.specular * spec * vec3(texture(material.specular, texture0));
-    
-	fragColor = vec4(diffuse + specular, 1);
+	vec3 diffuse = light.light.diffuse * diff * vec3(texture(material.diffuse, texture0));
+	vec3 specular = light.light.specular * spec * vec3(texture(material.specular, texture0));
+    vec3 ambient  = light.light.ambient  * vec3(texture(material.diffuse, texture0));
+
+	fragColor = vec4(ambient + diffuse + specular, 1);
 }

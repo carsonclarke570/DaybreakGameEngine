@@ -215,7 +215,7 @@
     <ClInclude Include="daybreak\utils\Timer.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="daybreak\graphics\shaders\forward-ambient.frag" />
+    <None Include="daybreak\graphics\shaders\forward-default.frag" />
     <None Include="daybreak\graphics\shaders\forward-directional.frag" />
     <None Include="daybreak\graphics\shaders\forward-lighting.vert" />
     <None Include="daybreak\graphics\shaders\forward-spot.frag" />

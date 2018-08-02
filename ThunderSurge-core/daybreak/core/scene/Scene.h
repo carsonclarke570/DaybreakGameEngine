@@ -13,6 +13,7 @@ namespace daybreak {
 		private:
 			GameObject* m_root;
 			Shader* m_default;
+
 			Skybox* m_skybox;
 			std::vector<Light*> m_lights;
 		public:

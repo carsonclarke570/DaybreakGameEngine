@@ -9,16 +9,22 @@ namespace daybreak {
 
 		using namespace math;
 
-		struct Light {
-
+		struct BaseLight {
+			vec3 ambient;
 			vec3 diffuse;
 			vec3 specular;
-			Shader* shader;
+		};
 
-			Light(const vec3& color, float intensity) {
-				diffuse = color;
-				specular = vec3(intensity, intensity, intensity);
-			}
+		struct Attenuation {
+			float constant;
+			float linear;
+			float quadratic;
+		};
+
+		struct Light {
+
+			Shader* shader;
+			BaseLight light;
 
 			virtual void update() = 0;
 		};
@@ -27,16 +33,20 @@ namespace daybreak {
 
 			vec3 direction;
 
-			DirectionalLight(const vec3& direction, const vec3& color, float intensity) : Light(color, intensity) {
-				shader = new Shader("daybreak/graphics/shaders/forward-lighting.vert", "daybreak/graphics/shaders/forward-directional.frag");
+			DirectionalLight(const BaseLight& light, const vec3& direction) : Light() {
+				this->shader = new Shader("daybreak/graphics/shaders/forward-lighting.vert", "daybreak/graphics/shaders/forward-directional.frag");
+				this->light.ambient = light.ambient;
+				this->light.diffuse = light.diffuse;
+				this->light.specular = light.specular;
 				this->direction = direction;
 			}
 
 			void update() { 
 				shader->enable();
 				shader->setUniform3f("light.direction", direction);
-				shader->setUniform3f("light.diffuse", diffuse);
-				shader->setUniform3f("light.specular", specular);
+				shader->setUniform3f("light.light.ambient", light.ambient);
+				shader->setUniform3f("light.light.diffuse", light.diffuse);
+				shader->setUniform3f("light.light.specular", light.specular);
 				shader->disable();
 			}
 		};
@@ -48,32 +58,32 @@ namespace daybreak {
 			float cutOff;
 			float outerCutOff;
 
-			float constant;
-			float linear;
-			float quadratic;
+			Attenuation attenuation;
 
-			SpotLight(const vec3& position, const vec3& direction, const vec3& color, float intensity, float cutOff, float outerCutOff, float constant, float linear, float quadratic) : Light(color, intensity) {
+			SpotLight(const BaseLight& light, const Attenuation& attenuation, const vec3& position, const vec3& direction, float cutOff, float outerCutOff) : Light() {
 				shader = new Shader("daybreak/graphics/shaders/forward-lighting.vert", "daybreak/graphics/shaders/forward-spot.frag");
-				this->position = position;
+				this->light.ambient = light.ambient;
+				this->light.diffuse = light.diffuse;
+				this->light.specular = light.specular;
 				this->direction = direction;
+				this->position = position;
 				this->cutOff = cutOff;
 				this->outerCutOff = outerCutOff;
-				this->constant = constant;
-				this->linear = linear;
-				this->quadratic = quadratic;
+				this->attenuation.constant = attenuation.constant;
+				this->attenuation.linear = attenuation.linear;
+				this->attenuation.quadratic = attenuation.quadratic;
 			}
-
-			SpotLight(const vec3& position, const vec3& direction, const vec3& color, float intensity) : SpotLight(position, direction, color, intensity, cos(toRadians(12.5f)), cos(toRadians(15.0f)), 1.0f, 0.09f, 0.032f) { }
 		
 			void update() {
 				shader->enable();
 				shader->setUniform3f("light.direction", direction);
-				shader->setUniform3f("light.diffuse", diffuse);
-				shader->setUniform3f("light.specular", specular);
+				shader->setUniform3f("light.light.ambient", light.ambient);
+				shader->setUniform3f("light.light.diffuse", light.diffuse);
+				shader->setUniform3f("light.light.specular", light.specular);
 				shader->setUniform3f("light.position", position);
-				shader->setUniform1f("light.constant", constant);
-				shader->setUniform1f("light.linear", linear);
-				shader->setUniform1f("light.quadratic", quadratic);
+				shader->setUniform1f("light.attenuation.constant", attenuation.constant);
+				shader->setUniform1f("light.attenuation.linear", attenuation.linear);
+				shader->setUniform1f("light.attenuation.quadratic", attenuation.quadratic);
 				shader->setUniform1f("light.cutOff", cutOff);
 				shader->setUniform1f("light.outerCutOff", outerCutOff);
 				shader->disable();

@@ -6,7 +6,7 @@ namespace daybreak {
 
 		Scene::Scene() {
 			m_root = new GameObject();
-			m_default = new Shader("daybreak/graphics/shaders/forward-lighting.vert", "daybreak/graphics/shaders/forward-ambient.frag");
+			m_default = new Shader("daybreak/graphics/shaders/forward-lighting.vert", "daybreak/graphics/shaders/forward-default.frag");
 		}
 
 		Scene::~Scene() {

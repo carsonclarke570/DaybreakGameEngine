@@ -64,7 +64,7 @@ namespace daybreak {
 
 				Mesh* mesh = new Mesh("C:/Users/birdi/3D Objects/res/models/cube.obj");
 
-				camera->addComponent(new Camera(mat4::perspective(45.0f, 16.0f / 9.0f, 0.1f, 100.0f)));
+				camera->addComponent(new Camera(mat4::perspective(45.0f, 16.0f / 9.0f, 1e-6f, 1000.0f)));
 				camera->addComponent(new FreeLook(1.0f));
 				camera->addComponent(new FreeMove(1.0f));
 				camera->getTransform()->translate(vec3(0, 0, 0));
@@ -74,11 +74,11 @@ namespace daybreak {
 
 				Texture texture("C:/Users/birdi/3D Objects/res/textures/cube.jpg");
 				Texture spec("C:/Users/birdi/3D Objects/res/textures/cube.jpg");
-				Material* material = new Material(texture);
+				Material* material = new Material(texture, spec);
 
 
 				Skybox* sky = new Skybox(
-					100.0f,
+					1000.0f,
 					"C:/Users/birdi/3D Objects/res/textures/right.jpg", 
 					"C:/Users/birdi/3D Objects/res/textures/left.jpg",
 					"C:/Users/birdi/3D Objects/res/textures/top.jpg",
@@ -87,18 +87,26 @@ namespace daybreak {
 					"C:/Users/birdi/3D Objects/res/textures/back.jpg"
 				);
 
-				solar_system->addSkybox(sky);
+				solar_system->addSkybox(sky); 
 
-				//DirectionalLight d;
-				//d.direction = vec3(-0.2f, -1.0f, -0.3f);
-				//d.base.ambient = vec3(0.05f, 0.05f, 0.05f);
-				//d.base.diffuse = vec3(0.4f, 0.4f, 0.4f);
-				//d.base.specular = vec3(0.5f, 0.5f, 0.5f);
+				BaseLight light;
+				light.ambient = vec3(0.05f, 0.05f, 0.05f);
+				light.diffuse = vec3(0.4f, 0.4f, 0.4f);
+				light.specular = vec3(0.5f, 0.5f, 0.5f);
 
-				//shader->setDirectionalLight(d);
+				dir = new DirectionalLight(light, vec3(-0.2f, -1.0f, -0.3f));
+				
+				BaseLight light2;
+				light2.ambient = vec3(0.0f, 0.0f, 0.0f);
+				light2.diffuse = vec3(1.f, 1.0f, 1.0f);
+				light2.specular = vec3(1.f, 1.0f, 1.0f);
 
-				dir = new DirectionalLight(vec3(0, -1, 0), vec3(0.4f, 0.4f, 0.4f), 0.5f);
-				spot = new SpotLight(camera->getTransform()->getTranslation(), camera->getTransform()->getRotation().getBack(), vec3(1, 1, 1), 0.5f);
+				Attenuation attn;
+				attn.constant = 1.0f;
+				attn.linear = 0.09f;
+				attn.quadratic = 0.032f;
+
+				spot = new SpotLight(light2, attn, camera->getTransform()->getTranslation(), camera->getTransform()->getRotation().getForward(), cos(toRadians(12.5f)), cos(toRadians(15.0f)));
 				solar_system->addLight(spot);
 				solar_system->addLight(dir);
 				ground->addLight(dir);
@@ -146,7 +154,7 @@ namespace daybreak {
 				float c = cos(e2);
 				planet->getTransform()->setTranslation(vec3(2 * sinDelta, 0, 2 * cosDelta));
 				moon->getTransform()->setTranslation(vec3(s / 2, 0, c / 2));
-				sol->getTransform()->setTranslation(vec3(0, 1, 0));
+				//sol->getTransform()->setTranslation(vec3(0, 1, 0));
 
 				sol->getTransform()->setRotation(sinDelta * 180, vec3(0, 0, 1));
 				planet->getTransform()->setRotation(sinDelta * 180, vec3(1, 0, 0));

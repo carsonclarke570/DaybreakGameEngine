@@ -190,12 +190,12 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="daybreak\graphics\shaders\forward-ambient.frag" />
     <None Include="daybreak\graphics\shaders\forward-lighting.vert" />
     <None Include="daybreak\graphics\shaders\forward-directional.frag" />
     <None Include="daybreak\graphics\shaders\forward-spot.frag" />
     <None Include="daybreak\graphics\shaders\skybox.vert" />
     <None Include="daybreak\graphics\shaders\skybox.frag" />
+    <None Include="daybreak\graphics\shaders\forward-default.frag" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="TO-DO.txt" />
