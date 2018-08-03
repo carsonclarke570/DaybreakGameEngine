@@ -89,6 +89,35 @@ namespace daybreak {
 				shader->disable();
 			}
 		};
+
+		struct PointLight : public Light {
+			vec3 position;
+
+			Attenuation attenuation;
+
+			PointLight(const BaseLight& light, const Attenuation& attenuation, const vec3& position) : Light() {
+				shader = new Shader("daybreak/graphics/shaders/forward-lighting.vert", "daybreak/graphics/shaders/forward-point.frag");
+				this->light.ambient = light.ambient;
+				this->light.diffuse = light.diffuse;
+				this->light.specular = light.specular;
+				this->position = position;
+				this->attenuation.constant = attenuation.constant;
+				this->attenuation.linear = attenuation.linear;
+				this->attenuation.quadratic = attenuation.quadratic;
+			}
+
+			void update() {
+				shader->enable();
+				shader->setUniform3f("light.light.ambient", light.ambient);
+				shader->setUniform3f("light.light.diffuse", light.diffuse);
+				shader->setUniform3f("light.light.specular", light.specular);
+				shader->setUniform3f("light.position", position);
+				shader->setUniform1f("light.attenuation.constant", attenuation.constant);
+				shader->setUniform1f("light.attenuation.linear", attenuation.linear);
+				shader->setUniform1f("light.attenuation.quadratic", attenuation.quadratic);
+				shader->disable();
+			}
+		};
 	}
 }
 #endif

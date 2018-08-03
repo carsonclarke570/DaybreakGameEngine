@@ -196,6 +196,7 @@
     <None Include="daybreak\graphics\shaders\skybox.vert" />
     <None Include="daybreak\graphics\shaders\skybox.frag" />
     <None Include="daybreak\graphics\shaders\forward-default.frag" />
+    <None Include="daybreak\graphics\shaders\forward-point.frag" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="TO-DO.txt" />

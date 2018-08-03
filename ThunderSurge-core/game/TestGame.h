@@ -98,8 +98,8 @@ namespace daybreak {
 				
 				BaseLight light2;
 				light2.ambient = vec3(0.0f, 0.0f, 0.0f);
-				light2.diffuse = vec3(1.f, 1.0f, 1.0f);
-				light2.specular = vec3(1.f, 1.0f, 1.0f);
+				light2.diffuse = vec3(1.0f, 1.0f, 1.0f);
+				light2.specular = vec3(1.0f, 1.0f, 1.0f);
 
 				Attenuation attn;
 				attn.constant = 1.0f;
@@ -107,6 +107,20 @@ namespace daybreak {
 				attn.quadratic = 0.032f;
 
 				spot = new SpotLight(light2, attn, camera->getTransform()->getTranslation(), camera->getTransform()->getRotation().getForward(), cos(toRadians(12.5f)), cos(toRadians(15.0f)));
+				
+				BaseLight light3;
+				light3.ambient = vec3(0.05f, 0.05f, 0.05f);
+				light3.diffuse = vec3(0.8f, 0.8f, 0.8f);
+				light3.specular = vec3(1.0f, 1.0f, 1.0f);
+
+				Attenuation attn2;
+				attn2.constant = 1.0f;
+				attn2.linear = 0.09f;
+				attn2.quadratic = 0.032f;
+
+				Light* point = new PointLight(light3, attn2, vec3(0, 1, 0));
+				
+				//solar_system->addLight(point);
 				solar_system->addLight(spot);
 				solar_system->addLight(dir);
 				ground->addLight(dir);
