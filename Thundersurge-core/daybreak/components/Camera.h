@@ -3,7 +3,7 @@
 
 #include "GameComponent.h"
 
-#include "../graphics/UniformBuffer.h"
+#include "../graphics/buffers/UniformBuffer.h"
 
 namespace daybreak {
 

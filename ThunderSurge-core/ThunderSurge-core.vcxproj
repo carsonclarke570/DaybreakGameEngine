@@ -159,7 +159,9 @@
     <ClCompile Include="daybreak\core\scene\Scene.cpp" />
     <ClCompile Include="daybreak\core\scene\SceneManager.cpp" />
     <ClCompile Include="daybreak\core\Window.cpp" />
-    <ClCompile Include="daybreak\graphics\Uniform.cpp" />
+    <ClCompile Include="daybreak\graphics\buffers\FrameBuffer.cpp" />
+    <ClCompile Include="daybreak\graphics\buffers\UniformBuffer.cpp" />
+    <ClCompile Include="daybreak\graphics\PostFX.cpp" />
     <ClCompile Include="game\Main.cpp" />
     <ClCompile Include="daybreak\core\Daybreak.cpp" />
     <ClCompile Include="daybreak\core\GameObject.cpp" />
@@ -181,7 +183,9 @@
     <ClInclude Include="daybreak\core\scene\Scene.h" />
     <ClInclude Include="daybreak\core\scene\SceneManager.h" />
     <ClInclude Include="daybreak\components\Skybox.h" />
-    <ClInclude Include="daybreak\graphics\UniformBuffer.h" />
+    <ClInclude Include="daybreak\graphics\buffers\FrameBuffer.h" />
+    <ClInclude Include="daybreak\graphics\buffers\UniformBuffer.h" />
+    <ClInclude Include="daybreak\graphics\PostFX.h" />
     <ClInclude Include="game\TestGame.h" />
     <ClInclude Include="daybreak\components\Camera.h" />
     <ClInclude Include="daybreak\components\FreeLook.h" />
@@ -220,6 +224,8 @@
     <None Include="daybreak\graphics\shaders\forward-lighting.vert" />
     <None Include="daybreak\graphics\shaders\forward-point.frag" />
     <None Include="daybreak\graphics\shaders\forward-spot.frag" />
+    <None Include="game\res\shaders\postfx.frag" />
+    <None Include="game\res\shaders\postfx.vert" />
     <None Include="daybreak\graphics\shaders\skybox.frag" />
     <None Include="daybreak\graphics\shaders\skybox.vert" />
   </ItemGroup>

@@ -146,8 +146,8 @@ namespace daybreak {
 				std::cout << "OpenGL Error: " << error << std::endl;
 			}
 
-			glfwPollEvents();
 			glfwSwapBuffers(m_window);
+			glfwPollEvents();
 		}
 
 		void window_resize(GLFWwindow *window, int width, int height) {

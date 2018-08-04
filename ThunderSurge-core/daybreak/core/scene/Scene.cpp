@@ -7,6 +7,7 @@ namespace daybreak {
 		Scene::Scene() {
 			m_root = new GameObject();
 			m_default = new Shader("daybreak/graphics/shaders/forward-lighting.vert", "daybreak/graphics/shaders/forward-default.frag");
+			PostFX::init();
 		}
 
 		Scene::~Scene() {
@@ -22,6 +23,8 @@ namespace daybreak {
 		}
 
 		void Scene::render() {
+			PostFX::bind();
+
 			m_root->renderAll(m_default);
 
 			glEnable(GL_BLEND);
@@ -40,8 +43,10 @@ namespace daybreak {
 				glDepthFunc(GL_LEQUAL);
 				m_skybox->render();
 			}
-
+			
 			glDepthFunc(GL_LESS);
+			PostFX::unbind();
+			PostFX::render();
 		}
 
 		void Scene::addGameObject(GameObject* object) {

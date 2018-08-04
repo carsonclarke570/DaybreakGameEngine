@@ -72,7 +72,13 @@
     <ClCompile Include="daybreak\core\scene\SceneManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="daybreak\graphics\Uniform.cpp">
+    <ClCompile Include="daybreak\graphics\buffers\UniformBuffer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="daybreak\graphics\buffers\FrameBuffer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="daybreak\graphics\PostFX.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -185,7 +191,13 @@
     <ClInclude Include="daybreak\components\ForwardLighting.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="daybreak\graphics\UniformBuffer.h">
+    <ClInclude Include="daybreak\graphics\buffers\UniformBuffer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="daybreak\graphics\buffers\FrameBuffer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="daybreak\graphics\PostFX.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -197,6 +209,8 @@
     <None Include="daybreak\graphics\shaders\skybox.frag" />
     <None Include="daybreak\graphics\shaders\forward-default.frag" />
     <None Include="daybreak\graphics\shaders\forward-point.frag" />
+    <None Include="game\res\shaders\postfx.frag" />
+    <None Include="game\res\shaders\postfx.vert" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="TO-DO.txt" />

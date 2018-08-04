@@ -3,7 +3,7 @@
 
 #include <GL/glew.h>
 
-#include "../core/math/math.h"
+#include "../../core/math/math.h"
 
 namespace daybreak {
 
