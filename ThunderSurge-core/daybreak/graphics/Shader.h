@@ -26,10 +26,11 @@ namespace daybreak {
 			std::unordered_map<std::string, GLint> m_uniforms;
 			const char* m_ver;
 			const char* m_frag;
+			const char* m_geo;
 
 			GLuint load();
 		public:
-			Shader(const char* ver, const char* frag);
+			Shader(const char* ver, const char* frag, const char* geom);
 			~Shader();
 
 			void setUniform1f(const GLchar* name, float f);

@@ -154,7 +154,7 @@ namespace daybreak {
 				SceneManager::add("Sol", solar_system);
 				SceneManager::add("Ter", ground);
 				SceneManager::setActive("Sol");
-				PostFX::setPostFX(new Shader("game/res/shaders/postfx.vert", "game/res/shaders/postfx.frag"));
+				PostFX::setPostFX(new Shader("game/res/shaders/postfx.vert", "game/res/shaders/postfx.frag", NULL));
 			}
 
 			void update(float delta) {

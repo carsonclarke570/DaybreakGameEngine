@@ -214,6 +214,7 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="TO-DO.txt" />
+    <Text Include="CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="daybreak\res\defaults\no_spec_map.jpg">

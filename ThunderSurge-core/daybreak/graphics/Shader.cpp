@@ -4,7 +4,7 @@ namespace daybreak {
 
 	namespace graphics {
 
-		Shader::Shader(const char* ver, const char* frag) : m_ver(ver), m_frag(frag) {
+		Shader::Shader(const char* ver, const char* frag, const char* geom) : m_ver(ver), m_frag(frag), m_geo(geom) {
 			m_shader = load();
 		}
 
@@ -14,53 +14,54 @@ namespace daybreak {
 
 		GLuint Shader::load() {
 			GLuint program = glCreateProgram();
-			GLuint vertex = glCreateShader(GL_VERTEX_SHADER);
-			GLuint frag = glCreateShader(GL_FRAGMENT_SHADER);
-
-			std::string verSrcStr = FileUtils::read_file(m_ver);
-			std::string fragSrcStr = FileUtils::read_file(m_frag);
-			const char* verSrc = verSrcStr.c_str();
-			const char* fragSrc = fragSrcStr.c_str();
-
-			glShaderSource(vertex, 1, &verSrc, NULL);
-			glCompileShader(vertex);
 
 			GLint result;
-			glGetShaderiv(vertex, GL_COMPILE_STATUS, &result);
-			if (result == GL_FALSE) {
-				GLint len;
-				glGetShaderiv(vertex, GL_INFO_LOG_LENGTH, &len);
-				std::vector<char> error(len);
-				glGetShaderInfoLog(vertex, len, &len, &error[0]);
-				// TODO: Log error
-				std::cout << &error[0] << std::endl;
+			GLuint vertex, frag, geo;
+			if (m_ver) {
+				vertex = glCreateShader(GL_VERTEX_SHADER);
+				std::string verSrcStr = FileUtils::read_file(m_ver);
+				const char* verSrc = verSrcStr.c_str();
+				glShaderSource(vertex, 1, &verSrc, NULL);
+				glCompileShader(vertex);
+
+				glGetShaderiv(vertex, GL_COMPILE_STATUS, &result);
+				if (result == GL_FALSE) {
+					GLint len;
+					glGetShaderiv(vertex, GL_INFO_LOG_LENGTH, &len);
+					std::vector<char> error(len);
+					glGetShaderInfoLog(vertex, len, &len, &error[0]);
+					std::cout << &error[0] << std::endl;
+					glDeleteShader(vertex);
+					return 0;
+				}
+				glAttachShader(program, vertex);
 				glDeleteShader(vertex);
-				return 0;
 			}
 
-			glShaderSource(frag, 1, &fragSrc, NULL);
-			glCompileShader(frag);
+			if (m_frag) {
+				frag = glCreateShader(GL_FRAGMENT_SHADER);
+				std::string fragSrcStr = FileUtils::read_file(m_frag);
+				const char* fragSrc = fragSrcStr.c_str();
+				glShaderSource(frag, 1, &fragSrc, NULL);
+				glCompileShader(frag);
 
-			glGetShaderiv(frag, GL_COMPILE_STATUS, &result);
-			if (result == GL_FALSE) {
-				GLint len;
-				glGetShaderiv(frag, GL_INFO_LOG_LENGTH, &len);
-				std::vector<char> error(len);
-				glGetShaderInfoLog(frag, len, &len, &error[0]);
-				// TODO: Log error
-				std::cout << &error[0] << std::endl;
+				glGetShaderiv(frag, GL_COMPILE_STATUS, &result);
+				if (result == GL_FALSE) {
+					GLint len;
+					glGetShaderiv(frag, GL_INFO_LOG_LENGTH, &len);
+					std::vector<char> error(len);
+					glGetShaderInfoLog(frag, len, &len, &error[0]);
+					// TODO: Log error
+					std::cout << &error[0] << std::endl;
+					glDeleteShader(frag);
+					return 0;
+				}
+				glAttachShader(program, frag);
 				glDeleteShader(frag);
-				return 0;
 			}
-
-			glAttachShader(program, vertex);
-			glAttachShader(program, frag);
 
 			glLinkProgram(program);
 			glValidateProgram(program);
-
-			glDeleteShader(vertex);
-			glDeleteShader(frag);
 
 			GLint maxUniformNameLen, noOfUniforms;
 			glGetProgramiv(program, GL_ACTIVE_UNIFORM_MAX_LENGTH, &maxUniformNameLen);

@@ -230,6 +230,7 @@
     <None Include="daybreak\graphics\shaders\skybox.vert" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="CMakeLists.txt" />
     <Text Include="TO-DO.txt" />
   </ItemGroup>
   <ItemGroup>
