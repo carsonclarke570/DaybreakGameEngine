@@ -1,8 +1,8 @@
 #version 450
 
-in vec2 texture0;
-in vec3 normal0;
-in vec3 position0;
+in vec2 texcoord;
+in vec3 normal;
+in vec3 position;
 
 out vec4 fragColor;
 

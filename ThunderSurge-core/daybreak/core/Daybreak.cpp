@@ -30,16 +30,18 @@ namespace daybreak {
 		}
 
 		void Daybreak::run() {
-
-			Timer time;
 			float t = 0;
 			unsigned int frames = 0;
 
 			m_game->init();
 
+			Timer time, system;
+			float nextTick = system.elpasedMilliseconds();
+			float sleepTime = 0;
+
 			while (!quit())
 			{
-				float delta = time.elapsed();
+				float delta = time.elapsedSeconds();
 				time.reset();
 				m_game->update(delta);
 
@@ -47,14 +49,10 @@ namespace daybreak {
 				m_game->render();
 				Window::update();
 
-				frames++;
-				t += delta;
-				if (t >= 1.0f) {
-					char message[14];
-					sprintf(message, "FPS: %d", frames);
-					Log::log(message);
-					t = 0;
-					frames = 0;
+				nextTick += SKIP_TICKS;
+				sleepTime = nextTick - system.elpasedMilliseconds();
+				if (sleepTime >= 0) {
+					std::this_thread::sleep_for(std::chrono::milliseconds((int)sleepTime));
 				}
 			}
 			Window::dispose();

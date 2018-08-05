@@ -220,10 +220,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="daybreak\graphics\shaders\forward-default.frag" />
+    <None Include="daybreak\graphics\shaders\forward-default.geom" />
     <None Include="daybreak\graphics\shaders\forward-directional.frag" />
     <None Include="daybreak\graphics\shaders\forward-lighting.vert" />
     <None Include="daybreak\graphics\shaders\forward-point.frag" />
     <None Include="daybreak\graphics\shaders\forward-spot.frag" />
+    <None Include="daybreak\graphics\shaders\normal-debug.geom" />
     <None Include="game\res\shaders\postfx.frag" />
     <None Include="game\res\shaders\postfx.vert" />
     <None Include="daybreak\graphics\shaders\skybox.frag" />

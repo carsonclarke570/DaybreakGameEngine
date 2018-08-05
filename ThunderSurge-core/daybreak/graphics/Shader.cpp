@@ -60,28 +60,50 @@ namespace daybreak {
 				glDeleteShader(frag);
 			}
 
+			if (m_geo) {
+				geo = glCreateShader(GL_GEOMETRY_SHADER);
+				std::string geoSrcStr = FileUtils::read_file(m_geo);
+				const char* geoSrc = geoSrcStr.c_str();
+				glShaderSource(geo, 1, &geoSrc, NULL);
+				glCompileShader(geo);
+
+				glGetShaderiv(geo, GL_COMPILE_STATUS, &result);
+				if (result == GL_FALSE) {
+					GLint len;
+					glGetShaderiv(geo, GL_INFO_LOG_LENGTH, &len);
+					std::vector<char> error(len);
+					glGetShaderInfoLog(geo, len, &len, &error[0]);
+					// TODO: Log error
+					std::cout << &error[0] << std::endl;
+					glDeleteShader(geo);
+					return 0;
+				}
+				glAttachShader(program, geo);
+				glDeleteShader(geo);
+			}
+
 			glLinkProgram(program);
 			glValidateProgram(program);
 
-			GLint maxUniformNameLen, noOfUniforms;
+			/*GLint maxUniformNameLen, noOfUniforms;
 			glGetProgramiv(program, GL_ACTIVE_UNIFORM_MAX_LENGTH, &maxUniformNameLen);
 			glGetProgramiv(program, GL_ACTIVE_UNIFORMS, &noOfUniforms);
 
-			/*GLint read, size;
+			GLint read, size;
 			GLenum type;
 
 			std::vector<GLchar>unifN(maxUniformNameLen, 0);
 			for (GLint i = 0; i < noOfUniforms; ++i) {
 				glGetActiveUniform(program, i, maxUniformNameLen, &read, &size, &type, unifN.data());
 				m_uniforms[std::string(unifN.data())] = glGetUniformLocation(program, unifN.data());
-			} */
+			} 
 
 			// If you wan to see active uniforms
 			for (auto& t : m_uniforms)
 				std::cout << t.first << " ";
 
 			std::cout << std::endl;
-
+			*/
 			return program;
 		}
 

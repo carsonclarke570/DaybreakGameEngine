@@ -211,6 +211,8 @@
     <None Include="daybreak\graphics\shaders\forward-point.frag" />
     <None Include="game\res\shaders\postfx.frag" />
     <None Include="game\res\shaders\postfx.vert" />
+    <None Include="daybreak\graphics\shaders\normal-debug.geom" />
+    <None Include="daybreak\graphics\shaders\forward-default.geom" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="TO-DO.txt" />

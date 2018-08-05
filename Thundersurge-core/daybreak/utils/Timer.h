@@ -20,8 +20,12 @@ namespace daybreak {
 			m_epoch = Clock::now();
 		}
 
-		float elapsed() {
+		float elapsedSeconds() {
 			return duration_cast<microseconds>(Clock::now() - m_epoch).count() / 1000000.0f;
+		}
+
+		float elpasedMilliseconds() {
+			return duration_cast<microseconds>(Clock::now() - m_epoch).count() / 1000.0f;
 		}
 	};
 }

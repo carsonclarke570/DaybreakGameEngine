@@ -65,7 +65,7 @@ namespace daybreak {
 				Mesh* mesh = new Mesh("C:/Users/birdi/3D Objects/res/models/cube.obj");
 
 				camera->addComponent(new Camera(mat4::perspective(45.0f, 16.0f / 9.0f, 1e-6f, 1000.0f)));
-				camera->addComponent(new FreeLook(1.0f));
+				camera->addComponent(new FreeLook(10.0f));
 				camera->addComponent(new FreeMove(1.0f));
 				camera->getTransform()->translate(vec3(0, 0, 0));
 
@@ -154,7 +154,7 @@ namespace daybreak {
 				SceneManager::add("Sol", solar_system);
 				SceneManager::add("Ter", ground);
 				SceneManager::setActive("Sol");
-				PostFX::setPostFX(new Shader("game/res/shaders/postfx.vert", "game/res/shaders/postfx.frag", NULL));
+				//PostFX::setPostFX(new Shader("game/res/shaders/postfx.vert", "game/res/shaders/postfx.frag", NULL));
 			}
 
 			void update(float delta) {

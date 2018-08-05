@@ -39,8 +39,6 @@ namespace daybreak {
 				m_material->unbind();
 				shader->disable();
 			}
-
-			//void addToScene(Scene* scene) { }
 		};
 	}
 }

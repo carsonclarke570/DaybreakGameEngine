@@ -4,9 +4,11 @@ layout (location = 0) in vec3 position;
 layout (location = 1) in vec2 texture;
 layout (location = 2) in vec3 normal;
 
-out vec2 texture0;
-out vec3 normal0;
-out vec3 position0;
+out VS_OUT {
+	vec2 texture0;
+	vec3 normal0;
+	vec3 position0;
+} vs_out;
 
 layout (std140, binding = 0) uniform SYS_View {
 	mat4 view;
@@ -18,7 +20,7 @@ uniform mat4 model;
 void main() {
     gl_Position = projection * view * model * vec4(position, 1.0);
 
-    texture0 = texture;
-    normal0 = mat3(transpose(inverse(model))) * normal;
-    position0 = vec3(model * vec4(position, 1.0));
+    vs_out.texture0 = texture;
+    vs_out.normal0 = mat3(transpose(inverse(model))) * normal;
+    vs_out.position0 = vec3(model * vec4(position, 1.0));
 }
