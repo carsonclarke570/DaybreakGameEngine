@@ -34,7 +34,7 @@ namespace daybreak {
 			vec3 direction;
 
 			DirectionalLight(const BaseLight& light, const vec3& direction) : Light() {
-				this->shader = new Shader("daybreak/graphics/shaders/forward-lighting.vert", "daybreak/graphics/shaders/forward-directional.frag", "daybreak/graphics/shaders/forward-default.geom");
+				this->shader = new Shader("daybreak/graphics/shaders/forward-lighting.vert", "daybreak/graphics/shaders/forward-directional.frag");
 				this->light.ambient = light.ambient;
 				this->light.diffuse = light.diffuse;
 				this->light.specular = light.specular;
@@ -61,7 +61,7 @@ namespace daybreak {
 			Attenuation attenuation;
 
 			SpotLight(const BaseLight& light, const Attenuation& attenuation, const vec3& position, const vec3& direction, float cutOff, float outerCutOff) : Light() {
-				shader = new Shader("daybreak/graphics/shaders/forward-lighting.vert", "daybreak/graphics/shaders/forward-spot.frag", "daybreak/graphics/shaders/forward-default.geom");
+				shader = new Shader("daybreak/graphics/shaders/forward-lighting.vert", "daybreak/graphics/shaders/forward-spot.frag");
 				this->light.ambient = light.ambient;
 				this->light.diffuse = light.diffuse;
 				this->light.specular = light.specular;
@@ -96,7 +96,7 @@ namespace daybreak {
 			Attenuation attenuation;
 
 			PointLight(const BaseLight& light, const Attenuation& attenuation, const vec3& position) : Light() {
-				shader = new Shader("daybreak/graphics/shaders/forward-lighting.vert", "daybreak/graphics/shaders/forward-point.frag", "daybreak/graphics/shaders/forward-default.geom");
+				shader = new Shader("daybreak/graphics/shaders/forward-lighting.vert", "daybreak/graphics/shaders/forward-point.frag");
 				this->light.ambient = light.ambient;
 				this->light.diffuse = light.diffuse;
 				this->light.specular = light.specular;

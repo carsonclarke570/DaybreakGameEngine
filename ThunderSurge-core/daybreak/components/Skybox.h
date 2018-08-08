@@ -95,7 +95,7 @@ namespace daybreak {
 		public:
 			Skybox(int size, string right, string left, string top, string bottom, string front, string back) {
 				load(vector<string> { right, left, top, bottom, front, back }, size);
-				m_shader = new Shader("daybreak/graphics/shaders/skybox.vert", "daybreak/graphics/shaders/skybox.frag", NULL);
+				m_shader = new Shader("daybreak/graphics/shaders/skybox.vert", "daybreak/graphics/shaders/skybox.frag", NULL, false);
 				m_shader->enable();
 				m_shader->setUniform1i("skybox", 0);
 				m_shader->disable();

@@ -25,9 +25,11 @@ struct SpotLight {
 	BaseLight light;      
 };
 
-in vec2 texcoord;
-in vec3 normal;
-in vec3 position;
+in VS_OUT {
+	vec2 texture0;
+	vec3 normal0;
+	vec3 position0;
+} fs_in;
 
 out vec4 fragColor;
 
@@ -37,22 +39,22 @@ uniform SpotLight light;
 
 void main() {
 
-	vec3 norm = normalize(normal);
-    vec3 viewDir = normalize(viewPos - position);
+	vec3 norm = normalize(fs_in.normal0);
+    vec3 viewDir = normalize(viewPos - fs_in.position0);
 
-	vec3 lightDir = normalize(light.position - position);
+	vec3 lightDir = normalize(light.position - fs_in.position0);
 
 	float diff = max(dot(norm, lightDir), 0.0);
 
 	vec3 reflectDir = reflect(-lightDir, norm);
 	float spec = pow(max(dot(viewDir, reflectDir), 0.0), material.specPow);
     
-    float distance = length(light.position - position);
+    float distance = length(light.position - fs_in.position0);
     float attenuation = 1.0 / (light.attenuation.constant + light.attenuation.linear * distance + light.attenuation.quadratic * (distance * distance));    
     
-    vec3 ambient = light.light.ambient * vec3(texture(material.diffuse, texcoord));
-    vec3 diffuse = light.light.diffuse * diff * vec3(texture(material.diffuse, texcoord));
-    vec3 specular = light.light.specular * spec * vec3(texture(material.specular, texcoord));
+    vec3 ambient = light.light.ambient * vec3(texture(material.diffuse, fs_in.texture0));
+    vec3 diffuse = light.light.diffuse * diff * vec3(texture(material.diffuse, fs_in.texture0));
+    vec3 specular = light.light.specular * spec * vec3(texture(material.specular, fs_in.texture0));
    
 	ambient *= attenuation;
     diffuse *= attenuation;

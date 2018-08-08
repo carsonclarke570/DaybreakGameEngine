@@ -1,8 +1,10 @@
 #version 450
 
-in vec2 texcoord;
-in vec3 normal;
-in vec3 position;
+in VS_OUT {
+	vec2 texture0;
+	vec3 normal0;
+	vec3 position0;
+} fs_in;
 
 out vec4 fragColor;
 

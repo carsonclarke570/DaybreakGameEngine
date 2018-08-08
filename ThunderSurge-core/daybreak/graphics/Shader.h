@@ -23,14 +23,14 @@ namespace daybreak {
 		class Shader {
 		private:
 			GLuint m_shader;
-			std::unordered_map<std::string, GLint> m_uniforms;
-			const char* m_ver;
-			const char* m_frag;
-			const char* m_geo;
 
-			GLuint load();
+			bool m_enableDaySL;
+
+			void addVertexShader(const char* ver);
+			void addFragmentShader(const char* frag);
+			void addGeometryShader(const char* geo);
 		public:
-			Shader(const char* ver, const char* frag, const char* geom);
+			Shader(const char* ver, const char* frag, const char* geom = NULL, const bool enableDaySL = true);
 			~Shader();
 
 			void setUniform1f(const GLchar* name, float f);

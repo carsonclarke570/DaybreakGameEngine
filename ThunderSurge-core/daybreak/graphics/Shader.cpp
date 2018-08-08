@@ -4,107 +4,93 @@ namespace daybreak {
 
 	namespace graphics {
 
-		Shader::Shader(const char* ver, const char* frag, const char* geom) : m_ver(ver), m_frag(frag), m_geo(geom) {
-			m_shader = load();
+		Shader::Shader(const char* ver, const char* frag, const char* geom, const bool enableDaySL) : m_enableDaySL(enableDaySL) {
+			m_shader = glCreateProgram();
+			addVertexShader(ver);
+			addFragmentShader(frag);
+			if (geom)
+				addGeometryShader(geom);
+
+			glLinkProgram(m_shader);
+			glValidateProgram(m_shader);
 		}
 
 		Shader::~Shader() {
 			glDeleteProgram(m_shader);
 		}
 
-		GLuint Shader::load() {
-			GLuint program = glCreateProgram();
-
+		void Shader::addVertexShader(const char* ver) {
 			GLint result;
-			GLuint vertex, frag, geo;
-			if (m_ver) {
-				vertex = glCreateShader(GL_VERTEX_SHADER);
-				std::string verSrcStr = FileUtils::read_file(m_ver);
-				const char* verSrc = verSrcStr.c_str();
+			GLuint vertex = glCreateShader(GL_VERTEX_SHADER);
+			std::string verSrcStr = FileUtils::read_file(ver);
+			const char* verSrc = verSrcStr.c_str();
+			if (m_enableDaySL) {
+				const char* header = "#version 450\nlayout(location = 0) in vec3 position;layout(location = 1) in vec2 texture;layout(location = 2) in vec3 normal;out VS_OUT{vec2 texture0;vec3 normal0;vec3 position0;} vs_out;layout(std140, binding = 0) uniform SYS_View {mat4 view;mat4 projection;};uniform mat4 model; ";
+				const char* src[2] = { header, verSrc };
+				glShaderSource(vertex, 2, src, NULL);
+			} else {
 				glShaderSource(vertex, 1, &verSrc, NULL);
-				glCompileShader(vertex);
+			}
+			glCompileShader(vertex);
 
-				glGetShaderiv(vertex, GL_COMPILE_STATUS, &result);
-				if (result == GL_FALSE) {
-					GLint len;
-					glGetShaderiv(vertex, GL_INFO_LOG_LENGTH, &len);
-					std::vector<char> error(len);
-					glGetShaderInfoLog(vertex, len, &len, &error[0]);
-					std::cout << &error[0] << std::endl;
-					glDeleteShader(vertex);
-					return 0;
-				}
-				glAttachShader(program, vertex);
+			glGetShaderiv(vertex, GL_COMPILE_STATUS, &result);
+			if (result == GL_FALSE) {
+				GLint len;
+				glGetShaderiv(vertex, GL_INFO_LOG_LENGTH, &len);
+				std::vector<char> error(len);
+				glGetShaderInfoLog(vertex, len, &len, &error[0]);
+				std::cout << &error[0] << std::endl;
 				glDeleteShader(vertex);
+				return;
 			}
+			glAttachShader(m_shader, vertex);
+			glDeleteShader(vertex);
+		}
 
-			if (m_frag) {
-				frag = glCreateShader(GL_FRAGMENT_SHADER);
-				std::string fragSrcStr = FileUtils::read_file(m_frag);
-				const char* fragSrc = fragSrcStr.c_str();
-				glShaderSource(frag, 1, &fragSrc, NULL);
-				glCompileShader(frag);
+		void Shader::addFragmentShader(const char* frg) {
+			GLint result;
+			GLuint frag = glCreateShader(GL_FRAGMENT_SHADER);
+			std::string fragSrcStr = FileUtils::read_file(frg);
+			const char* fragSrc = fragSrcStr.c_str();
+			glShaderSource(frag, 1, &fragSrc, NULL);
+			glCompileShader(frag);
 
-				glGetShaderiv(frag, GL_COMPILE_STATUS, &result);
-				if (result == GL_FALSE) {
-					GLint len;
-					glGetShaderiv(frag, GL_INFO_LOG_LENGTH, &len);
-					std::vector<char> error(len);
-					glGetShaderInfoLog(frag, len, &len, &error[0]);
-					// TODO: Log error
-					std::cout << &error[0] << std::endl;
-					glDeleteShader(frag);
-					return 0;
-				}
-				glAttachShader(program, frag);
+			glGetShaderiv(frag, GL_COMPILE_STATUS, &result);
+			if (result == GL_FALSE) {
+				GLint len;
+				glGetShaderiv(frag, GL_INFO_LOG_LENGTH, &len);
+				std::vector<char> error(len);
+				glGetShaderInfoLog(frag, len, &len, &error[0]);
+				// TODO: Log error
+				std::cout << &error[0] << std::endl;
 				glDeleteShader(frag);
+				return;
 			}
+			glAttachShader(m_shader, frag);
+			glDeleteShader(frag);
+		}
 
-			if (m_geo) {
-				geo = glCreateShader(GL_GEOMETRY_SHADER);
-				std::string geoSrcStr = FileUtils::read_file(m_geo);
-				const char* geoSrc = geoSrcStr.c_str();
-				glShaderSource(geo, 1, &geoSrc, NULL);
-				glCompileShader(geo);
+		void Shader::addGeometryShader(const char* geom) {
+			GLint result;
+			GLuint geo = glCreateShader(GL_GEOMETRY_SHADER);
+			std::string geoSrcStr = FileUtils::read_file(geom);
+			const char* geoSrc = geoSrcStr.c_str();
+			glShaderSource(geo, 1, &geoSrc, NULL);
+			glCompileShader(geo);
 
-				glGetShaderiv(geo, GL_COMPILE_STATUS, &result);
-				if (result == GL_FALSE) {
-					GLint len;
-					glGetShaderiv(geo, GL_INFO_LOG_LENGTH, &len);
-					std::vector<char> error(len);
-					glGetShaderInfoLog(geo, len, &len, &error[0]);
-					// TODO: Log error
-					std::cout << &error[0] << std::endl;
-					glDeleteShader(geo);
-					return 0;
-				}
-				glAttachShader(program, geo);
+			glGetShaderiv(geo, GL_COMPILE_STATUS, &result);
+			if (result == GL_FALSE) {
+				GLint len;
+				glGetShaderiv(geo, GL_INFO_LOG_LENGTH, &len);
+				std::vector<char> error(len);
+				glGetShaderInfoLog(geo, len, &len, &error[0]);
+				// TODO: Log error
+				std::cout << &error[0] << std::endl;
 				glDeleteShader(geo);
+				return;
 			}
-
-			glLinkProgram(program);
-			glValidateProgram(program);
-
-			/*GLint maxUniformNameLen, noOfUniforms;
-			glGetProgramiv(program, GL_ACTIVE_UNIFORM_MAX_LENGTH, &maxUniformNameLen);
-			glGetProgramiv(program, GL_ACTIVE_UNIFORMS, &noOfUniforms);
-
-			GLint read, size;
-			GLenum type;
-
-			std::vector<GLchar>unifN(maxUniformNameLen, 0);
-			for (GLint i = 0; i < noOfUniforms; ++i) {
-				glGetActiveUniform(program, i, maxUniformNameLen, &read, &size, &type, unifN.data());
-				m_uniforms[std::string(unifN.data())] = glGetUniformLocation(program, unifN.data());
-			} 
-
-			// If you wan to see active uniforms
-			for (auto& t : m_uniforms)
-				std::cout << t.first << " ";
-
-			std::cout << std::endl;
-			*/
-			return program;
+			glAttachShader(m_shader, geo);
+			glDeleteShader(geo);
 		}
 
 
