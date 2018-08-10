@@ -211,12 +211,17 @@
     <None Include="daybreak\graphics\shaders\forward-point.frag" />
     <None Include="game\res\shaders\postfx.frag" />
     <None Include="game\res\shaders\postfx.vert" />
-    <None Include="daybreak\graphics\shaders\normal-debug.geom" />
-    <None Include="daybreak\graphics\shaders\forward-default.geom" />
+    <None Include="daybreak\graphics\shaders\forward-lighting.frag" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="TO-DO.txt" />
     <Text Include="CMakeLists.txt" />
+    <Text Include="daybreak\graphics\shaders\vertex-header.txt" />
+    <Text Include="daybreak\graphics\shaders\vertex-trailer.txt" />
+    <Text Include="daybreak\graphics\shaders\geometry-header.txt" />
+    <Text Include="daybreak\graphics\shaders\geometry-trailer.txt" />
+    <Text Include="daybreak\graphics\shaders\fragment-header.txt" />
+    <Text Include="daybreak\graphics\shaders\fragment-trailer.txt" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="daybreak\res\defaults\no_spec_map.jpg">

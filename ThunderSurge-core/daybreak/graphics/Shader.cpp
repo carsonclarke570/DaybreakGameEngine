@@ -25,9 +25,10 @@ namespace daybreak {
 			std::string verSrcStr = FileUtils::read_file(ver);
 			const char* verSrc = verSrcStr.c_str();
 			if (m_enableDaySL) {
-				const char* header = "#version 450\nlayout(location = 0) in vec3 position;layout(location = 1) in vec2 texture;layout(location = 2) in vec3 normal;out VS_OUT{vec2 texture0;vec3 normal0;vec3 position0;} vs_out;layout(std140, binding = 0) uniform SYS_View {mat4 view;mat4 projection;};uniform mat4 model; ";
-				const char* src[2] = { header, verSrc };
-				glShaderSource(vertex, 2, src, NULL);
+				std::string header = FileUtils::read_file("daybreak/graphics/shaders/vertex-header.txt");
+				std::string trailer = FileUtils::read_file("daybreak/graphics/shaders/vertex-trailer.txt");
+				const char* src[3] = { header.c_str(), verSrc, trailer.c_str() };
+				glShaderSource(vertex, 3, src, NULL);
 			} else {
 				glShaderSource(vertex, 1, &verSrc, NULL);
 			}
@@ -52,7 +53,15 @@ namespace daybreak {
 			GLuint frag = glCreateShader(GL_FRAGMENT_SHADER);
 			std::string fragSrcStr = FileUtils::read_file(frg);
 			const char* fragSrc = fragSrcStr.c_str();
-			glShaderSource(frag, 1, &fragSrc, NULL);
+			if (m_enableDaySL) {
+				std::string header = FileUtils::read_file("daybreak/graphics/shaders/fragment-header.txt");
+				std::string trailer = FileUtils::read_file("daybreak/graphics/shaders/fragment-trailer.txt");
+				const char* src[3] = { header.c_str(), fragSrc, trailer.c_str() };
+				glShaderSource(frag, 3, src, NULL);
+			}
+			else {
+				glShaderSource(frag, 1, &fragSrc, NULL);
+			}
 			glCompileShader(frag);
 
 			glGetShaderiv(frag, GL_COMPILE_STATUS, &result);
@@ -75,7 +84,15 @@ namespace daybreak {
 			GLuint geo = glCreateShader(GL_GEOMETRY_SHADER);
 			std::string geoSrcStr = FileUtils::read_file(geom);
 			const char* geoSrc = geoSrcStr.c_str();
-			glShaderSource(geo, 1, &geoSrc, NULL);
+			if (m_enableDaySL) {
+				std::string header = FileUtils::read_file("daybreak/graphics/shaders/geometry-header.txt");
+				std::string trailer = FileUtils::read_file("daybreak/graphics/shaders/geometry-trailer.txt");
+				const char* src[3] = { header.c_str(), geoSrc, trailer.c_str() };
+				glShaderSource(geo, 3, src, NULL);
+			}
+			else {
+				glShaderSource(geo, 1, &geoSrc, NULL);
+			}
 			glCompileShader(geo);
 
 			glGetShaderiv(geo, GL_COMPILE_STATUS, &result);

@@ -14,6 +14,6 @@ void Fragment() {
 	vec3 specular = light.light.specular * spec * vec3(texture(material.specular, fs_in.texture0));
     vec3 ambient  = light.light.ambient  * vec3(texture(material.diffuse, fs_in.texture0));
 
-	fragColor = vec4(1, 1, 1, 1);
-	fragColor = fragColor * vec4(ambient + diffuse + specular, 1);
+	fragColor = vec4(ambient + diffuse + specular, 1);
 }
+

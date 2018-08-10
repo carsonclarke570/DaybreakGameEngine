@@ -1,43 +1,8 @@
-#version 450
-
-struct Material {
-    sampler2D diffuse;
-    sampler2D specular;
-    float specPow;
-}; 
-
-struct BaseLight {
-	vec3 ambient;
-	vec3 diffuse;
-    vec3 specular;
-};
-
-struct Attenuation {
-	float constant;
-    float linear;
-    float quadratic; 
-};
-
-struct SpotLight {
-    vec3 position;
-  
-    Attenuation attenuation;
-	BaseLight light;      
-};
-
-in VS_OUT {
-	vec2 texture0;
-	vec3 normal0;
-	vec3 position0;
-} fs_in;
-
-out vec4 fragColor;
-
 uniform vec3 viewPos;
 uniform Material material;
-uniform SpotLight light;
+uniform PointLight light;
 
-void main() {
+void Fragment() {
 
 	vec3 norm = normalize(fs_in.normal0);
     vec3 viewDir = normalize(viewPos - fs_in.position0);

@@ -34,6 +34,7 @@ namespace daybreak {
 
 			vec3 getPosition() {
 				return getTransform()->getTranslation();
+				
 			}
 
 			void update(float delta) {}
@@ -45,8 +46,6 @@ namespace daybreak {
 				shader->setUniform3f("viewPos", getPosition());
 				shader->disable();
 			}
-
-			
 		};
 	}
 }
