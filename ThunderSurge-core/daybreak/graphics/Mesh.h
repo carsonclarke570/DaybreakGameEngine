@@ -14,6 +14,7 @@ namespace daybreak {
 			math::vec3 pos;
 			math::vec3 normal;
 			math::vec2 texture;
+			math::vec3 color;
 		};
 
 		struct Index {

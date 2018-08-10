@@ -1,5 +1,4 @@
 uniform vec3 viewPos;
-uniform Material material;
 uniform PointLight light;
 
 void Fragment() {

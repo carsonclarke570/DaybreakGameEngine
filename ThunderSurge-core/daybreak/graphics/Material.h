@@ -28,6 +28,10 @@ namespace daybreak {
 				: m_diffuse(diffuse), m_specular(Texture("daybreak/res/defaults/no_spec_map.jpg")), m_specPow(32) {
 			}
 
+			Material() 
+				: m_diffuse(Texture("daybreak/res/defaults/no_diffuse_map.jpg")), m_specular(Texture("daybreak/res/defaults/no_spec_map.jpg")), m_specPow(32) {
+			}
+
 			void bind() {
 				glActiveTexture(GL_TEXTURE0);
 				m_diffuse.bind();

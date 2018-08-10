@@ -74,7 +74,7 @@ namespace daybreak {
 
 				Texture texture("C:/Users/birdi/3D Objects/res/textures/cube.jpg");
 				Texture spec("C:/Users/birdi/3D Objects/res/textures/cube.jpg");
-				Material* material = new Material(texture, spec);
+				Material* material = new Material(texture);
 
 
 				Skybox* sky = new Skybox(
@@ -126,7 +126,7 @@ namespace daybreak {
 				ground->addLight(dir);
 
 				sol = new GameObject();
-				sol->addComponent(new MeshRenderer(mesh, material));
+				sol->addComponent(new MeshRenderer(mesh, material, new Shader("daybreak/graphics/shaders/forward-lighting.vert", "game/res/shaders/red.frag")));
 				sol->getTransform()->setScale(vec3(0.2, 0.2, 0.2));
 
 				solar_system->addGameObject(sol);

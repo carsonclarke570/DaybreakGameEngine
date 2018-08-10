@@ -57,6 +57,14 @@ namespace daybreak {
 			}
 		}
 
+		void GameObject::renderAll() {
+			render();
+
+			for (int i = 0; i < m_children.size(); i++) {
+				m_children[i]->renderAll(); /// parent * m_relative
+			}
+		}
+
 		void GameObject::update(float delta) {
 			for (int i = 0; i < m_components.size(); i++) {
 				m_components[i]->update(delta);
@@ -66,6 +74,12 @@ namespace daybreak {
 		void GameObject::render(Shader* shader) {
 			for (int i = 0; i < m_components.size(); i++) {
 				m_components[i]->render(shader);
+			}
+		}
+
+		void GameObject::render() {
+			for (int i = 0; i < m_components.size(); i++) {
+				m_components[i]->render();
 			}
 		}
 	}

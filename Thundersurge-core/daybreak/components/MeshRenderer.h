@@ -17,8 +17,12 @@ namespace daybreak {
 			Mesh* m_mesh;
 			Material* m_material;
 		public:
+			MeshRenderer(Mesh* mesh, Material* material, Shader* shader) 
+				: GameComponent(shader), m_mesh(mesh), m_material(material) {
+			}
+
 			MeshRenderer(Mesh* mesh, Material* material) 
-				: m_mesh(mesh), m_material(material) {
+				: GameComponent(), m_mesh(mesh), m_material(material) {
 			}
 
 			~MeshRenderer() {

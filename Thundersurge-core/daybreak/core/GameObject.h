@@ -23,6 +23,7 @@ namespace daybreak {
 
 			void update(float delta);
 			void render(Shader* shader);
+			void render();
 		public:
 			GameObject();
 			~GameObject();
@@ -32,6 +33,7 @@ namespace daybreak {
 
 			void updateAll(float delta);
 			void renderAll(Shader* shader);
+			void renderAll();
 		
 			inline Transform* getTransform() { return m_localTransform; }
 		};

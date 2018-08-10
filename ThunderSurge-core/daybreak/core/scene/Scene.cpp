@@ -36,6 +36,9 @@ namespace daybreak {
 				m_root->renderAll(light->shader);
 			}
 
+			glBlendFunc(GL_DST_COLOR, GL_ZERO);
+			m_root->renderAll();
+
 			glDepthMask(true);
 			glDisable(GL_BLEND);
 

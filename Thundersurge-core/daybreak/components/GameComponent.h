@@ -10,10 +10,19 @@ namespace daybreak {
 		class GameComponent {
 		private:
 			GameObject* m_parent;
+			Shader* m_shader;
 		public:
+			GameComponent(Shader* shader = NULL) {
+				m_shader = shader;
+			}
+
 			virtual void update(float delta) = 0;
 			virtual void render(Shader* shader) = 0;
-			//void addToScene(Scene* scene) { } 
+
+			void render() {
+				if (m_shader)
+					render(m_shader);
+			}
 
 			inline void setParent(GameObject* parent) { m_parent = parent; }
 

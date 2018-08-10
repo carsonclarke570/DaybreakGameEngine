@@ -211,7 +211,7 @@
     <None Include="daybreak\graphics\shaders\forward-point.frag" />
     <None Include="game\res\shaders\postfx.frag" />
     <None Include="game\res\shaders\postfx.vert" />
-    <None Include="daybreak\graphics\shaders\forward-lighting.frag" />
+    <None Include="game\res\shaders\red.frag" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="TO-DO.txt" />
