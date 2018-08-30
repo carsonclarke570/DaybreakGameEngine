@@ -51,6 +51,10 @@ namespace daybreak {
 						vertex.normal.m_z = attrib.normals[3 * index.normal_index + 2];
 					}
 
+					vertex.color.m_x = 1;
+					vertex.color.m_y = 1;
+					vertex.color.m_z = 0;
+
 					m_vertices.push_back(vertex);
 					m_indices.push_back(m_indices.size());
 				}
@@ -80,7 +84,7 @@ namespace daybreak {
 			glEnableVertexAttribArray(2);
 			glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, normal));
 			// Vertex Colors
-			glEnableVertexAttribArray(2);
+			glEnableVertexAttribArray(3);
 			glVertexAttribPointer(3, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, color));
 
 			glBindVertexArray(0);

@@ -44,6 +44,13 @@ namespace daybreak {
 			return *this;
 		}
 
+		vec3 vec3::lerp(const vec3& other, float frac) const {
+			float x = (1 - frac) * m_x + frac * other.m_x;
+			float y = (1 - frac) * m_y + frac * other.m_y;
+			float z = (1 - frac) * m_z + frac * other.m_z;
+			return vec3(x, y, z);
+		}
+
 		float vec3::dot(const vec3& other) const {
 			return m_x * other.m_x + m_y * other.m_y + m_z * other.m_z;
 		}

@@ -1,4 +1,6 @@
 #include <iostream>
+#include <cmath>
+
 #include "util.h"
 
 #ifndef _VEC3_H_
@@ -20,6 +22,7 @@ namespace daybreak {
 			vec3& mul(const vec3& other);
 			vec3& div(const vec3& other);
 
+			vec3 lerp(const vec3& other, float frac) const;
 			float dot(const vec3& other) const;
 			vec3 cross(const vec3& other) const;
 

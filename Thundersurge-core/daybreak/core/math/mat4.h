@@ -1,6 +1,7 @@
-#pragma once
 #include "vec3.h"
 #include "util.h"
+
+#include <cstring>
 
 #ifndef _MAT4_H_
 #define _MAT4_H_

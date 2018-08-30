@@ -101,9 +101,6 @@
     <ClInclude Include="daybreak\components\MeshRenderer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="daybreak\components\Terrain.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="daybreak\core\input\Input.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -200,6 +197,9 @@
     <ClInclude Include="daybreak\graphics\PostFX.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="game\Terrain.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="daybreak\graphics\shaders\forward-lighting.vert" />
@@ -212,6 +212,8 @@
     <None Include="game\res\shaders\postfx.frag" />
     <None Include="game\res\shaders\postfx.vert" />
     <None Include="game\res\shaders\red.frag" />
+    <None Include="game\res\shaders\terrain.frag" />
+    <None Include="game\res\shaders\terrain.vert" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="TO-DO.txt" />
@@ -225,6 +227,9 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="daybreak\res\defaults\no_spec_map.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="daybreak\res\defaults\no_diffuse_map.jpg">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

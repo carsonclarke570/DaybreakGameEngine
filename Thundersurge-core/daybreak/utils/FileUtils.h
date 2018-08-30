@@ -1,4 +1,4 @@
-#include <string>
+#include <cstring>
 #include <vector>
 #include <fstream>
 #include "Log.h"

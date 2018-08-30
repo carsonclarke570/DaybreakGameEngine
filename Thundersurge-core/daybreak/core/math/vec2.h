@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cmath>
 
 #ifndef _VEC2_H_
 #define _VEC2_H_

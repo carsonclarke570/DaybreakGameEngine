@@ -19,7 +19,7 @@
 #include "../daybreak/components/Camera.h"
 #include "../daybreak/components/FreeLook.h"
 #include "../daybreak/components/FreeMove.h"
-#include "../daybreak/components/Terrain.h"
+#include "Terrain.h"
 
 
 namespace daybreak {
@@ -146,7 +146,8 @@ namespace daybreak {
 				planet->addChild(moon);
 
 				terrain = new GameObject();
-				terrain->addComponent(new Terrain(10.0f, 1.0f, 100, material));
+				terrain->addComponent(new Terrain(5.0f, 20.0f));
+				terrain->getTransform()->translate(vec3(0, -2, 0));
 
 				ground->addGameObject(terrain);
 				solar_system->addGameObject(terrain);
@@ -154,7 +155,7 @@ namespace daybreak {
 				SceneManager::add("Sol", solar_system);
 				SceneManager::add("Ter", ground);
 				SceneManager::setActive("Sol");
-				//PostFX::setPostFX(new Shader("game/res/shaders/postfx.vert", "game/res/shaders/postfx.frag", NULL));
+				//PostFX::setPostFX(new Shader("game/res/shaders/postfx.vert", "game/res/shaders/postfx.frag", NULL, false));
 			}
 
 			void update(float delta) {

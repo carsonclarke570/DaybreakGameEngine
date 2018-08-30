@@ -15,7 +15,7 @@ namespace daybreak {
 
 		class Mouse {
 		private:
-			static enum class MOUSE_ACTION {
+			enum class MOUSE_ACTION {
 				UNDEFINED,
 				PRESSED,
 				RELEASED,

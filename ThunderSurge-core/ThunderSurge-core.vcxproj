@@ -72,7 +72,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <IncludePath>$(SolutionDir)Dependencies\GLFW\include;$(SolutionDir)Dependencies\FreeImage\include;$(SolutionDir)Dependencies\GLEW\include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)Dependencies\GLFW\lib-vc2015;$(SolutionDir)Dependencies\FreeImage\lib;$(SolutionDir)Dependencies\GLEW\lib;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(SolutionDir)Dependencies\GLFW\lib;$(SolutionDir)Dependencies\FreeImage\lib;$(SolutionDir)Dependencies\GLEW\lib;$(LibraryPath)</LibraryPath>
     <OutDir>$(SolutionDir)bin\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)bin\$(Configuration)\Intermediates\</IntDir>
   </PropertyGroup>
@@ -80,7 +80,7 @@
     <OutDir>$(SolutionDir)bin\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)bin\$(Configuration)\Intermediates\</IntDir>
     <IncludePath>$(SolutionDir)Dependencies\GLFW\include;$(SolutionDir)Dependencies\FreeImage\include;$(SolutionDir)Dependencies\GLEW\include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)Dependencies\GLFW\lib-vc2015;$(SolutionDir)Dependencies\FreeImage\lib;$(SolutionDir)Dependencies\GLEW\lib;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(SolutionDir)Dependencies\GLFW\lib;$(SolutionDir)Dependencies\FreeImage\lib;$(SolutionDir)Dependencies\GLEW\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <IncludePath>$(SolutionDir)Dependencies\GLEW\include;$(SolutionDir)Dependencies\GLFW\include;$(IncludePath)</IncludePath>
@@ -186,13 +186,13 @@
     <ClInclude Include="daybreak\graphics\buffers\FrameBuffer.h" />
     <ClInclude Include="daybreak\graphics\buffers\UniformBuffer.h" />
     <ClInclude Include="daybreak\graphics\PostFX.h" />
+    <ClInclude Include="game\Terrain.h" />
     <ClInclude Include="game\TestGame.h" />
     <ClInclude Include="daybreak\components\Camera.h" />
     <ClInclude Include="daybreak\components\FreeLook.h" />
     <ClInclude Include="daybreak\components\FreeMove.h" />
     <ClInclude Include="daybreak\components\GameComponent.h" />
     <ClInclude Include="daybreak\components\MeshRenderer.h" />
-    <ClInclude Include="daybreak\components\Terrain.h" />
     <ClInclude Include="daybreak\core\Daybreak.h" />
     <ClInclude Include="daybreak\core\Game.h" />
     <ClInclude Include="daybreak\core\GameObject.h" />
@@ -229,6 +229,8 @@
     <None Include="daybreak\graphics\shaders\skybox.frag" />
     <None Include="daybreak\graphics\shaders\skybox.vert" />
     <None Include="game\res\shaders\red.frag" />
+    <None Include="game\res\shaders\terrain.frag" />
+    <None Include="game\res\shaders\terrain.vert" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="CMakeLists.txt" />
@@ -241,6 +243,7 @@
     <Text Include="TO-DO.txt" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="daybreak\res\defaults\no_diffuse_map.jpg" />
     <Image Include="daybreak\res\defaults\no_spec_map.jpg" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
