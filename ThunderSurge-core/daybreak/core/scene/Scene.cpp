@@ -7,6 +7,9 @@ namespace daybreak {
 		Scene::Scene() {
 			m_root = new GameObject();
 			m_default = new Shader("daybreak/graphics/shaders/forward-lighting.vert", "daybreak/graphics/shaders/forward-default.frag");
+#if NORMAL_DEBUG
+			m_normals = new Shader("daybreak/graphics/shaders/normal-debug.vert", "daybreak/graphics/shaders/normal-debug.frag", "daybreak/graphics/shaders/normal-debug.geo", false);
+#endif 
 			PostFX::init();
 		}
 
@@ -26,6 +29,10 @@ namespace daybreak {
 			PostFX::bind();
 
 			m_root->renderAll(m_default);
+
+#if NORMAL_DEBUG
+			m_root->renderAll(m_normals);
+#endif
 
 			glEnable(GL_BLEND);
 			glBlendFunc(GL_ONE, GL_ONE);

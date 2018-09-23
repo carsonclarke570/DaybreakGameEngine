@@ -2,16 +2,14 @@
 #include <iostream>
 #include <vector>
 #include <unordered_map>
+#ifndef _SHADER_H_
+#define _SHADER_H_
 
 #include "../core/math/math.h"
 #include "../core/Transform.h"
-
 #include "../utils/fileutils.h"
 
 #include "Material.h"
-
-#ifndef _SHADER_H_
-#define _SHADER_H_
 
 namespace daybreak {
 

@@ -81,6 +81,9 @@
     <ClCompile Include="daybreak\graphics\PostFX.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="game\Terrain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="game\TestGame.h">
@@ -214,6 +217,9 @@
     <None Include="game\res\shaders\red.frag" />
     <None Include="game\res\shaders\terrain.frag" />
     <None Include="game\res\shaders\terrain.vert" />
+    <None Include="daybreak\graphics\shaders\normal-debug.geo" />
+    <None Include="daybreak\graphics\shaders\normal-debug.frag" />
+    <None Include="daybreak\graphics\shaders\normal-debug.vert" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="TO-DO.txt" />
@@ -224,6 +230,7 @@
     <Text Include="daybreak\graphics\shaders\geometry-trailer.txt" />
     <Text Include="daybreak\graphics\shaders\fragment-header.txt" />
     <Text Include="daybreak\graphics\shaders\fragment-trailer.txt" />
+    <Text Include="game\res\maps\test-level.txt" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="daybreak\res\defaults\no_spec_map.jpg">

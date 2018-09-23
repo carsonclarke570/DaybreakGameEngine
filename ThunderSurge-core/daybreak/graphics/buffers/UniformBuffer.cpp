@@ -21,7 +21,7 @@ namespace daybreak {
 		void UniformBuffer::setData(unsigned int offset, const mat4& data) {
 			// TO-DO Error checking
 			glBindBuffer(GL_UNIFORM_BUFFER, m_ubo);
-			glBufferSubData(GL_UNIFORM_BUFFER, offset, sizeof(mat4), &data.m_m[0]);
+			glBufferSubData(GL_UNIFORM_BUFFER, offset, sizeof(mat4), &data.elements[0]);
 			glBindBuffer(GL_UNIFORM_BUFFER, m_ubo);
 		}
 

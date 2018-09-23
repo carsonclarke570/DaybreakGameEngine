@@ -25,6 +25,10 @@ namespace daybreak {
 				: GameComponent(), m_mesh(mesh), m_material(material) {
 			}
 
+			MeshRenderer(Mesh* mesh)
+				: GameComponent(), m_mesh(mesh), m_material(new Material) {
+			}
+
 			~MeshRenderer() {
 				//delete m_mesh;
 				//delete m_material;

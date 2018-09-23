@@ -9,10 +9,10 @@ namespace daybreak {
 
 	namespace math {
 
-		class Quaternion {
-		private:
+		struct Quaternion {
+	
 			float m_x, m_y, m_z, m_w;
-		public:
+		
 			Quaternion(float x, float y, float z, float w);
 			Quaternion(const vec3& axis, float angle);
 

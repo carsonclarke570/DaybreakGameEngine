@@ -132,7 +132,7 @@ namespace daybreak {
 		}
 
 		void Shader::setUniformMat4(const GLchar* name, const math::mat4& m) {
-			glUniformMatrix4fv(glGetUniformLocation(m_shader, name), 1, GL_FALSE, m.m_m);
+			glUniformMatrix4fv(glGetUniformLocation(m_shader, name), 1, GL_FALSE, m.elements);
 		}
 
 		void Shader::enable() const {

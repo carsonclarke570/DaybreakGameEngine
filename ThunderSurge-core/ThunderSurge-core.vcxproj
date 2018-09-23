@@ -176,6 +176,7 @@
     <ClCompile Include="daybreak\core\math\vec2.cpp" />
     <ClCompile Include="daybreak\core\math\vec3.cpp" />
     <ClCompile Include="daybreak\core\math\vec4.cpp" />
+    <ClCompile Include="game\Terrain.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="daybreak\core\noise\FastNoise.h" />
@@ -224,6 +225,9 @@
     <None Include="daybreak\graphics\shaders\forward-lighting.vert" />
     <None Include="daybreak\graphics\shaders\forward-point.frag" />
     <None Include="daybreak\graphics\shaders\forward-spot.frag" />
+    <None Include="daybreak\graphics\shaders\normal-debug.vert" />
+    <None Include="daybreak\graphics\shaders\normal-debug.frag" />
+    <None Include="daybreak\graphics\shaders\normal-debug.geo" />
     <None Include="game\res\shaders\postfx.frag" />
     <None Include="game\res\shaders\postfx.vert" />
     <None Include="daybreak\graphics\shaders\skybox.frag" />
@@ -240,6 +244,7 @@
     <Text Include="daybreak\graphics\shaders\geometry-trailer.txt" />
     <Text Include="daybreak\graphics\shaders\vertex-header.txt" />
     <Text Include="daybreak\graphics\shaders\vertex-trailer.txt" />
+    <Text Include="game\res\maps\test-level.txt" />
     <Text Include="TO-DO.txt" />
   </ItemGroup>
   <ItemGroup>

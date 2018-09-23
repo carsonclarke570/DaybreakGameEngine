@@ -1,6 +1,8 @@
 #ifndef _SCENE_H_
 #define _SCENE_H_
 
+#define NORMAL_DEBUG 1
+
 #include "../../core/GameObject.h"
 
 #include "../../components/ForwardLighting.h"
@@ -18,6 +20,9 @@ namespace daybreak {
 		private:
 			GameObject* m_root;
 			Shader* m_default;
+#if NORMAL_DEBUG
+			Shader* m_normals;
+#endif 
 			Skybox* m_skybox;
 			std::vector<Light*> m_lights;
 		public:

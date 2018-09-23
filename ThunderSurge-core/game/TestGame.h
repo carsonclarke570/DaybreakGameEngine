@@ -146,7 +146,7 @@ namespace daybreak {
 				planet->addChild(moon);
 
 				terrain = new GameObject();
-				terrain->addComponent(new Terrain(5.0f, 20.0f));
+				terrain->addComponent(new Terrain("game/res/maps/test-level.txt"));
 				terrain->getTransform()->translate(vec3(0, -2, 0));
 
 				ground->addGameObject(terrain);

@@ -45,11 +45,7 @@ namespace daybreak {
 		}
 
 		mat4 Quaternion::toRotationMatrix() {
-			vec3 forward = vec3(2.0f * (m_x * m_z - m_w * m_y), 2.0f * (m_y * m_z + m_w * m_x), 1.0f - 2.0f * (m_x * m_x + m_y * m_y));
-			vec3 up = vec3(2.0f * (m_x * m_y + m_w * m_z), 1.0f - 2.0f * (m_x * m_x + m_z * m_z), 2.0f * (m_y * m_z - m_w * m_x));
-			vec3 right = vec3(1.0f - 2.0f * (m_y * m_y + m_z * m_z), 2.0f * (m_x * m_y - m_w * m_z), 2.0f * (m_x * m_z + m_w * m_y));
-
-			return mat4::rotation(forward, up, right);
+			return mat4::rotation(*this);
 		}
 
 		vec3 Quaternion::getForward() {
