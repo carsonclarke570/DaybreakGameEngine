@@ -2,6 +2,7 @@
 #include "../daybreak/utils/fileutils.h"
 #include "TestGame.h"
 
+#include "../daybreak/core/ui/UIElement.h"
 
 
 int main() {
@@ -12,6 +13,8 @@ int main() {
 
 	Daybreak::load(g);
 	Daybreak::start();
+
+	UIElement* element = new UIElement();
 
 	return 0;
 }

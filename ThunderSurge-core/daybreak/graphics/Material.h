@@ -10,7 +10,6 @@ namespace daybreak {
 
 		using namespace math;
 
-		
 		/**
 		 *	The Material class handles the texture-mapping for 3-D modeling
 		 *
