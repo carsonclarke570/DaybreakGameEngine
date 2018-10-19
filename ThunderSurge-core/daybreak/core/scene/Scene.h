@@ -18,12 +18,31 @@ namespace daybreak {
 
 		class Scene {
 		private:
+
+			/**
+				The root GameObject.
+			*/
 			GameObject* m_root;
+			
+			/**
+				Default shader.
+			*/
 			Shader* m_default;
 #if NORMAL_DEBUG
+
+			/**
+				Shader for normal debugging
+			*/
 			Shader* m_normals;
 #endif 
+			/**
+				The skybox object.
+			*/
 			Skybox* m_skybox;
+
+			/**
+				All lights in the scene
+			*/
 			std::vector<Light*> m_lights;
 		public:
 			Scene();
@@ -31,6 +50,8 @@ namespace daybreak {
 
 			void update(float delta);
 			void render();
+
+
 			void addGameObject(GameObject* object);
 			void addLight(Light* light);
 			void addSkybox(Skybox* skybox);

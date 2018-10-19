@@ -69,9 +69,6 @@
     <ClCompile Include="daybreak\core\scene\Scene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="daybreak\core\scene\SceneManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="daybreak\graphics\buffers\UniformBuffer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -182,9 +179,6 @@
     <ClInclude Include="daybreak\core\scene\Scene.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="daybreak\core\scene\SceneManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="daybreak\components\Skybox.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -201,6 +195,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="game\Terrain.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="daybreak\core\GameState.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

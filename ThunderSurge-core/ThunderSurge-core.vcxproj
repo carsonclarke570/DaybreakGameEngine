@@ -157,7 +157,6 @@
     <ClCompile Include="daybreak\core\noise\FastNoise.cpp" />
     <ClCompile Include="daybreak\core\noise\Noise.cpp" />
     <ClCompile Include="daybreak\core\scene\Scene.cpp" />
-    <ClCompile Include="daybreak\core\scene\SceneManager.cpp" />
     <ClCompile Include="daybreak\core\Window.cpp" />
     <ClCompile Include="daybreak\graphics\buffers\FrameBuffer.cpp" />
     <ClCompile Include="daybreak\graphics\buffers\UniformBuffer.cpp" />
@@ -179,10 +178,10 @@
     <ClCompile Include="game\Terrain.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="daybreak\core\GameState.h" />
     <ClInclude Include="daybreak\core\noise\FastNoise.h" />
     <ClInclude Include="daybreak\core\noise\Noise.h" />
     <ClInclude Include="daybreak\core\scene\Scene.h" />
-    <ClInclude Include="daybreak\core\scene\SceneManager.h" />
     <ClInclude Include="daybreak\components\Skybox.h" />
     <ClInclude Include="daybreak\graphics\buffers\FrameBuffer.h" />
     <ClInclude Include="daybreak\graphics\buffers\UniformBuffer.h" />
