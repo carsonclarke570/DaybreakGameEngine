@@ -81,6 +81,12 @@
     <ClCompile Include="game\Terrain.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="game\MenuState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="daybreak\core\StateManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="game\TestGame.h">
@@ -200,6 +206,15 @@
     <ClInclude Include="daybreak\core\GameState.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="game\MenuState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="daybreak\core\StateManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="daybreak\core\Constants.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="daybreak\graphics\shaders\forward-lighting.vert" />
@@ -234,6 +249,9 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="daybreak\res\defaults\no_diffuse_map.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="game\res\textures\crate.jpg">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

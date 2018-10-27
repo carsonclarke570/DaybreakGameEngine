@@ -84,7 +84,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <IncludePath>$(SolutionDir)Dependencies\GLEW\include;$(SolutionDir)Dependencies\GLFW\include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)Dependencies\GLEW\lib;$(SolutionDir)Dependencies\GLFW\lib-vc2015;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(SolutionDir)Dependencies\GLEW\lib;$(SolutionDir)Dependencies\GLFW\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <IncludePath>$(SolutionDir)Dependencies\GLEW\include;$(SolutionDir)Dependencies\GLFW\include;$(IncludePath)</IncludePath>
@@ -111,6 +111,7 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;GLEW_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\tinyobjloader;$(SolutionDir)Dependencies\FreeImage\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <AdditionalDependencies>glfw3.lib;glew32s.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -157,6 +158,7 @@
     <ClCompile Include="daybreak\core\noise\FastNoise.cpp" />
     <ClCompile Include="daybreak\core\noise\Noise.cpp" />
     <ClCompile Include="daybreak\core\scene\Scene.cpp" />
+    <ClCompile Include="daybreak\core\StateManager.cpp" />
     <ClCompile Include="daybreak\core\Window.cpp" />
     <ClCompile Include="daybreak\graphics\buffers\FrameBuffer.cpp" />
     <ClCompile Include="daybreak\graphics\buffers\UniformBuffer.cpp" />
@@ -175,17 +177,21 @@
     <ClCompile Include="daybreak\core\math\vec2.cpp" />
     <ClCompile Include="daybreak\core\math\vec3.cpp" />
     <ClCompile Include="daybreak\core\math\vec4.cpp" />
+    <ClCompile Include="game\MenuState.cpp" />
     <ClCompile Include="game\Terrain.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="daybreak\core\Constants.h" />
     <ClInclude Include="daybreak\core\GameState.h" />
     <ClInclude Include="daybreak\core\noise\FastNoise.h" />
     <ClInclude Include="daybreak\core\noise\Noise.h" />
     <ClInclude Include="daybreak\core\scene\Scene.h" />
     <ClInclude Include="daybreak\components\Skybox.h" />
+    <ClInclude Include="daybreak\core\StateManager.h" />
     <ClInclude Include="daybreak\graphics\buffers\FrameBuffer.h" />
     <ClInclude Include="daybreak\graphics\buffers\UniformBuffer.h" />
     <ClInclude Include="daybreak\graphics\PostFX.h" />
+    <ClInclude Include="game\MenuState.h" />
     <ClInclude Include="game\Terrain.h" />
     <ClInclude Include="game\TestGame.h" />
     <ClInclude Include="daybreak\components\Camera.h" />
@@ -249,6 +255,7 @@
   <ItemGroup>
     <Image Include="daybreak\res\defaults\no_diffuse_map.jpg" />
     <Image Include="daybreak\res\defaults\no_spec_map.jpg" />
+    <Image Include="game\res\textures\crate.jpg" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

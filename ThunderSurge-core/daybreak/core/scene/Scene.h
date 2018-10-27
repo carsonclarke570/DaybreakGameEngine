@@ -1,13 +1,10 @@
 #ifndef _SCENE_H_
 #define _SCENE_H_
 
-#define NORMAL_DEBUG 1
-
+#include "../Constants.h"
 #include "../../core/GameObject.h"
-
 #include "../../components/ForwardLighting.h"
 #include "../../components/Skybox.h"
-
 #include "../../graphics/PostFX.h"
 
 namespace daybreak {

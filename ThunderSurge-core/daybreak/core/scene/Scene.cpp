@@ -15,6 +15,14 @@ namespace daybreak {
 
 		Scene::~Scene() {
 			delete m_root;
+			delete m_default;
+			delete m_skybox;
+			for (Light* l : m_lights) {
+				delete l;
+			}
+#if NORMAL_DEBUG
+			delete m_normals;
+#endif
 		}
 
 		void Scene::update(float delta) {
