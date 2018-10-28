@@ -22,7 +22,7 @@ namespace daybreak {
 			}
 #if NORMAL_DEBUG
 			delete m_normals;
-#endif
+#endif 
 		}
 
 		void Scene::update(float delta) {

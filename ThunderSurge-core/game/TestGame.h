@@ -15,23 +15,28 @@ namespace daybreak {
 		using namespace input;
 
 		class TestGame : public Game {
+		private:
+			GameState* m_menu;
 		public:
 			TestGame() {
+				m_menu = new MenuState();
 			} 
 
 			~TestGame() {
+				m_menu->dispose();
+				delete m_menu;
 			}
 
 			void init() {
-				StateManager::change(new MenuState());
+				m_menu->init();
 			}
 
 			void update(float delta) {
-				StateManager::update(delta);
+				m_menu->update(delta);
 			}
 
 			void render() {
-				StateManager::render();
+				m_menu->render();
 			}
 
 			bool quit() {
