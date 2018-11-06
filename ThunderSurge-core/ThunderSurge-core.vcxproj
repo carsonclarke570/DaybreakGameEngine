@@ -155,6 +155,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="daybreak\components\Sprite.cpp" />
+    <ClCompile Include="daybreak\components\ui\UIContainer.cpp" />
+    <ClCompile Include="daybreak\components\ui\UIElement.cpp" />
+    <ClCompile Include="daybreak\core\Math.cpp" />
     <ClCompile Include="daybreak\core\noise\FastNoise.cpp" />
     <ClCompile Include="daybreak\core\noise\Noise.cpp" />
     <ClCompile Include="daybreak\core\scene\Scene.cpp" />
@@ -163,26 +167,27 @@
     <ClCompile Include="daybreak\graphics\buffers\FrameBuffer.cpp" />
     <ClCompile Include="daybreak\graphics\buffers\UniformBuffer.cpp" />
     <ClCompile Include="daybreak\graphics\PostFX.cpp" />
+    <ClCompile Include="daybreak\graphics\SpriteRenderer.cpp" />
     <ClCompile Include="game\Main.cpp" />
     <ClCompile Include="daybreak\core\Daybreak.cpp" />
     <ClCompile Include="daybreak\core\GameObject.cpp" />
-    <ClCompile Include="daybreak\core\math\Quaternion.cpp" />
     <ClCompile Include="daybreak\core\Transform.cpp" />
     <ClCompile Include="daybreak\graphics\Mesh.cpp" />
     <ClCompile Include="daybreak\graphics\Texture.cpp" />
     <ClCompile Include="daybreak\graphics\Shader.cpp" />
     <ClCompile Include="daybreak\core\input\Keyboard.cpp" />
     <ClCompile Include="daybreak\core\input\mouse.cpp" />
-    <ClCompile Include="daybreak\core\math\mat4.cpp" />
-    <ClCompile Include="daybreak\core\math\vec2.cpp" />
-    <ClCompile Include="daybreak\core\math\vec3.cpp" />
-    <ClCompile Include="daybreak\core\math\vec4.cpp" />
     <ClCompile Include="game\MenuState.cpp" />
     <ClCompile Include="game\Terrain.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="daybreak\components\Sprite.h" />
+    <ClInclude Include="daybreak\components\ui\UIButton.h" />
+    <ClInclude Include="daybreak\components\ui\UIContainer.h" />
+    <ClInclude Include="daybreak\components\ui\UIElement.h" />
     <ClInclude Include="daybreak\core\Constants.h" />
     <ClInclude Include="daybreak\core\GameState.h" />
+    <ClInclude Include="daybreak\core\Math.h" />
     <ClInclude Include="daybreak\core\noise\FastNoise.h" />
     <ClInclude Include="daybreak\core\noise\Noise.h" />
     <ClInclude Include="daybreak\core\scene\Scene.h" />
@@ -191,6 +196,8 @@
     <ClInclude Include="daybreak\graphics\buffers\FrameBuffer.h" />
     <ClInclude Include="daybreak\graphics\buffers\UniformBuffer.h" />
     <ClInclude Include="daybreak\graphics\PostFX.h" />
+    <ClInclude Include="daybreak\graphics\SpriteRenderer.h" />
+    <ClInclude Include="daybreak\utils\MathUtils.h" />
     <ClInclude Include="game\MenuState.h" />
     <ClInclude Include="game\Terrain.h" />
     <ClInclude Include="game\TestGame.h" />
@@ -213,12 +220,6 @@
     <ClInclude Include="daybreak\core\input\Input.h" />
     <ClInclude Include="daybreak\core\input\Keyboard.h" />
     <ClInclude Include="daybreak\core\input\mouse.h" />
-    <ClInclude Include="daybreak\core\math\mat4.h" />
-    <ClInclude Include="daybreak\core\math\math.h" />
-    <ClInclude Include="daybreak\core\math\util.h" />
-    <ClInclude Include="daybreak\core\math\vec2.h" />
-    <ClInclude Include="daybreak\core\math\vec3.h" />
-    <ClInclude Include="daybreak\core\math\vec4.h" />
     <ClInclude Include="daybreak\utils\FileUtils.h" />
     <ClInclude Include="daybreak\utils\ImageLoader.h" />
     <ClInclude Include="daybreak\utils\Log.h" />
@@ -238,11 +239,11 @@
     <None Include="daybreak\graphics\shaders\skybox.frag" />
     <None Include="daybreak\graphics\shaders\skybox.vert" />
     <None Include="game\res\shaders\red.frag" />
+    <None Include="game\res\shaders\sprite.frag" />
     <None Include="game\res\shaders\terrain.frag" />
     <None Include="game\res\shaders\terrain.vert" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="CMakeLists.txt" />
     <Text Include="daybreak\graphics\shaders\fragment-header.txt" />
     <Text Include="daybreak\graphics\shaders\fragment-trailer.txt" />
     <Text Include="daybreak\graphics\shaders\geometry-header.txt" />
@@ -250,7 +251,6 @@
     <Text Include="daybreak\graphics\shaders\vertex-header.txt" />
     <Text Include="daybreak\graphics\shaders\vertex-trailer.txt" />
     <Text Include="game\res\maps\test-level.txt" />
-    <Text Include="TO-DO.txt" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="daybreak\res\defaults\no_diffuse_map.jpg" />

@@ -10,7 +10,7 @@ namespace daybreak {
 
 	namespace core {
 
-		using namespace math;
+		using namespace core;
 		using namespace graphics;
 		using namespace input;
 

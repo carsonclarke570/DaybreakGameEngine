@@ -1,4 +1,4 @@
-#include "math/math.h"
+#include "Math.h"
 
 #ifndef _TRANSFORM_H_
 #define _TRANSFORM_H_
@@ -6,8 +6,6 @@
 namespace daybreak {
 
 	namespace core {
-
-		using namespace math;
 
 		class Transform {
 		private:
@@ -23,9 +21,9 @@ namespace daybreak {
 			void translate(const vec3& trans);
 			void scale(const vec3& scale);
 
-			inline void setTranslation(const math::vec3& trans) { m_trans = trans; }
-			inline void setScale(const math::vec3& scale) { m_scale = scale; }
-			inline void setRotation(const float angle, const math::vec3& axis) { m_rot = Quaternion(axis, angle); }
+			inline void setTranslation(const vec3& trans) { m_trans = trans; }
+			inline void setScale(const vec3& scale) { m_scale = scale; }
+			inline void setRotation(const float angle, const vec3& axis) { m_rot = Quaternion(axis, angle); }
 
 			inline vec3& getScale() { return m_scale; }
 			inline vec3& getTranslation() { return m_trans; }

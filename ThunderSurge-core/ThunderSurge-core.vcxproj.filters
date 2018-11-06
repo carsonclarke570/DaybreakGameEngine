@@ -87,6 +87,21 @@
     <ClCompile Include="daybreak\core\StateManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="daybreak\components\ui\UIElement.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="daybreak\components\ui\UIContainer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="daybreak\graphics\SpriteRenderer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="daybreak\components\Sprite.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="daybreak\core\Math.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="game\TestGame.h">
@@ -215,6 +230,27 @@
     <ClInclude Include="daybreak\core\Constants.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="daybreak\components\ui\UIElement.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="daybreak\components\ui\UIButton.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="daybreak\components\ui\UIContainer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="daybreak\graphics\SpriteRenderer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="daybreak\components\Sprite.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="daybreak\core\Math.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="daybreak\utils\MathUtils.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="daybreak\graphics\shaders\forward-lighting.vert" />
@@ -232,10 +268,9 @@
     <None Include="daybreak\graphics\shaders\normal-debug.geo" />
     <None Include="daybreak\graphics\shaders\normal-debug.frag" />
     <None Include="daybreak\graphics\shaders\normal-debug.vert" />
+    <None Include="game\res\shaders\sprite.frag" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="TO-DO.txt" />
-    <Text Include="CMakeLists.txt" />
     <Text Include="daybreak\graphics\shaders\vertex-header.txt" />
     <Text Include="daybreak\graphics\shaders\vertex-trailer.txt" />
     <Text Include="daybreak\graphics\shaders\geometry-header.txt" />

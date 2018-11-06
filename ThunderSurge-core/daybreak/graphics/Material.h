@@ -1,4 +1,4 @@
-#include "../core/math/math.h"
+#include "../core/Math.h"
 #include "Texture.h"
 
 #ifndef _MATERIAL_H_
@@ -8,7 +8,7 @@ namespace daybreak {
 
 	namespace graphics {
 
-		using namespace math;
+		using namespace core;
 
 		/**
 		 *	The Material class handles the texture-mapping for 3-D modeling

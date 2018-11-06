@@ -12,18 +12,7 @@ namespace daybreak {
 		}
 
 		GameObject::~GameObject() {
-			/* This doesn't work...
-			for (int i = 0; i < m_children.size(); i++) {
-				delete m_children[i];
-			}
-
-			for (int i = 0; i < m_components.size(); i++) {
-				delete m_components[i];
-			}
-
-			delete m_localTransform;
-			delete m_parentTransform;
-			*/
+			
 		}
 
 		GameObject* GameObject::addChild(GameObject* child) {
@@ -31,6 +20,7 @@ namespace daybreak {
 			child->m_parentTransform = m_localTransform;
 			return this;
 		}
+
 		GameObject* GameObject::addComponent(GameComponent* component) {
 			m_components.push_back(component);
 			component->setParent(this);

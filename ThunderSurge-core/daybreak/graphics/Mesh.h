@@ -3,18 +3,20 @@
 
 #include <GL/glew.h>
 
-#include "../core/math/math.h"
+#include "../core/Math.h"
 #include "../utils/FileUtils.h"
 
 namespace daybreak {
 
 	namespace graphics {
 
+		using namespace core;
+
 		struct Vertex {
-			math::vec3 pos;
-			math::vec3 normal;
-			math::vec2 texture;
-			math::vec3 color;
+			vec3 pos;
+			vec3 normal;
+			vec2 texture;
+			vec3 color;
 		};
 
 		struct Index {

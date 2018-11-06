@@ -119,19 +119,19 @@ namespace daybreak {
 			glUniform1i(glGetUniformLocation(m_shader, name), i);
 		}
 
-		void Shader::setUniform2f(const GLchar* name, const math::vec2& v) {
+		void Shader::setUniform2f(const GLchar* name, const vec2& v) {
 			glUniform2f(glGetUniformLocation(m_shader, name), v.m_x, v.m_y);
 		}
 
-		void Shader::setUniform3f(const GLchar* name, const math::vec3& v) {
+		void Shader::setUniform3f(const GLchar* name, const vec3& v) {
 			glUniform3f(glGetUniformLocation(m_shader, name), v.m_x, v.m_y, v.m_z);
 		}
 
-		void Shader::setUniform4f(const GLchar* name, const math::vec4& v) {
+		void Shader::setUniform4f(const GLchar* name, const vec4& v) {
 			glUniform4f(glGetUniformLocation(m_shader, name), v.m_x, v.m_y, v.m_z, v.m_w);
 		}
 
-		void Shader::setUniformMat4(const GLchar* name, const math::mat4& m) {
+		void Shader::setUniformMat4(const GLchar* name, const mat4& m) {
 			glUniformMatrix4fv(glGetUniformLocation(m_shader, name), 1, GL_FALSE, m.elements);
 		}
 

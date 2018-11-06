@@ -12,6 +12,7 @@ using namespace components;
 Scene* m_scene;
 GameObject* m_cube;
 GameObject* m_camera;
+GameObject* m_sprite;
 	 
 MenuState::MenuState() : GameState() {
 
@@ -34,6 +35,11 @@ void MenuState::init() {
 	m_cube = new GameObject();
 	m_cube->addComponent(new MeshRenderer(new Mesh("C:/Users/birdi/source/repos/DaybreakGameEngine/ThunderSurge-core/game/res/models/cube.obj"), new Material(Texture("C:/Users/birdi/source/repos/DaybreakGameEngine/ThunderSurge-core/game/res/textures/crate.jpg"))));
 	m_scene->addGameObject(m_cube);
+
+	// SPRITE
+
+	/*m_sprite = new GameObject();
+	m_sprite->addComponent(new Sprite()); */
 
 	// LIGHTING
 

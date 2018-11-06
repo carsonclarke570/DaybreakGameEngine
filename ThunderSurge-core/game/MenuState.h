@@ -2,6 +2,7 @@
 #define _MENU_STATE_H_
 
 #include "../daybreak/core/GameState.h"
+#include "../daybreak/components/Sprite.h"
 
 using namespace daybreak;
 using namespace core;

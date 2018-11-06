@@ -8,13 +8,13 @@ namespace daybreak {
 			m_trans(vec3(0, 0, 0)), m_scale(vec3(1, 1, 1)), m_rot(Quaternion(0, 0, 0, 1)) {
 		}
 
-		math::mat4 Transform::getTransform() {
-			using namespace math;
-			
-			return mat4::translation(m_trans) * (m_rot.toRotationMatrix() * mat4::scale(m_scale));
+		mat4 Transform::getTransform() {
+			mat4 res = mat4::translation(m_trans) * (m_rot.toRotationMatrix() * mat4::scale(m_scale));
+
+			return res;
 		}
 
-		void Transform::rotate(const float angle, const math::vec3& axis) {
+		void Transform::rotate(const float angle, const vec3& axis) {
 			m_rot = (Quaternion(axis, angle) * m_rot).normalize();
 		}
 

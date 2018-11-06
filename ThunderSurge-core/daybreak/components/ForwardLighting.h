@@ -7,7 +7,7 @@ namespace daybreak {
 	
 	namespace graphics {
 
-		using namespace math;
+		using namespace core;
 
 		struct BaseLight {
 			vec3 ambient;

@@ -3,13 +3,13 @@
 
 #include <GL/glew.h>
 
-#include "../../core/math/math.h"
+#include "../../core/Math.h"
 
 namespace daybreak {
 
 	namespace graphics {
 
-		using namespace math;
+		using namespace core;
 
 		class UniformBuffer {
 		private:

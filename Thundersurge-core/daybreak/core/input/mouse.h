@@ -1,5 +1,5 @@
 #include "../../core/window.h"
-#include "../math/math.h"
+#include "../Math.h"
 
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
@@ -12,6 +12,8 @@
 namespace daybreak {
 
 	namespace input {
+
+		using namespace core;
 
 		class Mouse {
 		private:
@@ -30,7 +32,7 @@ namespace daybreak {
 			static bool isButtonReleased(unsigned int keycode);
 			static bool isButtonDown(unsigned int keycode);
 
-			static void getMousePosition(math::vec2& pos);
+			static void getMousePosition(vec2& pos);
 			static void setMousePosition(double x, double y);
 
 			static void hideCursor();

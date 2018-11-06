@@ -57,7 +57,7 @@ namespace daybreak {
 			m_y = ypos;
 		}
 
-		void Mouse::getMousePosition(math::vec2& pos) {
+		void Mouse::getMousePosition(vec2& pos) {
 			pos.m_x = m_x;
 			pos.m_y = m_y;
 		}
