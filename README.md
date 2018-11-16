@@ -43,7 +43,7 @@ Versioning will commence once a stable first build is released.
 
 ## Authors
 
-* **Carson Clarke-Magrab** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+* **Carson Clarke-Magrab** - *Initial work* - [carsonclarke570](https://github.com/carsonclarke570)
 
 ## License
 
