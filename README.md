@@ -47,7 +47,7 @@ Versioning will commence once a stable first build is released.
 
 ## License
 
-Currently without a license. Assume defualt copyright laws apply.
+This project is licensed under the Apache License - see the [LICENSE.md](LICENSE.md) file for details
 
 ## Acknowledgments
 
