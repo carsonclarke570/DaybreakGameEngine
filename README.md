@@ -10,10 +10,12 @@ Download or clone the repo to a working directory.
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
+* Vulkan SDK
+
+Can be downloaded for installation from
 
 ```
-Give examples
+https://vulkan.lunarg.com/sdk/home
 ```
 
 ### Installing
