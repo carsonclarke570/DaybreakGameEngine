@@ -2,7 +2,7 @@
 
 The Daybreak Game Engine is a work-in-progress game engine designed to be easy-to-use and portable across platforms.
 
-Note: This document assumes that the engine has been ported to CMake-deployable build system and the change from OpenGL to Vulkan.
+Note: This document assumes that the engine has been ported to CMake-deployable build system and the change from OpenGL to Vulkan has been implemented.
 
 ## Getting Started
 
@@ -10,7 +10,7 @@ Download or clone the repo to a working directory.
 
 ### Prerequisites
 
-The Vulkan SDK is required to build the engine. The VUlkan SDK can be downloaded/installed from: 
+The Vulkan SDK is required to build the engine. The Vulkan SDK can be downloaded/installed from: 
 
 ```
 https://vulkan.lunarg.com/sdk/home
@@ -51,5 +51,5 @@ This project is licensed under the Apache 2.0 License - see the [LICENSE.md](LIC
 
 ## Acknowledgments
 
-* My friends, for not being in anyway involved with this project
+* My friends, for not being in any way involved with this project
 
